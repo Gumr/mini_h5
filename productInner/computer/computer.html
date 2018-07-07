@@ -1,0 +1,168 @@
+<div class="innerPhone brain">
+    <main class=" has-footer main-content">
+        <div class="scroll">
+        <div id="tabTop">
+            <header class="header-bar">
+                <div class="flex-box flex-align">
+                    <a ng-click="vm.monitor('categoryPagetop','分类小图标')" href="#/part" class="t-category"></a>
+                    <div class="search-container flex-1">
+                        <i></i>
+                        <span ng-if="search.historyArr.length > 0">{{search.historyArr[0]}}</span>
+                        <span ng-if="search.historyArr.length==0">iPhoneX 12期免息分期，现货抢!</span>
+                    </div>
+                </div>
+            </header>
+            <!-- banner -->
+            <section class="bannerSlide swiper-container">
+                <div class="swiper-wrapper" id="banner_product_inner">
+                    <div ng-click="vm.monitor('topBanner',banner.name)" class="swiper-slide" ng-repeat="banner in vm.bannerList">
+                        <a href="" ng-href="{{banner.accessAddress}}">
+                            <img ng-src="{{banner.bannerUrl}}" />
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </section>
+            <!-- 分类 -->
+            <section class="category">
+                <a ng-click="vm.monitor('channel',item.name)" href="{{item.accessAddress}}" ng-repeat="item in vm.categoryList" on-repeat-finished-render>
+                    <img ng-src="{{item.url}}">
+                    <span>{{item.name}}</span>
+                </a>
+            </section>
+            
+            <!--每日精选-->
+            <section class="everyday" ng-if="vm.everydayList && vm.everydayList.length > 0">
+                <h3 class="title">每日精选</h3>
+                <div class="content">
+                    <a ng-click="vm.monitor('daydiscount',item.goodsId)" href="#/productDetails?goodsId={{item.goodsId}}" class="everyday_product" ng-repeat="item in vm.everydayList" on-repeat-finished-render>
+                        <div class="imgbox">
+                            <img ng-src="{{ (item.typeFrom=='1' ? vm.selfUrl : vm.jdUrl) +item.imageUrl}}" />
+                        </div>
+                        <p class="name">{{item.goodsName}}</p>
+                        <p class="payMonth">月供<span>¥{{item.monthMoney}}</span>起</p>
+                    </a>
+                </div>
+            </section>
+
+
+            <!--免息专区-->
+            <section class="interst">
+                <h3 class="title">免息专区</h3>
+                <ul class="interst_tab" id="">
+                    <li class="active" data-id="71426491152">6期免息</li>
+                    <li data-id="71426491160">9期免息</li>
+                    <li data-id="71426491170">12期免息</li>
+                </ul>
+                <div class="interst_content">
+                    <a ng-click="vm.monitor('secondtableproduct',item.goodsId)" href="#/productDetails?goodsId={{item.goodsId}}" class="interstList_product" ng-repeat="item in vm.interstList" on-repeat-finished-render>
+                        <div class="periods" ng-if="item.periods>0">{{item.periods}}期免息</div>
+                        <div class="imgbox">
+                            <img ng-src="{{ (item.typeFrom=='1' ? vm.selfUrl : vm.jdUrl) +item.imageUrl}}" />
+                        </div>
+                        <p class="name">{{item.goodsName}}</p>
+                        <p class="payMonth">月供<span>¥{{item.monthMoney}}</span>起</p>
+                    </a>
+                </div>
+            </section>
+
+         
+            
+            <!--精选品牌-->
+            <section class="popular">
+                <h3 class="title">精选品牌</h3>
+                <div class="content">
+                    <a ng-click="vm.monitor('brandstreet',item.name)" href="{{item.accessAddress}}" ng-repeat="item in vm.brandList" on-repeat-finished-render>
+                        <img ng-src="{{item.url}}">
+                    </a>
+                </div>
+            </section>
+
+            <!--热销单品 on-repeat-finished-render-->
+            <section class="sellWell" ng-if="vm.sellWellList && vm.sellWellList.length > 0">
+                <h3 class="title">热销单品</h3>
+                <div class="content">
+                    <a ng-click="vm.monitor('hotitem',item.goodsId)" href="#/productDetails?goodsId={{item.goodsId}}" class="sellWell_product" ng-repeat="item in vm.sellWellList" on-repeat-finished-render>
+                        <div class="imgbox">
+                            <img ng-src="{{ (item.typeFrom=='1' ? vm.selfUrl : vm.jdUrl) +item.imageUrl}}" />
+                        </div>
+                        <div class="rightInfo">
+                            <p class="name">{{item.goodsName}}</p>
+                            <p class="payMonth">¥{{item.monthMoney}}×12期</p>
+                            <p class="price">售价:¥{{item.salePrice}}</p>
+                            <div class="btn-buy">立即抢购</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+            <!--分类列表-->
+            <section class="phoneType">
+                <div id="tabBox">
+                    <div class="category-slide swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" ng-class="{'active':$index == vm.Identification,listfour:listfour,listThree:listThree}"  ng-repeat="categoryList in vm.classifyList" ng-click="vm.findGoods($event,categoryList.categoryId,categoryList.parentId,categoryList.categoryName);" on-repeat-finished-render>{{categoryList.categoryName}}</div>
+                        </div>
+                    </div>
+                    <!-- 二级类目 -->
+                    <ul class="secondlist">
+                        <li ng-class="{'active':$index == vm.secondActive}" ng-click="vm.findList($event,secondList.categoryId,secondList.parentId,secondList.categoryName)" ng-repeat="secondList in vm.secondType.categoryList"  on-repeat-finished-render>{{secondList.categoryName}}</li>
+                    </ul>
+                </div>
+                
+                <div class="content">
+                    <a ng-click="vm.monitor('secondtableproduct',item.goodsId)" href="#/productDetails?goodsId={{item.goodsId}}" class="product" ng-repeat="item in data.phoneType" on-repeat-finished-render>
+                        <div class="imgbox">
+                            <img ng-src="{{ (item.typeFrom=='1' ? vm.selfUrl : vm.jdUrl) +item.imageUrl}}" />
+                        </div>
+                        <div class="rightInfo">
+                            <p class="name">{{item.goodsName}}</p>
+                            <p class="price">售价:¥{{item.salePrice}}</p>
+                            <p class="payMonth">月供:¥<span>{{item.monthMoney}}</span>起</p>
+                        </div>
+                    </a>
+					<div class="loading" ng-if="data.loadIcon">
+                        <p>正在加载</p>
+                          <div class="bounce1"></div>
+                          <div class="bounce2"></div>
+                          <div class="bounce3"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="goTop" ng-click="getTop()" style="display: none;"></div>
+    <!-- 底部导航 -->
+    <div ng-include="'include/footer.html'"></div>
+</div>
+
+<!-- 搜索================================================== -->
+<div class="modal-layer {{vm.searchShow ? 'active' : ''}}" id="search">
+    <div class="shade {{vm.searchShow ? 'active' : ''}}"></div>
+    <div class="modal-wrapper slide-up {{vm.searchShow ? 'active' : ''}}">
+        <div class="search-bar flex-box">
+            <span class="search-btn icon-back" href=""> </span>
+            <form class="flex-1">
+                <input class="search-input" type="search" name="" maxlength="20" placeholder="iPhoneX 12期免息分期，现货抢!" value="{{search.historyArr[0]}}" ng-model="searchText">
+            </form>
+            <a ng-click="vm.monitor('search',searchText||search.historyArr[0])" class="" href="#/search?keywords={{searchText}}">搜索</a>
+        </div>
+        <div class="search-scroll">
+            <div class="scroll">
+                <div class="hot-keyword">
+                    <h2 class="">热搜</h2>
+                    <ul class="clearfix">
+                        <li ng-repeat="hot in search.hotArr"><a href="#/search?keywords={{hot}}">{{hot}}</a></li>
+                    </ul>
+                </div>
+                <div class="history">
+                    <h2 class="">历史搜索<i class="del" ng-click="delSearchCookie('searchName')"></i></h2>
+                    <ul class="clearfix">
+                        <li ng-repeat="history in search.historyArr"><a href="#/search?keywords={{history}}">{{history}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

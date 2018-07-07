@@ -1,0 +1,56 @@
+<nav class="header-bar cardnav">
+    <ul>
+        <li class="" ng-class="{active:list.mess == vm.stages}" ng-click="vm.handover($event,list.mess,list.code)" ng-repeat="list in item">{{list.mess}}</li>
+    </ul>
+</nav>
+<main class="main-content has-header myCard">
+	<div class="wrap">
+	    
+	    
+	   <!--	<section>
+	       	<div class="cardBox">
+	            <div class="cardBox_left"><em>￥</em><b>50</b><span>现金抵扣券</span></div>
+	            <div class="cardBox_right">新人福利大礼包<span>满100元可用;限指定商品<br>自领取之日起至2017-06-30</span></div>
+	        </div>
+	        <div class="cardBox cardBox2">
+	            <div class="cardBox_left"><b>免息</b><span>6期服务费全免</span></div>
+	            <div class="cardBox_right">新人福利大礼包<span>适用于全平台<br>自领取之日起至2017-06-30</span></div>
+	       	</div>
+	    </section>-->
+	    <section>
+	        <label>
+	            <input type="text" ng-model="vm.volume">
+	            <span ng-click="exchange()">兑换</span>
+	        </label>
+	        <div class="cardList">
+	        	<section>
+			        <div class="noRecord" ng-if="vm.fiction">
+			            <i><img src="myblocks/images/myCard_img1.png"></i>
+			            	啊哦，还没有相关记录哦
+			        </div>
+			   	</section>
+	            <div class="" ng-if="list.businessName == '贷款业务'" ng-class="{cardBox3:vm.coupinstatus == 2,cardBox:vm.coupinstatus == 3 || vm.coupinstatus == 4}" ng-repeat="list in vm.goodsList">
+					<div class="cardBox_left"><em></em>
+						<!-- <b>{{list.couponType == '10020001' ? list.couponContent+'期' : '￥'+list.couponContent}}</b> -->
+						<b ng-if="list.couponType == '10020001'">{{list.couponContent}}期</b>
+						<b ng-if="list.couponType != '10020001'"><em>￥</em>{{list.couponContent}}</b>
+						<!-- <span>{{list.couponName}}</span> -->
+					</div>
+	                <div class="cardBox_right f24 mycar">{{list.activityName}}<span class="f22">满{{list.useLimit}}元可用;<br>自{{list.startTime.split(' ')[0]}}起至{{list.endTime.split(' ')[0]}}</span></div>
+	            </div>
+	            <!--<div class="" ng-if="list.businessName == '投资业务'" ng-class="{cardBox4:vm.coupinstatus == 2,cardBox2:vm.coupinstatus == 3 || vm.coupinstatus == 4}" ng-repeat="list in vm.goodsList">
+	                <div class="cardBox_left"><b>{{list.couponType == '10010001' ? list.couponContent+'期' : '￥'+list.couponContent}}</b><span>{{list.couponName}}</span></div>
+	                <div class="cardBox_right f24">{{list.activityName}}<span class="">满{{list.useLimit}}元可用;<br>自{{list.startTime.split(' ')[0]}}起至{{list.endTime.split(' ')[0]}}</span></div>
+	            </div>-->
+	            <div class="loading" ng-if="vm.loadIcon">
+                    <p>正在加载</p>
+                      <div class="bounce1"></div>
+                      <div class="bounce2"></div>
+                      <div class="bounce3"></div>
+               </div>
+                <!--<h4><span>更多优惠券</span></h4>-->
+	        </div>
+	    </section>
+    </div>
+</main>
+<p class="footer-bar mycard-foooter" ng-click="card();vm.monitor('The couponspage use rule','')">卡券使用规则</p>

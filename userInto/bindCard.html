@@ -1,0 +1,33 @@
+
+	<main class="main-content bindCard">
+		<div class="">
+			<div class="bindCard-content" >
+				<div class="card-section">
+				<!--分期购-->
+					<div class="bindCard-fenqi" ng-if="vm.stages">
+						<p class="bindCard-p"><span class="f30">{{vm.stagesname}}</span><span class="bindCard-radio">分期购</span></p>
+						<p class="bindCard-p bindCard-bottom">储蓄卡</p>
+						<p class="bindCard-p"><span class="f36 bindCard-span">**** **** **** <i>{{vm.stagescard}}</i></span><!--<span class="bindCard-i">管理</span>--></p>
+					</div>
+					<!--投资送-->
+					<!--<div class="bindCard-touzi" ng-if="vm.Investment">
+						<p class="bindCard-p"><span class="f30">{{vm.Investmentname}}</span><span class="bindCard-radio">投资送</span></p>
+						<p class="bindCard-p bindCard-bottom">储蓄卡</p>
+						<p class="bindCard-p"><span class="f36 bindCard-span">**** **** **** <i>{{vm.Investmentcard}}</i></span><!--<span class="bindCard-i">管理</span></p>
+					</div> -->
+					<div class="card-common card-stage" ng-if="vm.fCard" ng-click="bindCard()">
+						<p class="card-icon f36">+</p>
+						<p class="card-add f26">添加分期购银行卡</p>
+					</div>
+					<!-- <div class="card-common card-invest" ng-if="vm.tCard" ng-click="Investment()">
+						<p class="card-icon f36">+</p>
+						<p class="card-add f26">添加投资送银行卡</p>
+					</div> -->
+				</div>	
+			</div>
+			<div class="bind-footer">
+				<p class="f12 card-help">换绑账户银行卡，请联系客服</p>
+				<p class="f24" ng-click="alert()">400-812-3381</p>
+			</div>
+		</div>
+	</main>

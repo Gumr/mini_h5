@@ -1,0 +1,134 @@
+<div class="spring-sale">
+    <div class="tabs-bar tabs-wrap hidden">
+        <ul>
+            <li class="tabs-btn active" ng-click="vm.handover($event)">
+                <a href="javascript:void(0)">手机数码</a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-click="vm.handover($event)">
+                <a href="javascript:void(0)">平板/电脑</a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-click="vm.handover($event)">
+                <a href="javascript:void(0)">家用电器</a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-click="vm.handover($event)">
+                <a href="javascript:void(0)">旅行</a>
+                <span class="line"></span>
+            </li>
+        </ul>
+    </div>
+    <main class="main-content">
+        <div class="scroll">
+            <!-- banner -->
+            <section class="bannerSlide swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><a href=""><img src="common/images/temp/spring1.jpg"></a></div>
+                    <div class="swiper-slide"><a href=""><img src="common/images/temp/spring2.jpg"></a></div>
+                    <div class="swiper-slide"><a href=""><img src="common/images/temp/spring3.jpg"></a></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </section>
+
+            <section class="tabs-wrap">
+                <ul>
+                    <li class="tabs-btn active" ng-click="vm.handover($event)">
+                        <a href="javascript:void(0)">手机数码</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="tabs-btn" ng-click="vm.handover($event)">
+                        <a href="javascript:void(0)">平板/电脑</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="tabs-btn" ng-click="vm.handover($event)">
+                        <a href="javascript:void(0)">家用电器</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="tabs-btn" ng-click="vm.handover($event)">
+                        <a href="javascript:void(0)">旅行</a>
+                        <span class="line"></span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 手机数码 -->
+            <section class="floor-wrap">
+                <div class="tit-bar">
+                    <h2><i class="icon icon-3c "></i>手机数码</h2>
+                    <a href="#/productList?oneLevelId=652" class="icon-arrow">更多</a>
+                </div>
+                <ul class="list clearfix">
+                    <li ng-repeat="mobileTypeList in vm.mobileTypeList">
+                        <a href="#/productDetails?goodsId={{mobileTypeList.goodsId}}">
+                            <div><img src="{{vm.imgUrl + mobileTypeList.thumbImgUrl}}"></div>
+                            <div>{{mobileTypeList.goodsName}}</div>
+                            <div><span>￥<em>{{mobileTypeList.periodPrice}}</em></span>X{{mobileTypeList.periods}}期</div>
+                            <span class="label" ng-if="mobileTypeList.typeFrom == 1">自营</span>
+                            <!--<span class="label" ng-if="mobileTypeList.typeFrom == 2">京东</span>-->
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- 平板/电脑 -->
+            <section class="floor-wrap">
+                <div class="tit-bar">
+                    <h2><i class="icon icon-computer "></i>平板/电脑</h2>
+                    <a href="#/productList?oneLevelId=670" class="icon-arrow">更多</a>
+                </div>
+                <ul class="list clearfix">
+                    <li ng-repeat="pcTypeList in vm.pcTypeList">
+                        <a href="#/productDetails?goodsId={{pcTypeList.goodsId}}">
+                            <div><img src="{{vm.imgUrl + pcTypeList.thumbImgUrl}}"></div>
+                            <div>{{pcTypeList.goodsName}}</div>
+                            <div><span>￥<em>{{pcTypeList.periodPrice}}</em></span>X{{pcTypeList.periods}}期</div>
+                            <span class="label" ng-if="pcTypeList.typeFrom == 1">自营</span>
+                            <!--<span class="label" ng-if="pcTypeList.typeFrom == 2">京东</span>-->
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- 家用电器 -->
+            <section class="floor-wrap">
+                <div class="tit-bar">
+                    <h2><i class="icon icon-appliance "></i>家用电器</h2>
+                    <a href="#/productList?oneLevelId=737" class="icon-arrow">更多</a>
+                </div>
+                <ul class="list clearfix">
+                    <li ng-repeat="homeAppliancesTypeList in vm.homeAppliancesTypeList">
+                        <a href="#/productDetails?goodsId={{homeAppliancesTypeList.goodsId}}">
+                            <div><img src="{{vm.imgUrl + homeAppliancesTypeList.thumbImgUrl}}"></div>
+                            <div>{{homeAppliancesTypeList.goodsName}}</div>
+                            <div><span>￥<em>{{homeAppliancesTypeList.periodPrice}}</em></span>X{{homeAppliancesTypeList.periods}}期</div>
+                            <span class="label" ng-if="homeAppliancesTypeList.typeFrom == 1">自营</span>
+                            <!--<span class="label" ng-if="homeAppliancesTypeList.typeFrom == 2">京东</span>-->
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 旅行 -->
+            <section class="floor-wrap">
+                <div class="tit-bar">
+                    <h2><i class="icon icon-travel "></i>旅行</h2>
+                    <a href="" class="icon-arrow"></a>
+                </div>
+                <figure ng-repeat="travelGoods in vm.travelGoodsList">
+                  <a ng-href="#/productDetails?goodsId={{travelGoods.goodsId}}"><img ng-src="{{vm.imgServer+travelGoods.thumbImgUrl}}" />
+                    <span class="label">￥<em class="f30">{{travelGoods.basicPrice}}</em>起</span>
+                  </a>
+                  <figcaption>
+                    <h3>{{travelGoods.goodsName}}</h3>
+                    <p>{{travelGoods.activityName}}</p>
+                  </figcaption>
+                </figure>
+            </section>
+        </div>
+    </main>   
+</div>
+
+
+
+

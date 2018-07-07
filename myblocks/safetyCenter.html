@@ -1,0 +1,44 @@
+<main class="main-content">
+    <section class="safetyCenter clearfix">
+        <a ui-sref="editPassword" ng-click="vm.monitor('loginpassword','')">
+            <h2 class="flex-1">登录密码</h2>
+            <h3>******</h3>
+            <span class="icon-arrow"></span>
+        </a>
+        <!-- <a href="{{vm.goSetPassword}}">
+            <h2 class="flex-1">分期支付密码</h2>
+            <h3 ng-if="!vm.payCodeFlage">未设置</h3>
+            <h3 ng-if="vm.payCodeFlage">******</h3>
+            <span class="icon-arrow"></span>
+        </a> -->
+        <a href="{{vm.balancePassword}}" ng-click="vm.monitor('installment password','')">
+            <h2 class="flex-1">支付密码</h2>
+            <h3 ng-if="!vm.balanceFlag">未设置</h3>
+            <h3 ng-if="vm.balanceFlag">******</h3>
+            <span class="icon-arrow"></span>
+        </a>
+        <a ng-click="gobindCard();vm.monitor('Bank card number','')">
+            <h2 class="flex-1">银行卡号</h2>
+            <!-- <h3 ng-if="!vm.payCodeFlage">未绑定</h3> -->
+            <h3>******</h3>
+            <span class="icon-arrow"></span>
+        </a>
+        <!--<a href="">
+            <h2 class="flex-1">手机号码</h2>
+            <h3 ng-if="vm.payCodeFlage"></h3>
+            <span class="icon-arrow"></span>
+        </a>-->
+        <!--<a href="{{vm.goBankList}}">-->
+        <!--<h2 class="flex-1">银行卡</h2>-->
+        <!--<h3 ng-if="!vm.isBindCard">未绑定</h3>-->
+        <!--<h3 ng-if="vm.isBindCard">已绑定</h3>-->
+        <!--<span class="icon-arrow"></span>-->
+        <!--</a>-->
+        <!--<a>-->
+        <!--<h2 class="flex-1">手机号码</h2>-->
+        <!--<h3>{{vm.userInfo.mobile}}</h3>-->
+        <!--<span class="icon-arrow"></span>-->
+        <!--</a>-->
+    </section>
+
+</main>

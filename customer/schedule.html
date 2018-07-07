@@ -1,0 +1,17 @@
+<main class="main-content">
+	<div class="scroll">
+		<div class="schedule-nav" ng-repeat="list in serviceInfoList" >
+			<div class="schedule-one">
+				<p class="f24">服务单号：{{list.afsServiceId}}</p>
+				<button class="schedule-btn2" ng-if="list.afsServiceStep=='3'" ng-click="goschedule(list.afterSaleApplyId,list.afsServiceId)" ng-show="list.hideCancelBtn == 0">提交物流信息</button>
+			</div>
+			<div class="schedule-two" ng-click="jump(list.afsServiceId,list.typeFrom)">
+				<p class="f24 schedule-padding">{{list.wareName}}</p>
+				<p class="f24 schedule-icon" ng-init="list.afsServiceStep">状态：<a class="schedule-num">{{list.afsServiceStepName}}</a></p>
+				<p class="f22 schedule-icon">申请时间：{{list.afsApplyTime}}</p>
+			</div>
+			<button class="schedule-btn" ng-if="list.afsServiceStep=='5'" ng-click="confirm(list.id)">确认收货</button>
+			<button class="schedule-btn" ng-if="list.afsServiceStep=='10'||list.afsServiceStep=='21'||list.afsServiceStep=='1'||list.afsServiceStep=='3'" ng-show="list.hideCancelBtn == 0" ng-click="cancel(list.afterSaleApplyId,list.id,list.typeFrom)">取消申请</button>
+		</div>
+	</div>
+</main>

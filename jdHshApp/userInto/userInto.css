@@ -1,0 +1,43 @@
+
+.register-info-btn{display: block; margin-right: 0.3125rem; padding-left: 0.125rem; padding-right: 0.125rem; height: 0.71875rem; color: #aaa; border: 1px solid #aaa; background-color: #fff; border-radius: 0.078125rem; }
+.logo-wrap { padding-top: 2.03125rem; padding-bottom: 1.25rem; text-align: center; }
+.logo-wrap img { width: 3.109375rem; height: 1.09375rem; }
+.m40 { margin-left: 0.625rem; margin-right: 0.625rem; }
+.i-name { background-image: url(../common/images/icon-username.png); }
+.i-pass { background-image: url(../common/images/icon-password.png); }
+.i-pass-hide { background-image: url(../common/images/icon-password-hide.png); }
+.i-pass-show { background-image: url(../common/images/icon-password-show.png); }
+.i-verification { background-image: url(../common/images/icon-verification.png); background-size: 0.546875rem auto !important; }
+.login .form .btn { margin-top: 1.875rem; margin-bottom: 0.3125rem; }
+.i-info { background-image: url(../common/images/icon-info.png); background-size: 0.546875rem auto !important; }
+
+.register .agreement { margin-top: 1.875rem; }
+.register .agreement:before { content: '';display: inline-block;margin-right: 0.15625rem;width: 0.390625rem;height: 0.390625rem;vertical-align: middle;border: 1px solid #FF6332;border-radius: 50%;}
+.register .agreement.active:before{background: url(../common/images/icon-right.png) no-repeat center;  background-size: 0.390625rem; }
+.register .btn { margin-top: 0.3125rem; margin-bottom: 0.46875rem; }
+.register .btn[disabled]{opacity: 0.5;}
+.register-password p { margin-top: 0.9375rem; margin-bottom: 0.625rem; }
+.register .register-hint{text-align: center;margin-bottom: 0.23rem;} 
+#register-verification{padding: 0;display: inline-block;margin-left: 0.4rem;text-align: center;background: #eaeaea;height: 1.09375rem;width: 3.5rem;}
+#verCode{height: 1.09375rem;background: #eaeaea;width: 2.8rem;}
+.register-password .item-form { margin-bottom: 0; }
+.register-password .item-form:nth-child(1) { border-bottom: 0; }
+.register .icon-radio i { display: inline-block; margin-top: 0.3125rem; box-sizing: border-box; height: 0.46875rem; width: 0.46875rem; border: 1px solid #CDCFD2; border-radius: 100%; }
+.register-password .hint { padding-left: 1.25rem; line-height: 0.78125rem; }
+.register-password .btn { margin-top: 1.71875rem; }
+
+.register-success { background-color: #fff; padding-top: 2.8125rem; text-align: center; }
+.register-success img { margin-top: 1.875rem; margin-bottom: 1.875rem; width: 5.171875rem; height: 4.296875rem; }
+.register-success .btn { font-size: 0.5rem; width: 5.9375rem; line-height: 1.09375rem; padding: 0; }
+
+.register-agreement .content { padding: 0.625rem 0.3125rem; }
+.register-agreement h2 { line-height: 0.9375rem; font-size: 0.46875rem; text-align: center; }
+.register-agreement .text { padding: 0.25rem 0; }
+.register-agreement .btn { margin-top: 0.25rem; padding: 0 0.46875rem; height: 0.75rem; line-height: 0.75rem; font-size: 0.375rem; }
+
+
+
+
+
+
+

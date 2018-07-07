@@ -1,0 +1,84 @@
+<div class="today-list">
+	<section class="today-select">
+    	<span ng-repeat="list in query" ng-class="{active:list.code === periods}" ng-click="querylist(list.code)">{{list.name}}<a ng-class="{active:list.code == periods}"></a></span>
+    	<span ng-repeat="list in querym" ng-class="{active:counter}" ng-click="querymlist(list.code)">{{list.name}}<a ng-class="{active:counter}"></a></span>
+    	<span ng-repeat="list in queryf" ng-class="{active:now}" ng-click="queryflist(list.code)">{{list.name}}<a ng-class="{active:now}"></a></span>
+		<button ng-click="reset()">重置</button>
+		<button ng-click="freeclose()">确定</span>
+	</section>
+	<div id="one"></div>
+	<section class="today-banner">
+        <img src="{{vm.img}}" alt="">
+    </section>
+	<ul class="tabs-wrap">
+	    <li class="tabs-btn active" ng-click="vm.handover($event);orderProp='';vm.desc=''">
+	        <a href="javascript:void(0)">默认排序</a>
+	        <span class="line"></span>
+	    </li>
+	    <li class="tabs-btn two" ng-click="vm.handover($event);free()">
+	        <a href="javascript:void(0)">免息<i class="icon" ng-class="{two:vm.desc}"></i></a>
+	        <span class="line"></span>
+	    </li>
+	    <li class="tabs-btn" ng-click="vm.handover($event);orderProp='saleNum';vm.desc=true;">
+	        <a href="javascript:void(0)">销量优先</a>
+	        <span class="line"></span>
+	    </li>
+	    <li class="tabs-btn" ng-click="vm.handover($event);orderProp='salePrice';vm.desc=!vm.desc;">
+	        <a href="javascript:void(0)">价格 <i class="icon-sort" ng-class="{priceSort:vm.desc}"></i></a>
+	        <span class="line"></span>
+	    </li>
+	</ul>
+    <main class="main-content has-footer today">
+        <div class="scroll">
+            <section class="list-wrap tabs-wrap">
+                
+                <div class="g-list">
+                    <a class="item" ng-click="go()" href="#/productDetails?goodsId={{productList.goodsId}}" ng-repeat="productList in vm.productList | orderBy:orderProp:vm.desc">
+                    	
+                        <div><img ng-src="{{productList.thumbImgUrl}}"></div>
+                        <div>
+                            <h2>{{productList.goodsName}}</h2>
+                            <p class="favorable">
+                                <i ng-if="productList.freePeriods !=0 || productList.chargeFee == 1" class="label label-red f20">免</i>
+                                <i ng-if="productList.couponMoney !=0" class="label label-yellow f20">券</i>
+                                <span ng-if="productList.freePeriods !=0 || productList.chargeFee == 1">分期可免利息</span>
+		    					<span ng-if="productList.couponMoney !=0">&nbsp;送{{productList.couponMoney}}元现金券</span>
+                            </p>
+                            <!-- <p>月销{{productList.saleNum}}笔</p> -->
+                            <div class="price">
+                                <div><span class="col-red">￥<em>{{productList.periodPrice}}</em></span>X{{productList.periods}}期</div>
+                                <div>
+                                    <span>售价：￥{{productList.salePrice}}</span>
+                                    <del ng-if="productList.otherPrice>productList.salePrice">电商价：￥{{productList.otherPrice}}</del>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="loading" ng-if="vm.isHide">
+                      <p>正在加载</p>
+                      <div class="bounce1"></div>
+                      <div class="bounce2"></div>
+                      <div class="bounce3"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer-bar flex-box f24">      
+        <!--<div class="classify">-->
+            <!--<a ng-click="classify()"><span>商品分类</span></a>-->
+            <!--<div class="classify-open" ng-class="{translate3d:bubbling}">-->
+                <!--<span>全部</span>-->
+                <!--<span>空调</span>-->
+                <!--<span>洗衣机</span>-->
+                <!--<span>电视机</span>-->
+                <!--<span>热水器</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="collect" style="width: 100%;"><a class="kefu" href="http://funsales.udesk.cn/im_client?web_plugin_id=36879&group_id=57025"><span>联系客服</span></a></div>
+    </footer>   
+</div>
+
+
+
+

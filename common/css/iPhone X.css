@@ -1,0 +1,21 @@
+.has-footer{
+    bottom: 2.25rem !important;
+    overflow: hidden;
+  }
+  .footer-bar {
+    bottom: 0;
+    height: 2.25rem;
+  }
+  .payment-bar{
+    bottom: 2.25rem!important;
+  }
+  .product-detail footer > a:nth-child(1), .product-detail footer > a:nth-child(2), .product-detail footer > a:nth-child(3){
+      height: 45%!important
+      ;
+  }
+  .confirm-bot1{
+      bottom: 1rem;
+  }
+  .sidebar{
+    bottom: 3rem!important;
+  }

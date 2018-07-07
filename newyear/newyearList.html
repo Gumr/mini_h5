@@ -1,0 +1,33 @@
+<main class="main-content">
+    <div class="yearContent">
+        <!-- banner -->
+        <div class="banner">
+
+        </div>
+
+        <!-- 列表 -->
+        <div class="list">
+            <div class="list_cont">
+                <a class="list_merch" ng-repeat="list in data.goodsList" ng-click="vm.receive(phoneNum,activityId,list.goodsId)">
+                    <div class="cont_img">
+                        <img ng-src="{{list.imageUrl}}" alt="">
+                    </div>
+                    <p class="descrip">{{list.goodsName}}</p>
+                    <div class="draw"></div>
+                </a>
+            </div>
+            <!-- 间隔线 -->
+            <div class="line">
+
+            </div>
+
+            <!-- 二维码 -->
+            <a class="code" href="https://www.funsales.com/mallh5/#/productDetails?goodsId=721782147368">
+                <img ng-src="newyear/images/code.jpg" alt="">
+            </a>
+
+            <!--  -->
+            <p>本活动最终解释权归乐道商城所有</p>
+        </div>
+    </div>
+</main>

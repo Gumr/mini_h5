@@ -1,0 +1,28 @@
+<div class="t-calender">
+	<div class="header-title flex-box">
+		<i class="prev" ng-click="prev()"></i>
+		<div class="flex-1"> 
+			<span class="fullyear">{{year}}</span>年
+			<span class="month">{{month}}</span>月
+		</div>
+		<i class="next" ng-click="next()"></i>
+	</div>
+	<div class="date-detail">
+		<ol class="week clearfix">
+			<li>周日</li>
+			<li>周一</li>
+			<li>周二</li>
+			<li>周三</li>
+			<li>周四</li>
+			<li>周五</li>
+			<li>周六</li>
+		</ol>
+		<ul class="date">
+			<li class="{{data.class}}" ng-repeat="data in dataList" ng-click="selectedDate($event,$index)">
+				<span>{{data.day}}</span>
+				<em>{{data.price}}</em>
+			</li>
+
+		</ul>
+	</div>
+</div>

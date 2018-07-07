@@ -1,0 +1,58 @@
+<main class="main-content">
+	<div class="scroll">
+		<div class="aply-header">
+			<div class="div1"><img ng-src="{{vm.imageUrl}}"></div>
+				<p class="deliver-size f22 return-color-black">{{vm.goodsName}}</p>
+				<p class="f22 return-color-black aply-header-div2-top apply-top">价格：{{vm.Price | currency : '￥'}}&nbsp;&nbsp;<span>数量：{{vm.num }}</span></p>
+				<!--<button class="aply-header-btn">联系客服</button>-->
+		</div>
+		<div class="aply-section-one aply-section-p">
+			<p class="aply-section-one-p f24">服务类型</p>
+			<div class="tabs-wrap" >
+				<span class="tabs-btn" ng-repeat="list in vm.fuwu" ng-class="{active:list.code == vm.stages||vm.serviceType}" ng-click="vm.handoved($event,list.code)">{{list.name}}</span>
+			</div>
+		</div>
+		<div class="aply-section-one-num aply-section-p">
+			<p class="aply-section-one-p f24">申请数量</p>
+			<span>
+				<i class="minus" ng-click="vm.goodsNumMinus();">-</i>
+				<input type="number" name="" ng-model="vm.goodsnum"  readonly>
+				<i class="add" ng-click="vm.goodsNumAdd();">+</i>
+			</span>
+		</div>
+		<div class="aply-section-two aply-section-p">
+			<p class="aply-section-one-p f24">申请凭证</p>
+				<div class="aply-section-flex">
+					<i class="f1 active" ng-click="vm.handover($event)"></i><label for="radio-1-1" class="right f24">有发票</label>
+					<i class="f2 " ng-click="vm.handover($event)"></i><label for="radio-1-2" class="f24">无发票</label>
+				</div>
+		</div>
+		<div class="aply-section-Three aply-section-p">
+			<p class="aply-section-one-p f24">检测报告</p>
+			<div class="aply-section-flex">
+					<i class="f3 active" ng-click="vm.handove($event)"></i><label for="radio-1-1" class="right f24">已有检测报告</label>
+					<i class="f4 " ng-click="vm.handove($event)"></i><label for="radio-1-2" class="f24">尚无检测报告</label>
+			</div>
+			<p class="aply-section-one-c">若有检测报告请拍照上传</p>
+		</div>
+		<div class="aply-section-div f24">描述问题</div>
+		<div class="aply-section-Four">
+			<textarea class="aply-section-text " ng-model="vm.goodtext" maxlength="100" placeholder="请在此描述详细问题"></textarea>
+			<span>{{vm.goodtext.length}}/100</span>
+		</div>
+		<div class="aply-section-div f24">上传照片</div>
+		<div class="aply-section-Five aply-section-p">
+			<form ng-submit="submit_form()">
+				
+				<div class="alpy-font pull-left">+<input id="alpy-input-file" multiple="multiple" name="file" type="file" onchange="angular.element(this).scope().img_upload(files)"  accept="image/*"/>
+				</div>
+				<div ng-repeat="item in tumb" class="pull-left aply-thumb">
+		                <img class="aply-images" ng-src="{{item}}"/>
+		            <span class="aply-span" ng-click="img_del($index)">&times;</span>
+		        </div>
+			</form>
+		</div>
+        <div class="aply-section-one-b">为了帮助我们更好地解决问题，请上传照片。最多三张，每张不超过5M，支持JPG，BMP，PNG。</div>
+		<button class="return-btn f30 return-color-bai aply-btn" ng-click="vm.submit()">下一步</button>
+	</div>
+</main>

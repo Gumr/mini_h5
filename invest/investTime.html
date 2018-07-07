@@ -1,0 +1,18 @@
+
+<main class="main-content invest-wrapper">
+	<div class="scroll">
+		<section class="banner">
+			<img src="invest/images/banner2.jpg">
+		</section>
+		<section class="invest-time text-center">
+			<h2 class="f32 text-center">您计划投资多久</h2>
+			<ul class="select-time">
+				<li class="current" ng-click="vm.handover($event,'3')">3个月</li>
+				<li ng-click="vm.handover($event,'6')">6个月</li>
+				<li ng-click="vm.handover($event,'12')">12个月</li>
+			</ul>
+			<div><a class="btn btn-main invest-btn" href="#/investIncome?minInvestMoney={{vm.minInvestMoney}}&maxInvestMoney={{vm.maxInvestMoney}}&investTime={{vm.term}}&investTimeTest={{vm.investTimeTest}}&test={{vm.test}}">下一步</a></div>
+		</section>
+	</div>
+</main>
+

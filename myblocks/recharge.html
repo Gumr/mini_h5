@@ -1,0 +1,46 @@
+<main class="main-content recharge">
+    <section class="balance-rec">
+        <div class="spa">
+            <span class="yu-e">账户余额</span>
+            <span>￥{{vm.accountAmount}}</span>
+        </div>
+        <!-- <a class="explain" ui-sref="explain">余额说明</a> -->
+        <div class="meal">
+            <div class="meal-top"><span></span><span>请选择充值套餐</span><span></span></div>
+            <div class="meal-bot">
+                <ul>
+                    <li ng-click="isActive($index)" ng-repeat="list in dataList" class="{{i==$index?'active':''}}" ng-class="{act: !firstRecharge &&list.rechargeLargessRecord.largessCondition == '1'||list.rechargeLargessRecord.largessCondition == '3' }">
+                        <p class="value">￥<em>{{list.rechargeLargessRecord.rechargeMoney}}</em></p>
+                        <div ng-if="list.rechargeLargessRecord.largessSign == '3'">
+                            <span ng-if="firstRecharge || list.rechargeLargessRecord.largessCondition == '2'">额外赠送{{list.rechargeLargessRecord.largessSignNum}}元</span>
+                            <span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2'">再送优惠券</span>
+                        </div>
+                        <div ng-if="list.rechargeLargessRecord.largessSign == '2'">
+                            <span ng-if="firstRecharge || list.rechargeLargessRecord.largessCondition == '2'">额外赠送{{list.rechargeLargessRecord.largessSignNum}}元</span>
+                        </div>
+                        <div ng-if="list.rechargeLargessRecord.largessSign == '1'">
+                            <!-- <span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2'">额外赠送优惠券</span> -->
+                            <span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge&&list.rechargeLargessRecord.rechargeMoney == '1000.00' || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2' &&list.rechargeLargessRecord.rechargeMoney == '1000.00'">赠送美的<br>电热水壶</span>
+                            <span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge&&list.rechargeLargessRecord.rechargeMoney == '5000.00' || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2'&&list.rechargeLargessRecord.rechargeMoney == '5000.00'">赠送500元<br>商城组合优惠券</span>
+                            <span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge&&list.rechargeLargessRecord.rechargeMoney == '10000.00' || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2'&&list.rechargeLargessRecord.rechargeMoney == '10000.00'">赠送乐视<br>S50电视机</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- 微信支付 -->
+        <div class="wechat" ng-repeat="item in mode" ng-click="method(item.code)">
+            <div class="wechat-l"><span></span><span>微信支付</span></div>
+            <span class="wechat-r" ng-class="{iconpay:item.code==info.code}"></span>
+        </div>
+
+        <!-- 立即充值 -->
+        <div class="cz">
+            <button ng-click="recharge()">立即充值</button>
+        </div>
+
+        <!-- <a class="skip" href="https://test5hsh.hlej.com/ActivityProject/ritual/index.html">前往充值送壕礼活动页</a> -->
+    </section>
+</main>

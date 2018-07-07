@@ -1,0 +1,58 @@
+
+	<div class="MYsearch-bar flex-box">
+		<div class="flex-1">
+			<textarea class="search-input" type="search" name="" maxlength="20" placeholder="搜索我的订单号" value="" ng-model="vm.searchText"></textarea>
+		</div>
+		<a class="search-btn" ng-click="vm.searchSub()">确认</a>
+	</div>
+	<div class="Myorder-nav swiper-container">
+		<div class="swiper-wrapper">
+			<a class="Myorder-btn swiper-slide" ng-repeat="list in myorder" ng-click="handove(list.state,list.name)" ng-class="{active:list.state == vm.tab}">{{list.name}}
+			<span class="line"></span>
+			</a>
+		 </div>	
+	</div>
+	<main class="main-content myorder-header">
+		<div class="">
+			<div class="wrap-content" ng-repeat="item in vm.goodsList">
+				<section class="Myorder-section">
+						<span class="pull-left f18">{{item.name}}{{item.orderNum}}</span>
+						<span class="Myorder-ringht pull-right f24">{{item.orderStateDesc}}</span>
+				</section>
+				<a href="#/Deliver?orderId={{item.orderId}}">
+					<div class="information-1">
+						<div class="div1"><img ng-src={{item.thumbImgUrl}}></div>
+							<p class="Myorder-f24">{{item.goodsName}}</p>
+					</div>
+				</a>
+				<div class="Myorder-submit myorder-bottom" >
+					<p class="f24 myorder-color">共<span>{{item.goodsNum}}</span>件商品，{{item.odername}}：{{item.price | currency : '￥'}}</p>
+				</div>
+				<div class="Myorder-Button">
+					<div>
+						<a ng-if="item.orderStateDesc == '已完成'&&item.typeFrom == '3'" class="Myorder-Total" ng-click="chongfa(item.orderId,item.typeFrom,$index)" id="Myorder-color">重发凭证</a>
+						<a ng-if="item.orderStateDesc == '待付款' || (item.typeFrom == '3'&&item.orderStateDesc == '待付款') " class="Myorder-Total" ng-click="vm.handCancel(item.orderId,item.payway,item.typeFrom,$index)" id="Myorder-color">取消订单</a>
+						<a ng-if="item.orderStateDesc == '待付款'" class="Myorder-Total" ng-click="vm.goPay(item.price,item.orderId,item.goodsTypeId,item.payway,item.goodsState)" id="Myorder-color">去支付</a>
+						<a ng-if="item.orderStateDesc == '已取消' || item.orderStateDesc == '待发货' || item.orderStateDesc == '已完成' || (item.orderStateDesc == '待付款'||item.typeFrom == '3') || (item.orderStateDesc == '已完成 '||item.typeFrom == '3') || (item.orderStateDesc == '已取消 '||item.typeFrom == '3')" class="Myorder-Total " id="Myorder-color-org" ng-click="vm.goBuy(item.goodsState,item.goodsId,item.typeFrom,item.businessType)">再次购买</a>
+						<a ng-if="(item.orderStateDesc == '待收货' || item.orderStateDesc == '已完成') &&item.typeFrom!='3'&&item.payway == 20000000 || item.hasFullInvest == true" href="#/Track?jdOrderId={{item.orderId}}" class="Myorder-Total" id="Myorder-color">查看物流</a>
+						<a ng-if="(item.hideAfsBtn != '0'&&item.orderStateDesc == '已完成'&&item.payway == 20000000) || item.hasFullInvest == true" class="Myorder-Total" href="#/schedule?id={{item.hideAfsBtn}}">进度查询</a>
+						<a ng-if="(item.orderStateDesc == '已完成' && item.typeFrom != '3' && item.hideAfsBtn =='0'&&item.payway == 20000000 && item.businessType==faceTake) || item.hasFullInvest == true" class="Myorder-Total" ng-click="Application(item.orderId,item.typeFrom)">申请售后</a>
+						<a ng-if="item.orderStateDesc == '待收货'" class="Myorder-Total" ng-click="vm.updateOrder(item.orderId,item.payway,item.orderState,$index)" id="Myorder-color">确认收货</a>
+					</div>
+				</div>
+				
+			</div>
+			<div class="myorder-yc">
+				<p class="myorder-icon"></p>
+				<p class="f24 ">您没有相关的订单</p>
+				<p>可以去看看有哪些需要买的</p>
+			</div>
+			<div class="loading" ng-if="vm.loadIcon">
+                <p>正在加载</p>
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+            </div>
+		</div>
+	</main>
+	

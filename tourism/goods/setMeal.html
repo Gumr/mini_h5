@@ -1,0 +1,75 @@
+<div class="package">
+	<main class="main-content hasfooter">
+		<div class="scroll">
+			<section class="payment">
+				<div class="imgContainer">
+					<img ng-src="{{vm.img}}" />
+				</div>
+				<div class="detail">
+					<div class="top_detail">{{vm.productName}}</div>
+					<div class="down_detail">
+						<span>￥</span>
+						<b>{{vm.mata}}</b>
+					</div>
+				</div>
+			</section>
+			<section class="route">
+				<div class="routeFood">线路套餐</div>
+				<ul>
+					<li ng-class="{'active':$index == 0}"  ng-repeat="getPackage in vm.getPackage">{{getPackage}}</li>
+				</ul>
+			</section>
+			<section class="date" ng-click="vm.todateSelect()">
+				<div class="go">出发日期</div>
+				<div class="icon-arrow">{{vm.goDate}}</div>
+			</section>
+			<section class="amount">
+			<div class="md" ng-if="vm.isPackage=='false'">
+				<div class="people">人数</div>
+				<div class="pick">
+					<div class="data">
+						<span class="h-first">成人</span><span class="goods-span"></span>
+						<span class="h-second" ng-if="vm.goodsNum != 0"><b>￥{{vm.adultPrice}}</b>起/人</span>
+						<span class="h-third">
+							<i class="minus" ng-click="vm.childNumMinus('goodsNum');">-</i>
+							<input type="text" name="" ng-model="vm.goodsNum" readonly>
+							<i class="add" ng-click="vm.childNumAdd('goodsNum');">+</i>
+						</span>
+					</div>
+					<div class="data" ng-if="vm.momo">
+						<span class="h-first">儿童</span><span class="order-span" ng-click="children()"></span>
+						<span class="h-second"><b>￥{{vm.childPrice}}</b>起/人</span>
+						<span class="h-third" ng-if="vm.isChild">
+							<i class="minus" ng-click="vm.childNumMinus('childNum');">-</i>
+							<input type="text" name="" ng-model="vm.childNum"  readonly>
+							<i class="add" ng-click="vm.childNumAdd('childNum');">+</i>
+						</span>
+					</div>
+					<div class="data" ng-if="vm.day!= '1'">
+						<span class="h-first">房差</span><span class="order-span" ng-click="difference()"></span>
+						<span class="h-second"><b>￥{{vm.roomPrice}}</b></span>
+						<span class="h-third">
+							<i class="minus" ng-click="vm.childNumMinus('houseNum');">-</i>
+							<input type="text" name="" ng-model="vm.houseNum"  readonly>
+							<i class="add" ng-click="vm.childNumAdd('houseNum');">+</i>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="copy" ng-if="vm.isPackage=='true'">
+					<div class="set">份数</div>
+					<span class="other">
+						<i class="minus" ng-click="vm.bigNumMinus()">-</i>
+						<input type="text" name="" ng-model="vm.bigNum"  readonly>
+						<i class="add" ng-click="vm.bigNumAdd();">+</i>
+						
+					</span>
+				</div>
+			</section>
+		</div>
+	</main>
+	<footer class="footer-bar flex-box bot" >
+		<a class="money" ><span>总金额：￥{{vm.totalPrice}}</span></a>
+		<a class="makesure" ng-click="vm.setFood()"><span>确认</span></a>
+	</footer>
+</div>

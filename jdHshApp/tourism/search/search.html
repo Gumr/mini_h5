@@ -1,0 +1,80 @@
+    <div class="travel-list-wrap">
+    <header class="header-bar search-bar flex-box">
+        <div class="flex-1">
+            <input class="search-input" type="search" name="" placeholder="" value="" ng-model="vm.packageName">
+        </div>
+        <a class="search-btn" ng-click="vm.searchSub()">确认</a>
+    </header>
+    <div class="screen">
+		<p class="travel-padding">产品类型</p>
+		<div class="travel-padding tabs-wrap">
+			<span class="tabs-btn travel-margin" ng-click="vm.handovertype($event,type.productType);vm.hanbtn()" ng-repeat="type in vm.types">{{type.name}}</span>
+		</div>
+		<p class="travel-padding">出游方式</p>
+		<div class="travel-padding tabs-wrap">
+			<span class="tabs-btn travel-margin" ng-click="vm.handoverftype($event,type.productClass)" ng-repeat="type in vm.ftypes">{{type.name}}</span>
+		</div>
+		<p class="travel-padding">价格范围(元)</p>
+		<div class="travel-padding	"><input type="number" class="travel-Price" ng-model="vm.startPrice"/><i class="travel-ion-interval">—</i><input type="number" class="travel-Price" ng-model="vm.endPrice"/></div>
+		<p class="travel-padding" >特色主题<i class="botom-arrow" ng-click="vm.hanslide()"></i></p>                  
+		<div class="travel-padding tabs-wrap">
+			<span class="tabs-btn travel-marginright"ng-click="vm.handovertwo($event)">亲子游</span>
+			<span class="tabs-btn travel-marginright" ng-click="vm.handovertwo($event)">浪漫蜜月</span>
+			<span class="tabs-btn travel-marginright" ng-click="vm.handovertwo($event)">主题乐园</span>
+			<span class="tabs-btn travel-marginright" ng-click="vm.handovertwo($event)">冰海岛屿</span>
+		</div>
+		<!--<div class="travel-padding tabs-wrap travel-div">
+			<span class="tabs-btn travel-marginright"ng-click="vm.handovertwo($event)">亲子游</span>
+			<span class="tabs-btn travel-marginright" ng-click="vm.handovertwo($event)">浪漫蜜月</span>
+			<span class="tabs-btn travel-marginright" ng-click="vm.handovertwo($event)">主题乐园</span>
+			<span class="tabs-btn travel-marginright" ng-click="vm.handovertwo($event)">冰海岛屿</span>
+		</div>	-->
+			<span class="travel-reset active" ng-click="vm.Remove()">重置</span>
+		<button class="travel-btn f26" ng-click="vm.handovert($event)">确认</button>
+	</div>
+    <main class="tabs-wrap">
+        <ul>
+            <li class="tabs-btn tabs-list active" ng-click="vm.handover($event);orderProp='hshPid';vm.desc='';">
+                <a href="javascript:void(0)">综合</a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-click="vm.handover($event);orderProp='startingPrice';vm.desc=!vm.desc;">
+                <a href="javascript:void(0)">价格<i class="icon-sort travel-right" ng-class="{priceSort:vm.desc}"></i></a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-click="vm.handover($event);orderProp='id';vm.desc= !vm.desc;">
+                <a href="javascript:void(0)">销量<i class="icon-sort travel-right" ng-class="{priceSort:vm.desc}"></i></a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-click="vm.hanblock($event);orderProp='salePrice';vm.desc = true;">
+                <a href="javascript:void(0)">筛选</i></a>
+                <span class="line"></span>
+            </li>
+        </ul>
+        <div class="main-content">
+            	<div class="scroll travel">
+   				    <div class="route-list">
+				    	<a href="#/tourism/goodsDetail?id={{goods.packageId}}" class="route-list-a" ng-repeat="goods in vm.goodsList | orderBy:orderProp:vm.desc">
+				    		<div class="photo">
+				    			<img ng-src="{{goods.productImage.split(';')[0] || vm.images}}">
+				    			<span class="site">{{goods.productClassName == null ? goods.productClassName : goods.productClassName+"&nbsp;&nbsp;"}}{{goods.placeStart == null ? goods.placeStart : goods.placeStart+'出发'}}</span>
+				    			<span class="label">￥<em class="f30">{{goods.startingPrice}}</em>起</span>
+				    		</div>
+				    		<p>{{goods.packageName}}</p>
+				    	</a>
+				    	<div class="travel-yc">
+							<p class="travel-icon"></p>
+							<p class="f24 ">无相关的商品</p>
+							<p>可以去看看其他的商品</p>
+						</div>
+				    	<div class="loading" ng-if="vm.loadIcon">
+		                    <p>正在加载</p>
+		                      <div class="bounce1"></div>
+		                      <div class="bounce2"></div>
+		                      <div class="bounce3"></div>
+	                    </div>
+			   		 </div>
+                </div>
+           </div>
+    	</main>
+	</div>

@@ -1,0 +1,57 @@
+<main class="main-content product-list">
+	<div class="scroll">
+		<!-- banner -->
+		<section class="bannerSlide swiper-container">
+	        <div class="swiper-wrapper" id="bannerSwiper">
+	            <div class="swiper-slide" ng-repeat="bannerList in vm.bannerList">
+					<a ng-href="{{bannerList.accessAddress}}">
+						<img ng-src="{{vm.bannerImgUrl+bannerList.url}}">
+					</a>
+				</div>
+	        </div>
+	        <div class="swiper-pagination"></div>
+	    </section>
+
+	    <!-- banner -->
+	    <section class="brand-list">
+	    	<h2>热门品牌</h2>
+			<div class="list clearfix">
+				<a href="{{typeList.href}}" ng-repeat="typeList in vm.typeList"><img ng-src="{{vm.typeImgUrl+typeList.brandLogo}}"></a>
+			</div>
+		</section>
+		<section class="list-wrap">
+			<div class="category-slide swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide" ng-class="{'active':$index == vm.Identification}"  ng-repeat="categoryList in vm.categoryList" ng-click="vm.findGoods($event,categoryList.secondLevelId);">{{categoryList.secondLevelName}}</div>
+		        </div>
+		    </div>
+		    <div class="g-list">
+		    	<a class="item" href="#/productDetails?goodsId={{productList.goodsId}}" ng-repeat="productList in vm.productList">
+		    		<div><img ng-src="{{productList.thumbImgUrl}}"></div>
+		    		<div>
+		    			<h2><span class="label label-outline" ng-if="productList.typeFrom == 1">自营</span><!--<span class="label" ng-if="productList.typeFrom == 2">京东</span> -->{{productList.goodsName}}</h2>
+		    			<p class="favorable">
+		    				<i ng-if="productList.freePeriods !=0 || productList.chargeFee == 1" class="label label-red f20">免</i>
+		    				<i ng-if="productList.couponMoney !=0" class="label label-yellow f20">券</i>
+		    				<span>{{productList.activityWords}}</span>
+		    			</p>
+		    			<!-- <p ng-if="productList.saleNum != 0">月销{{productList.saleNum}}笔</p> -->
+		    			<div class="price">
+		    				<div><span class="col-red">￥<em>{{productList.periodPrice}}</em></span>X{{productList.periods}}期</div>
+		    				<div>
+		    					<span>售价：￥{{productList.salePrice}}</span>
+		    					<del ng-if="productList.otherPrice>productList.salePrice">电商价：￥{{productList.otherPrice}}</del>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</a>
+				<div class="loading" ng-if="vm.isHide">
+                  <p>正在加载</p>
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
+		    </div>
+		</section>
+	</div>
+</main>

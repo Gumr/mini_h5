@@ -1,0 +1,71 @@
+<main class="main-content deliveradd">
+    <section class="address clearfix">       
+        <label class="confirm-inpt"><span class="f26">收货人:</span><input ng-click="vm.monitor('consignee','')" type="text" placeholder="请输入收货人姓名" maxlength="20" ng-model="vm.name" class="confirm-text phone" ></label>
+        <label class="confirm-inpt"><span class="f26">联系方式:</span><input ng-click="vm.monitor('contact','')" type="tel" placeholder="请输入收货人电话" maxlength="11" ng-model="vm.phone" class="confirm-text phone" ></label>
+        
+ <!--       <div>
+            <h2>邮<em></em>箱</h2>
+            <input type="text" placeholder="输入邮箱" maxlength="30" ng-model="vm.eml">
+        </div>-->
+        <div>
+            <h2>所在地区:</h2>
+            <span class="select-address" ng-click="vm.showSelect();vm.monitor('area','')">{{vm.selectAddress}}</span>
+            <span class="icon-arrow"></span>
+        </div>
+        <div class="detail">
+            <span class="f26 detaress">详细地址:</span>
+            <textarea ng-click="vm.monitor('detailed address','')" placeholder="请填写详细地址，不少于5个字" maxlength="40" ng-model="vm.consigneeAddress" >{{vm.consigneeAddress}}</textarea>
+        </div>
+        <div style="position: relative;">
+            <h2>设为默认</h2>
+            <input class="ui-switch ui-switch-anBg" type="checkbox" ng-click="vm.checkbox();vm.monitor('Settodefault','')" ng-checked="vm.defaultAddress">
+        </div>
+    </section>
+    <div class="m40 form address-btn">
+        <button class="btn" ng-click="vm.addAddressOpen();vm.monitor('confirmbutton','')">确认</button>
+    </div>
+   
+</main>
+ <!--弹出选择所在地区-->
+    <div class="modal-layer">
+        <div class="shade"></div>
+    </div>
+    <section class="select-delivery" ng-class="{translate3d:vm.select3d}">
+        <div class="select-title f26">送至<span ng-click="vm.hideSelect();">x</span></div>
+        <div class="select-tab f24">
+            <span class="active" ng-click="vm.selectTabClick('province')" ng-bind="vm.address1"></span>
+            <span ng-bind="vm.address2" ng-click="vm.selectTabClick('city')"></span>
+
+            <span ng-bind="vm.address3" ng-click="vm.selectTabClick('county')"></span>
+
+            <span ng-bind="vm.address4" ng-click="vm.selectTabClick('town')"></span>
+        </div>
+        <div class="select-scroll rightProvince">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[provinceList.provinceId==vm.provinceId]" ng-repeat="provinceList in vm.provinceList" ng-click="provinceClick(provinceList.provinceId,provinceList.provinceName)">{{provinceList.provinceName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll city-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[cityList.cityId==vm.cityId]" ng-repeat="cityList in vm.cityList" ng-click="cityClick(cityList.cityId,cityList.cityName)">{{cityList.cityName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll county-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[countyList.countyId==vm.countyId]" ng-repeat="countyList in vm.countyList" ng-click="countyClick(countyList.countyId,countyList.countyName)">{{countyList.countyName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll street-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[townList.townId==vm.townId]" ng-repeat="townList in vm.townList" ng-click="townClick(townList.townId,townList.townName)">{{townList.townName}}</dt>
+                </dl>
+            </div>
+        </div>
+    </section>

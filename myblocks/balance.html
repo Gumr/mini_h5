@@ -1,0 +1,56 @@
+<div class="">
+    <section class="top-balance">
+            <div class="account">
+                <span>账户余额</span>
+                <span>￥{{accountAmount}}</span>
+            </div>
+            <!-- <div class="account-bot">
+                <div class="number">
+                    <div class="number_inside">
+                        <span>余额账号</span>
+                        <span>{{accountNum}}</span>
+                    </div>
+                </div>
+                <div class="sum">
+                    <div class="sum_inside">
+                        <span>总充值金额</span>
+                        <span>100000</span>
+                    </div>
+                </div>
+            </div> -->
+    </section>
+
+
+<main class="main-content balance">
+            <section class="bot-balance scroll">
+                <p class="bill">账单</p>
+                <div class="month" ng-repeat="list in billdetail">
+                    <div class="month-eve" ng-if="!list.repeat">{{list.title}}月</div>
+                    <ul class="month-wrap">
+                        <li class="month-inside" ng-repeat="detailList in list.fundChangeDetailsList">
+                            <div class="date" ng-if="detailList.sum == '2'"><span>{{detailList.createTime | date:'yyyy-MM-dd'}}</span><span>￥{{detailList.changeMoney}}<em class="arrows" ng-click="show($event)"></em></span></div>
+                            <div class="source" ng-if="detailList.sum == '2'"><span>{{detailList.changeTypeName}}</span><span>{{detailList.changeTypeStatus}}</span></div>
+                            <ul ng-if="detailList.sum == '2'" style="display:none" class="month-two">
+                                <li ng-repeat="for in detailList.data" class="inside-two">
+                                    <div class="date-two"><span>{{for.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</span><span>￥{{for.changeMoney}}</span></div>
+                                    <div class="source-two"><span>{{for.changeTypeName}}</span><span>{{for.changeTypeStatus}}</span></div>
+                                </li>
+                            </ul>
+
+
+                            <div class="date" ng-if="detailList.sum == '1'"><span>{{detailList.data[0].createTime | date:'yyyy-MM-dd HH:mm:ss'}}</span><span>￥{{detailList.data[0].changeMoney}}</span></div>
+                            <div class="source" ng-if="detailList.sum == '1'"><span>{{detailList.data[0].changeTypeName}}</span><span>{{detailList.data[0].changeTypeStatus}}</span></div>
+
+                            
+                        </li>
+                    </ul>
+                </div>
+                
+                    <div class="loading" ng-if="data.loadIcon">
+                        <p>正在加载</p>
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+            </section>
+</main>

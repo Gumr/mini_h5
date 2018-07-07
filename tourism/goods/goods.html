@@ -1,0 +1,103 @@
+<<div class="goods-detail">
+	<main class="main-content has-footer">
+		<div class="scroll">
+		<!-- 商品图片 -->
+			<section class="bannerSlide swiper-container">
+				<div class="swiper-wrapper">
+		        	<div class="swiper-slide" ng-repeat="goods in vm.goodsList.url">
+						<img ng-src="{{goods}}">
+					</div>
+					<!--<div class="swiper-slide">
+						<a href=""><img src="home/images/temp/banner.jpg"></a>
+					</div>-->
+		        </div>
+	        	<div class='travl'>
+	        		<span class="self">{{vm.productClassName}}</span>
+	        		<span class="aim">{{vm.placeStart}}</span>
+	        		<span class="number">编号：{{vm.id}}</span>
+	        	</div>
+		        <div class="swiper-pagination"></div>
+		    </section>
+			<!-- 基本信息 -->
+		    <section class="basic-info">
+		    	<h2><span class="label mother" >驴妈妈</span> {{vm.productName}}</h2>
+				<div class="price">
+					<div>
+						<em class="col-red">￥<b>{{vm.adultPrice}} </b><span class="up">起</span></em>
+						
+					</div>
+					<div class="tag">
+						<span class='pic' ng-repeat="acts in vm.productAct"><p>{{acts}}</p></span>
+					</div>
+				</div>
+		    </section>
+
+		    <section class="show-info">
+		    	<ul>
+		    		<li class="num flex-box flex-align line sale">
+						<div>促销</div>
+						<div class="bread">{{vm.promotion}}</div>
+		    		</li>
+		    		
+		    		<li class="line choosed" ng-click="vm.toAddressList();">
+						<div>已选</div>
+		    			<div class="icon-arrow" >{{vm.getPackage}}</div>
+		    		</li>
+		    	</ul>
+		    </section>
+			
+		    <!-- 为您推荐 -->
+		    <section class="recommend-goods">
+		    	<div class="rcommon">推荐</div>
+		    	<div class="list flex-1">
+					{{vm.getRecommend}}
+		    	</div>
+		    </section>
+
+		    <section class="details tabs-wrap">
+		    	<ul>
+		    		<li class="tabs-btn active" ng-click="vm.tabs($event)"><a href="javascript:void(0)">详情</a></li>
+		    		<li class="tabs-btn" ng-click="vm.tabs($event)"><a href="javascript:void(0)">行程</a></li>
+		    		<li class="tabs-btn" ng-click="vm.tabs($event)"><a href="javascript:void(0)">费用&须知</a></li>
+		    	</ul>
+		    	<div class="details-content">
+			    	<div class="tabs-box resize" ng-bind-html="vm.act.product[0].productInfo[0]">
+			    	</div>
+			    	<div class="tabs-box hidden">
+		    			<div class="trip" ng-repeat="trip in vm.getTrip">
+				    		<!-- <div class="tripDay">第{{vm.getTrip.tripDay[0]}}天</div>
+				    		<div class="tripTitle">{{vm.getTrip.tripTitle[0]}}</div>
+				    		<div class="tripInfo">{{vm.getTrip.tripInfo[0]}}</div>
+				    		<div class="tripStay">住宿：{{vm.getTrip.Stay[0]}}</div>
+				    		<div class="breakfast">{{vm.getTrip.Stay[0]}}</div>
+				    		<div class="lunch"></div>
+				    		<div class="dinner"></div>
+				    		<div class="tripType">旅游类型:{{vm.getTrip.tripType[0]}}</div> -->
+				    		<div class="trip-day">第 {{trip.tripDay[0]}} 天</div>
+				    		<div class="trip-title"><b>行程：</b>{{trip.tripTitle[0]}}</div>
+				    		<div class="trip-info">{{trip.tripInfo[0]}}</div>
+			    		</div>
+			    	</div>
+			    	<div class="tabs-box hidden">
+			    		<div class="exclude">{{vm.exclude}}</div>
+			    		<div class="include">{{vm.include}}</div>
+						<a id="btnModify" class="show-layer" data-show-layer="hw-layer" ng-click="vm.Mobye();">退改须知</a>
+						<a id="btnWarn" ng-click="vm.Modift();">出行警示</a>
+					</div>
+				</div>
+
+			    	
+		    </section>
+	    </div>
+	</main>
+	<footer class="footer-bar flex-box" >
+		<a class="collect" href="http://huishenghuo.udesk.cn//im_client/"></a>
+		<a class="service" href=""></a>
+		
+		<!--<a href="#/tourism/order"><span>(起投1.22万)</span><span class="f28" >投资送</span></a>-->
+		<a ng-if="vm.productStatus" ng-click="vm.Fenqi()"><span class="f28" >立即购买</span></a>
+		<a ng-if="!vm.productStatus" style="background-color: #837D7D;"><span class="f28" >暂无产品</span></a>
+	</footer>
+</div>
+
+

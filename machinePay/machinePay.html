@@ -1,0 +1,94 @@
+<main class="main-content machinepay" ng-if="!vm.show">
+   <section class="machinepay_main">
+        <div class="machine_top">
+            <p>订单编号:{{orderNo}}</p>
+            <h2>￥{{orderAmount}}</h2>
+        </div>
+        <div class="receipt">
+            <div class="receipt_t">
+                <span>收款方:</span>
+                <span>乐道商城</span>
+            </div>
+            <div class="receipt_b">
+                <span>　商品:</span>
+                <span>{{goodName}}</span>
+            </div>
+            <div class="state">首次成功完成支付，可获得20元代金券！</div>
+        </div>
+
+        <div class="promotion"><button type="button" class="payment" ng-click="payment()">确认支付</button></div>
+   </section>
+</main>
+
+<!-- 支付成功 -->
+<main class="main-content success" ng-if="vm.show">
+    <div class="cg">
+        <img src="machinePay/images/succ.png" alt="">
+    </div>
+    <div ng-class="{true: 'coupon', false: 'couponf'}[vm.coupon]" ng-click="skip()">
+        
+    </div>    
+</main>
+
+<!-- 登录弹窗 -->
+<div class="dialog-wrap1" style="display: none;">
+	<div class="dialog-mask1 active"></div>
+	<div class="dialog-content1 active">
+		<div class="content">
+			<form class="form">
+                <div class="cancel" ng-click="cancel()">x</div>
+                <div class="paytitle">
+                    登录乐道商城账号
+                </div>
+				<div class="item-form">
+                    <span>手机号码</span>
+					<input class="number" ng-model="vm.userName" maxlength="11" type="number" name="" placeholder="请输入手机号码">
+				</div>
+				<div class="item-form">
+                    <span>登录密码</span>
+					<input class="password" ng-model="vm.passWord" maxlength="20" type="password" name="" placeholder="请输入6-20位的数字密码">
+				</div>
+				<div class="text-right"><a ng-click="vm.forgetPassword()">忘记密码</a></div>
+				<button class="button" ng-click="vm.toLogin()">确认登录</button>
+				<a class="text-center f24 login-p" ng-click="vm.goRegister()">没有账号?</a>
+			</form>
+		</div>	
+	</div>
+</div>
+
+<!-- 支付弹窗 -->
+<div class="dialog-wrap2" style="display: none;">
+	<div class="dialog-mask2 active"></div>
+	<div class="dialog-content2 active">
+		<div class="content">
+			<form class="form">
+                
+                <div class="paytitle">
+                    请输入余额支付密码
+                </div>
+                <div class="procee">
+                    收款方:乐道商城
+                </div>
+				<div class="pwd-box">  
+                    
+                    <input type="number" maxlength="6" class="pwd-input" id="pwd-input" autofocus="autofocus">  
+                    <div class="fake-box">  
+                        <input type="password" readonly="">  
+                        <input type="password" readonly="">  
+                        <input type="password" readonly="">  
+                        <input type="password" readonly="">  
+                        <input type="password" readonly="">  
+                        <input type="password" readonly="">  
+                    </div>  
+                    
+                </div>  
+				
+            </form>
+            <div class="account text-right">使用余额账号：{{mobile.mobile}}在支付,<a ng-click="vm.change()">更改</a></div>
+            <div class="bottom flex-box">
+                <a class="flex-1 cancel-btn" href="javascript:void(0)" ng-click="vm.close()">取消</a>
+                <a class="flex-1 confirm-btn" href="javascript:void(0)" ng-click="vm.submit()">确认支付</a>
+			</div>
+		</div>	
+	</div>
+</div>

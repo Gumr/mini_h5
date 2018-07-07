@@ -1,0 +1,358 @@
+﻿
+
+/* 商品列表 */
+.product-list .brand-list h2 { padding-left: 0.25rem; line-height: 0.9375rem; font-size: 0.375rem; }
+.product-list .brand-list .list a { width: 20%; }
+.product-list .brand-list .list a:nth-child(5n+0) { border-right: 0; }
+.product-list .category-slide {  line-height: 1.125rem; font-size: 0.375rem; border-bottom: 1px solid #dcdcdc; }
+.product-list .category-slide .swiper-slide { padding: 0 0.25rem; border-bottom: 3px solid transparent; }
+.product-list .category-slide .swiper-slide.active { color: #ff602e; border-bottom-color: #ff602e; }
+.product-list .product-juan img{width: 0.5rem;height: 0.5rem;}
+.product-list .product-juan img:nth-child(1){margin-right: 0.1rem;}
+.product-list .category-slide .swiper-slide.listfour{padding: 0 0.52rem;}
+.product-list .category-slide .swiper-slide.listThree{padding: 0 0.94rem;}
+
+
+
+/* 家电商品列表 */
+.appliancesProductList .bannerSlide, .bannerSlide .swiper-slide{
+	display: block;
+}
+.appliancesProductList .bannerSlide, .bannerSlide .swiper-slide, .bannerSlide img{
+	height: 4rem;
+}
+.swiper-container .swiper-pagination span.swiper-pagination-bullet-active{
+	background-color: #ffb400;
+}
+.topHeight{
+	position: relative;
+}
+.appliancesProductList .header-bar{
+	position: absolute;
+    top: 0;
+    left: 0;
+	padding: .133333rem 0.266667rem;
+	display: flex;
+	background-color: transparent;
+}
+.appliancesProductList .header-bar .t-category {
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(images/t-category.png) no-repeat;
+    background-size: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .1);
+}
+.appliancesProductList .search-container{
+	/* width: 8.533333rem; */
+	box-sizing: border-box;
+    height: 0.8rem;
+	line-height: .8rem;
+	padding: 0 0.5rem;
+    background-color: #fff;
+    border-radius: 0.4rem;
+    font-size: 0;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, .1);
+	/* margin: 0 auto; */
+	margin-left: 0.2rem;
+	display: flex;
+	justify-content: flex-start;
+	border: 1px solid #e1e1e1;
+}
+
+.search-container > i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.46875rem;
+	height: 100%;
+    background: url(images/search.png) no-repeat center;
+	background-size: 0.46875rem;
+	display: flex;
+	align-self: flex-start;
+}
+
+.search-container > span {
+	display: inline-block;
+	width: 6.733333rem;
+	text-align: center;
+    vertical-align: middle;
+    color: #cbcbcb;
+    font-size: 0.293333rem;
+}
+
+#search .search-scroll { padding: 0 0.46875rem; }
+#search .search-scroll h2 { font-size: 0.4375rem; line-height: 0.625rem; margin-top: 0.625rem; margin-bottom: 0.1875rem; }
+#search .search-scroll h2 .del { float: right; margin-right: 0.3125rem; height: 0.625rem; width: 0.625rem; background: url(../common/images/del.png) no-repeat center; background-size:100% 100%; }
+#search .search-scroll li { float: left; margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.125rem 0.1875rem; background-color: #F1F2F6; border-radius: 0.09375rem; }
+#search .search-bar form{width: 7.5rem;display: inline-block;}
+#search .search-bar a{margin-top: 0.07rem;}
+
+
+.appliancesProductList .category { padding: .226667rem .12rem; }
+.appliancesProductList .category:nth-child(3){padding-top: 0;}
+.appliancesProductList .home-banner{height: 3.2rem;}
+.appliancesProductList .category a { display: table-cell; width: 1%; text-align: center; color: #5e5b5e;}
+.appliancesProductList .category a img {display: block; width: 1.733333rem;height: 1.733333rem;margin-right: 0 auto; }
+/*.home .category a:nth-child(5) img { -webkit-filter: grayscale(100%); }*/
+.appliancesProductList .category a span { display: block;line-height: 1; font-size: 0.328125rem;margin-top: 0.2rem;}
+.appliancesProductList .category a:nth-child(3) span{margin-left: 0.1rem;}
+
+/* 人气新品 */
+.appliancesProductList .moods .title{
+	width: 6.04rem;
+	height: .386667rem;
+	margin: 0 auto;
+	padding: 0.4rem 0;
+	background: url(../appliances/images/moods.png) no-repeat;
+	background-size: 6.04rem .386667rem;
+	background-position: center;
+}
+.appliancesProductList .moods .moodsbox{
+	box-sizing: border-box;
+	padding: .4rem .213333rem;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.appliancesProductList .moods .moodsbox a{
+	display: block;
+	width: 50%;
+	height: 3.2rem;
+}
+.appliancesProductList .moods .moodsbox a img{
+	width: 100%;
+	height: 100%;
+}
+
+/* 品牌 */
+.appliancesProductList .brand{
+	margin-top: .146667rem;
+}
+.appliancesProductList .brand .brandbox{
+	box-sizing: border-box;
+	padding: .466667rem 10px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.appliancesProductList .brand .brandbox a{
+	display: block;
+	width: 50%;
+	height: 2.56rem;
+}
+.appliancesProductList .brand .brandbox a img{
+	width: 100%;
+	height: 100%;
+}
+
+/* 热销单品 */
+.sell{
+	padding-top: 0.4rem;
+	background: #ffffff;
+}
+.sell .sell-title{
+	width: 6.04rem;
+	height: .386667rem;
+	margin: 0 auto;
+	background: url(../appliances/images/sell.png) no-repeat;
+	background-size: 6.04rem .386667rem;
+	background-position: center top;
+	padding-bottom: .4rem; 
+}
+.sell-list{
+	display: block;
+	width: 100%;
+	padding-left: .333333rem;
+	padding-top: .426667rem;
+	height: 4rem;
+	border-bottom: 1px solid #eeeeee;
+}
+.sell-list .sell-img{
+	float: left;
+	width: 3.733333rem;
+	height: 3.733333rem;
+}
+.sell-list .sell-img img{
+	width: 100%;
+	height: 100%;
+}
+.sell-right{
+	float: left;
+	width: 5.653333rem;
+	height: 3.733333rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding-left: .133333rem;
+}
+.sell-right > p{
+	height: 1.04rem;
+    line-height: .346667rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+	color: #242424;
+	font-size: .32rem;
+}
+.sell-bottom{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.sell-bottom .sellleft{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-right: .266667rem;
+}
+.sell-bottom .sellleft .sellprice{
+	font-size: .32rem;
+}
+.sell-bottom .sellleft .sellprice em{
+	color: #fe9b2a;
+}
+.sell-bottom .purchase{
+	width: 2.133333rem;
+	height: .693333rem;
+	text-align: center;
+	line-height: .693333rem;
+	color: #ffffff;
+	font-size: .32rem;
+	background: #fe9b2a;
+	box-shadow: 0 0 1px 1px rgba(9, 9, 9, .29);
+	border-radius: 4px;
+}
+.sell-list .border{
+
+}
+
+.appliancesProductList .product-list .category-slide{
+	height: 1.253333rem;
+	line-height: normal;
+}
+.appliancesProductList .list-wrap{
+	position: relative;
+}
+.appliancesProductList .product-list .category-slide{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	padding-left: .333333rem;
+	background: #ffffff;
+}
+.appliancesProductList .product-list .category-slide.active{
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.appliancesProductList .category-slide .swiper-slide.active{
+	color: #ffffff;
+	background: #fe9b2a;
+}
+.appliancesProductList .category-slide .swiper-slide {
+    padding: .106667rem .133333rem;
+	border-bottom: none;
+	border-bottom-color: none;
+	background: #eeeeee;
+	margin-right: .466667rem;
+	border-radius: .083333rem;
+}
+.appliancesProductList .tabs-box{
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap; 
+	padding: 0 .493333rem;
+	padding-top: 1.253333rem;
+}
+.appliancesProductList .scroll .g-list a.appliance-item{
+	width: 4.48rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.appliancesProductList .scroll .g-list a.appliance-item p{
+	width: 2.293333rem;
+	height: .746666rem;
+    line-height: .4rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	color: #0c0c0c;
+	font-size: .24rem;
+}
+.appliancesProductList .scroll .g-list a.appliance-item .tariff{
+	display: flex;
+	justify-content: space-between;
+	height: .8rem;
+	align-items: center;
+	margin-top: .106667rem;
+}
+.appliancesProductList .scroll .g-list a.appliance-item .tariff .price{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+}
+.appliancesProductList .scroll .g-list a.appliance-item .tariff span:nth-of-type(1){
+	font-size: .266667rem;
+}
+.appliancesProductList .scroll .g-list a.appliance-item .tariff span:nth-of-type(2){
+	color: #fea241;
+	font-size: .266667rem;
+}
+.appliancesProductList .scroll .g-list a.appliance-item:nth-of-type(2n+1){
+	margin-right: .053333rem;
+}
+.appliancesProductList .g-list .appliance-item > div:nth-child(2) {
+    padding: 0;
+    border-bottom: none;
+}
+.appliancesProductList .scroll .g-list a .pro-img{
+	box-sizing: border-box;
+	position: relative;
+    height: 3.706667rem!important;
+    width: 100%!important;
+    overflow: hidden;
+	text-align: center;
+	margin-left: 0!important;
+	padding: 0!important;
+	padding-top: .733333rem!important;
+
+}
+.appliancesProductList .scroll .g-list a .pro-img img{
+	width: 3.12rem;
+	height: 2.973333rem;
+}
+.appliance-item .press{
+	display: flex;
+	width: 4.48rem; 
+	margin-top: .08rem;
+} 
+.appliance-item .press span{
+	width: 50%;
+	height: .706667rem;
+	text-align: center;
+	line-height: .706667rem;
+	color: #ffffff;
+	font-size: .266667rem;
+}
+.appliance-item .press span:nth-child(1){
+	background: #ea523b;
+}
+.appliance-item .press span:nth-child(2){
+	background: #fe9b2a;
+}
+
+
+

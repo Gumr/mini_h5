@@ -1,0 +1,36 @@
+<main class="main-content">
+        <div>
+            <div class="addAddress-hint" ng-if="vm.goodsId">请选择您所需要收货的地址,确保商品有货！！！</div>
+            <section class="addAddress clearfix">
+                <ul>
+                    <li ng-repeat="addressList in vm.addressList" ng-click="vm.selectAddress(addressList.consigneeId)">
+                        <div class="addre-t">
+                            <span class="consig"><em>{{addressList.consigneeName}}</em><i>{{addressList.consigneeMobile}}</i></span>
+                            <span class="email">{{addressList.consigneeEmail}}</span>
+                            <span class="addres">
+                                <em></em>
+                                <i>{{addressList.provinceName + addressList.cityName + addressList.countyName+ addressList.townName + addressList.consigneeAddress}}</i>
+                            </span>
+                        </div>
+                        <div class="addre-b">
+                            <small ng-class="{checked:addressList.defaultAddress == 1}" ng-if="addressList.defaultAddress == 1"><em></em>默认地址</small>
+                            <small ng-class="{unchecked:addressList.defaultAddress != 1}" ng-if="addressList.defaultAddress != 1"><em></em> </small>
+                            <!-- <small ng-if="addressList.defaultAddress == 1"><em></em>默认地址</small> -->
+                            <div>
+                                <i ng-click="vm.deleteAddress(addressList.consigneeId,$index,$event);">删除</i>
+                                <a ng-click="vm.editAddress(addressList.consigneeId,$event)">编辑</a>
+                            </div>
+                            
+                        </div>
+                        
+                    </li>
+                </ul>
+            </section>
+           
+            <div class="m40 form address-btn zero" ng-if="zeroaddress">
+                <button class="btn add" ng-click="vm.deliveryAddressOpen();">
+                    
+                </button>
+            </div>
+        </div>
+    </main>

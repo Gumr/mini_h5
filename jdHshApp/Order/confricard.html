@@ -1,0 +1,36 @@
+<main class="main-content has-footer myCard ">
+	<div class="wrap">
+	   	<!--<section>
+	       	<div class="cardBox">
+	            <div class="cardBox_left"><em>￥</em><b>50</b><span>现金抵扣券</span></div>
+	            <div class="cardBox_right">新人福利大礼包<span>满100元可用;限指定商品<br>自领取之日起至2017-06-30</span></div>
+	        </div>
+	        <div class="cardBox cardBox2">
+	            <div class="cardBox_left"><b>免息</b><span>6期服务费全免</span></div>
+	            <div class="cardBox_right">新人福利大礼包<span>适用于全平台<br>自领取之日起至2017-06-30</span></div>
+	       	</div>
+	    </section>-->
+	    <section>
+	        <div class="cardList">
+	        	<h3 class="f24">可用卡券</h3>
+	        	<section>
+			        <div class="noRecord" ng-if="vm.fiction">
+			            <i><img src="Order/images/myCard_img1.png"></i>
+			            	啊哦，还没有相关记录哦
+			        </div>
+			   	</section>
+	            <div class="" ng-class="{cardBox:list.orderAmount || list.isUsable != 1 || freePeriods!=0&&list.couponName=='免息券',cardBox3:list.businessName == '贷款业务',cardBox4:list.businessName == '投资业务'}" ng-repeat="list in vm.goodsList">
+	                <div class="cardBox_left"><em></em><b>{{list.couponType == '10020001' ? list.couponContent+'期' : '￥'+list.couponContent}}</b><span>{{list.couponName}}</span></div>
+	                <div class="cardBox_right" ng-click="exchange()">{{list.activityName}}<span>满{{list.useLimit}}元可用;<br>自{{list.startTime.split(' ')[0]}}起至{{list.endTime.split(' ')[0]}}<br><span ng-if="list.couponName == '免息券'">仅限免息券活动使用</span></span><i class="card-i" ng-show="list.isUsable == 1" ng-if="list.orderStatus" ng-click="vm.handover($event,list.userCouponNum,list.couponContent,list.couponType)" ng-class="{active:list.userCouponNum == vm.item}"></i></div>
+	            </div>
+	            <div class="loading" ng-if="vm.loadIcon">
+                    <p>正在加载</p>
+                      <div class="bounce1"></div>
+                      <div class="bounce2"></div>
+                      <div class="bounce3"></div>
+                </div>
+	        </div>
+	    </section>
+    </div>
+</main>
+<div class="confirm-bot footer-bar ng-scope" ng-click="Place()">确定</div>

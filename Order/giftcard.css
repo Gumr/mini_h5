@@ -1,0 +1,183 @@
+.tab_gift{
+    width: 100%;
+    height: 1.333333rem;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+    z-index: 9;
+}
+.tab_gift .tablist{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.tab_gift .tablist .inside{
+    width: 2.4rem;
+    font-size: .48rem;
+    color: #999999;
+}
+.tab_gift .tablist .inside.active{
+    color: #333333;
+}
+.tab_gift .tablist .inside.active:after{
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: .053333rem;
+    background: #fe9b2a;
+}
+.giftCard {
+    top: 1.333333rem !important;
+}
+
+/* 可用 */
+.usable .list1{
+    width: 9.466667rem;
+    height: 2.466667rem;
+    margin: .293333rem auto 0;
+    background: #ffffff;
+    border-radius: .32rem;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: .493333rem;
+}
+.usable .list1 .icon{
+    width: 1.2rem;
+    height: 1.52rem;
+    background: url(./images/1.png) no-repeat;
+    background-size: .666667rem .666667rem;
+    background-position: center;
+}
+.usable .list1 .icon.active{
+    background: url(./images/2.png) no-repeat;
+    background-size: .666667rem .666667rem;
+    background-position: center;
+}
+.usable .list1 .img_box{
+    width: 1.893333rem;
+    height: 1.52rem;
+    background: url(./images/4.png) no-repeat;
+    background-size: 1.893333rem 1.52rem;
+    background-position: center;
+    margin-right: .373333rem;
+}
+.usable .list1 .content{
+    width: 2.986667rem;
+    height: 1.52rem;
+    margin-right: .386667rem;
+    border-right: .053333rem solid #eeeeee;
+}
+.usable .list1 .content .name{
+    display: block;
+    font-size: .32rem;
+    color: #999999;
+    margin-bottom: .133333rem;
+}
+.usable .list1 .content .figure{
+    color: #333333;
+    font-size: .96rem;
+    display: flex;
+    align-items: flex-start;
+}
+.usable .list1 .content .figure span{
+    line-height: 1;
+}
+.usable .list1 .content .figure em{
+    font-size: .32rem;
+}
+.usable .list1 .residue{
+    height: 1.52rem;
+    color: #999999;
+    font-size: .48rem;
+}
+.usable .list1 .residue em{
+    display: block;
+    margin-bottom: .333333rem;
+    font-size: 0.32rem;
+}
+
+/* 不可用 */
+.unusable .list2{
+    width: 9.466667rem;
+    height: 2.466667rem;
+    margin: .293333rem auto 0;
+    background: #ffffff;
+    border-radius: .32rem;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: .493333rem;
+}
+.unusable .list2 .icon{
+    width: 1.2rem;
+    height: 1.52rem;
+    background: url(./images/3.png) no-repeat;
+    background-size: .666667rem .666667rem;
+    background-position: center;
+}
+.unusable .list2 .img_box{
+    width: 1.893333rem;
+    height: 1.52rem;
+    background: url(./images/5.png) no-repeat;
+    background-size: 1.893333rem 1.52rem;
+    background-position: center;
+    margin-right: .373333rem;
+}
+.unusable .list2 .content{
+    width: 2.986667rem;
+    height: 1.52rem;
+    margin-right: .386667rem;
+    border-right: .053333rem solid #eeeeee;
+}
+.unusable .list2 .content .name{
+    display: block;
+    font-size: .32rem;
+    color: #999999;
+    margin-bottom: .133333rem;
+}
+.unusable .list2 .content .figure{
+    color: #333333;
+    font-size: .96rem;
+    display: flex;
+    align-items: flex-start;
+}
+.unusable .list2 .content .figure em{
+    font-size: .32rem;
+}
+.unusable .list2 .content .figure span{
+    line-height: 1;
+}
+.unusable .list2 .residue{
+    height: 1.52rem;
+    color: #999999;
+    font-size: .48rem;
+}
+.unusable .list2 .residue em{
+    display: block;
+    margin-bottom: .333333rem;
+    font-size: 0.32rem;
+}
+
+.noRecord {
+    margin-top: 1.4rem;
+    text-align: center;
+    color: #949494;
+    font-size: 0.4rem;
+    background: #efeff4;
+}
+
+.noRecord i {
+    display: block;
+    width: 29.375%;
+    margin: 0 auto 0.3rem;
+}
+
+.noRecord img {
+    width: 100%;
+}

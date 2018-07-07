@@ -1,0 +1,181 @@
+<div class="t-home">
+    <header class="header-bar">
+		<div class="flex-box flex-align">
+			<div class="region" ng-click="vm.regionClick()"><span ng-bind="region"></span><i class="icon-arrows"></i></div>
+			<div class="search-on-off flex-1">
+				<input class="search-input" type="search" name="" placeholder="" value="" ng-model="searchContent">
+			</div>
+			<div class="search-btn" ng-click="search()">确认</div>
+		</div>
+	</header>
+	<!-- main================================================== -->
+	<main class="main-content">
+		<div class="scroll">
+
+			<!-- banner -->
+			<section class="bannerSlide swiper-container">
+		        <div class="swiper-wrapper">
+		        	<div class="swiper-slide" ng-repeat="banner in bannerList">
+						<a ng-href="{{banner.accessAddress}}"><img ng-src="{{imgServer+banner.bannerUrl}}"></a>
+					</div>
+		        </div>
+		        <div class="swiper-pagination"></div>
+		    </section>
+
+		    <!-- 分类 -->
+		    <section class="category">
+		    	<div class="flex-box">
+		    		<a ng-href="{{type.href}}" ng-repeat="type in types">
+		    			<img ng-src="{{type.src}}">
+		    			<span>{{type.name}}</span>
+		    		</a>
+		    	</div>
+		    </section>
+			
+			<!-- 热门目的地 -->
+		    <section class="hot">
+		    	<h2 class="t">热门目的地</h2>
+		    	<div class="hot-swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" ng-repeat="city in hotCityList">
+                            <figure>
+							  <a href="#/tourism/search?placeArrive={{city[0]}}"><img ng-src="{{city[1]}}"></a>
+							  <figcaption class="text-overflow text-center">{{city[0]}}</figcaption>
+							</figure>	  
+                        </div>
+                    </div>
+                </div>
+		    </section>
+
+		    <!-- 精品路线 -->
+		    <section class="route">
+		    	<h2 class="t">精品路线</h2>
+		    	<div class="route-swiper swiper-container">
+			        <div class="swiper-wrapper">
+			        	<div class="swiper-slide active" ng-click="selfSupport($event)">自营</div>
+			            <div class="swiper-slide" ng-repeat="type in types" ng-click="qualityRouteTabs($event,type.productClass,type.productType)">{{type.name}}</div>
+			        </div>
+			    </div>
+			    <div class="route-list" ng-if="!lineLogic">
+			    	<a href="#/tourism/goodsDetail?id={{goods.packageId}}" ng-repeat="goods in routeGoodsList">
+			    		<div class="photo">
+			    			<img ng-src="{{goods.productImage.split(';')[0]}}">
+			    			<span class="site">{{goods.productClassName}}{{goods.placeStart}}出发</span>
+			    			<span class="label">￥<em class="f30">{{goods.startingPrice}}</em>起</span>
+			    		</div>
+			    		<p>{{goods.packageName}}</p>
+			    	</a>
+			    </div>
+			    <div class="route-list" ng-if="lineLogic">
+			    	<a ng-href="#/productDetails?goodsId={{goods.goodsId}}" ng-repeat="goods in routeGoodsList">
+			    		<div class="photo">
+			    			<img ng-src="{{imgServer+goods.thumbImgUrl}}">
+			    			<span class="label">￥<em class="f30">{{goods.basicPrice}}</em>起</span>
+			    		</div>
+			    		<p>{{goods.goodsName}}</p>
+			    	</a>
+			    </div>
+		    </section>
+		</div>
+	</main>
+	<!-- <footer class="footer-bar">
+		<a class="pull-left" href=""><img src="tourism/home/images/foot-ico.png"></a>
+	</footer> -->
+</div>
+<!-- 城市定位================================================== -->
+<div class="modal-layer" id="orientation">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-up">
+		<div class="draw-layer province-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn modal-close" ng-click="vm.closeBtn();">取消</button>
+				</div>
+				<div ng-bind="region" class="city-name"></div>
+			</div>
+			<div class="province-scroll scroll-wrap">
+				<div class="scroll">
+					<!-- <div class="hot-city">
+						<div class="tit">热门城市</div>
+						<div class="clearfix">
+							<a href="##">上海</a>
+							<a href="##">广州</a>
+							<a href="##">北京</a>
+							<a href="##">苏州</a>
+							<a href="##">南京</a>
+							<a href="##">深圳</a>
+							<a href="##">成都</a>
+						</div>
+					</div> -->
+					<div class="list">
+						<div class="tit">省列表</div>
+						<ul>
+						 	<li ng-repeat="provinceList in vm.provinceList" ng-click="vm.provinceClick(provinceList.provinceId,provinceList.provinceName);">
+								{{provinceList.provinceName}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer city-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="city-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">市列表</div>
+						<ul>
+							<li class="city" ng-repeat="cityList in vm.cityList" ng-click="vm.cityClick(cityList.cityName,cityList.cityId);">{{cityList.cityName}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer county-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="county-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">县列表</div>
+						<ul>
+							<li ng-click="vm.countyClick(countyList.cityId,countyList.countyName);" ng-repeat="countyList in vm.countyList">{{countyList.countyName}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer town-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="town-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">镇列表</div>
+						<ul>
+							<li ng-click="vm.townClick();" ng-repeat="townList in vm.townList">{{townList.townList}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

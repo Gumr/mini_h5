@@ -1,0 +1,123 @@
+<div class="easy-pay">
+    <main class="main-content">
+        <div class="scroll">
+            <!-- banner -->
+            <section class="bannerSlide swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="banner in vm.bannerAdList">
+                        <a ng-href="{{banner.accessAddress}}"><img ng-src="{{vm.imgServer+banner.url}}"></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </section>
+
+            <!-- 爆款商品 -->
+            <section class="hot-goods">
+                <div class="tit-bar">
+                    <h2 class="text-center"><i class="icon icon-hot "></i>爆款商品</h2>
+                </div>
+                <div class="hot-swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" ng-repeat="hotGoods in vm.hotGoodsList">
+                            <a ng-href="#/productDetails?goodsId={{hotGoods.goodsId}}">
+                                <div><img ng-src="{{hotGoods.thumbImgUrl}}"></div>
+                                <div><span>￥<em>{{hotGoods.periodPrice}}</em></span>X{{hotGoods.periods}}期</div>
+                                <div><del>￥{{hotGoods.salePrice}}</del></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 手机数码 -->
+            <section class="floor floor-3c-digital">
+                <div class="tit-bar">
+                    <h2 class="text-center"><i class="icon icon-3c "></i>手机数码</h2>
+                    <a href="#/productList?oneLevelId=652" class="icon-arrow">更多</a>
+                </div>
+                <div class="goods-box">
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_ONE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_ONE_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_TWO_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_TWO_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_THREE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_THREE_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_FOUR_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PHONE_DIGITAL_OPTION_FOUR_ID.url}}">
+                    </a>
+                </div>
+            </section>
+            
+            <!-- 平板/电脑 -->
+            <section class="floor floor-computer">
+                <div class="tit-bar">
+                    <h2 class="text-center"><i class="icon icon-computer "></i>平板/电脑</h2>
+                    <a href="#/productList?oneLevelId=670" class="icon-arrow">更多</a>
+                </div>
+                <div class="goods-box">
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PAD_PC_OPTION_ONE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PAD_PC_OPTION_ONE_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PAD_PC_OPTION_TWO_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PAD_PC_OPTION_TWO_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PAD_PC_OPTION_THREE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PAD_PC_OPTION_THREE_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_PAD_PC_OPTION_FOUR_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_PAD_PC_OPTION_FOUR_ID.url}}">
+                    </a>
+                </div>
+            </section>
+            
+            <!-- 家用电器 -->
+            <section class="floor floor-appliance">
+                <div class="tit-bar">
+                    <h2 class="text-center"><i class="icon icon-appliance "></i>家用电器</h2>
+                    <a href="#/productList?oneLevelId=737" class="icon-arrow">更多</a>
+                </div>
+                <div class="goods-box">
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_ONE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_ONE_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_TWO_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_TWO_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_THREE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_THREE_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_FOUR_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_FOUR_ID.url}}">
+                    </a>
+                    <a href="#/productDetails?goodsId={{vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_FIVE_ID.accessAddress}}">
+                        <img ng-src="{{vm.imgServer+vm.recommendGoodsList.STAGE_HOME_MERCHION_OPTION_FIVE_ID.url}}">
+                    </a>
+                </div>
+            </section>
+
+            <!-- 旅行 -->
+            <section class="floor floor-travel">
+                <div class="tit-bar" id="travel">
+                    <h2 class="text-center"><i class="icon icon-travel "></i>旅行</h2>
+                    <a href="" class="icon-arrow"></a>
+                </div>
+                <figure ng-repeat="travelGoods in vm.travelGoodsList">
+                  <a ng-href="#/productDetails?goodsId={{travelGoods.goodsId}}"><img ng-src="{{vm.imgServer+travelGoods.thumbImgUrl}}" />
+                    <span class="label">￥<em class="f30">{{travelGoods.basicPrice}}</em>起</span>
+                  </a>
+                  <figcaption>
+                    <h3>{{travelGoods.goodsName}}</h3>
+                    <p>{{travelGoods.activityName}}</p>
+                  </figcaption>
+                </figure>
+            </section>
+        </div>
+    </main>   
+</div>
+
+
+
+

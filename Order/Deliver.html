@@ -1,0 +1,140 @@
+	
+<main class="main-content ">
+	<div>
+		<div class="Deliver-top" ng-hide="myVar">
+			<i class="Deliver-line f22">本平台不会以任何理由要求您点击任何网站链接进行退款操作。</i>
+			<i class="Deliver-right" ng-click="toggle()">&times;</i>
+		</div>
+		<div class="Deliver-list" ng-if="vm.orderStateDesc == '待审核' || vm.orderStateDesc == '待发货' || vm.orderStateDesc == '待收货' || vm.orderStateDesc == '已完成'">
+			<div class="pull-left ">
+				<div class="deliver-top deliver-left" ng-class="{status:vm.orderStateDesc == '待审核'}">提交订单<span class="Deliver-dot" ng-class="{border:vm.orderStateDesc == '待审核'}"></span>
+				</div>
+				<div class="deliver-icon deliver-icon-f "> 
+					<a ng-class="{dercol:vm.orderStateDesc == '待审核'||vm.orderStateDesc == '待发货'||vm.orderStateDesc == '待收货'||vm.orderStateDesc == '已完成'}"><i></i></a>
+					<div class="line" ng-class="{colrh:vm.orderStateDesc == '待审核'||vm.orderStateDesc == '待发货'||vm.orderStateDesc == '待收货'||vm.orderStateDesc == '已完成'}"></div>
+				</div>
+			</div>
+			<div class="pull-left ">
+				<div class="deliver-top deliver-right" ng-class="{status:vm.orderStateDesc == '待发货'}" ng-if="vm.payway == '20000000'">审核<span class="Deliver-dot" ng-class="{border:vm.orderStateDesc == '待发货'}"></span></div>
+				<div class="deliver-top deliver-right" ng-class="{status:vm.orderStateDesc == '待发货'}" ng-if="vm.payway != '20000000'">待发货<span class="Deliver-dot" ng-class="{border:vm.orderStateDesc == '待发货'}"></span></div>
+				<div class="deliver-icon">
+					<a ng-class="{dercol:vm.orderStateDesc == '待发货'||vm.orderStateDesc == '待收货'||vm.orderStateDesc == '已完成'}"><i></i></a>
+					<div class="line" ng-class="{colrh:vm.orderStateDesc == '待发货'||vm.orderStateDesc == '待收货'||vm.orderStateDesc == '已完成'}"></div>
+				</div>
+			</div>
+			<div class="pull-left">
+				<div class="deliver-top deliver-right" ng-class="{status:vm.orderStateDesc == '待收货'}">配送<span class="Deliver-dot" ng-class="{border:vm.orderStateDesc == '待收货'}"></span></div>
+				<div class="deliver-icon">
+					<a ng-class="{dercol:vm.orderStateDesc == '待收货'||vm.orderStateDesc == '已完成'}"><i></i></a>
+					<div class="line" ng-class="{colrh:vm.orderStateDesc == '待收货'||vm.orderStateDesc == '已完成'}"></div>
+				</div>
+			</div>
+			<div class="pull-left">
+				<div class="deliver-top deliver-right" ng-class="{status:vm.orderStateDesc == '已完成'}">订单完成<span class="Deliver-dot" ng-class="{border:vm.orderStateDesc == '已完成'}"></span></div>
+				<div class="deliver-icon">
+					<a ng-class="{dercol:vm.orderStateDesc == '已完成'}"><i></i></a>
+				</div>
+			</div>		
+			
+		</div>
+		<a href="#Track" class="Deliver-Warehouse" ng-if="vm.orderStateDesc == '待收货' || vm.orderStateDesc == '已完成'">
+			<i></i><span class="icon-arrow">{{vm.list}}</span>
+		</a>
+		<div class="Deliver-state">
+			<div>
+				<p>订单状态<i>{{ vm.orderStateDesc}}</i></p>
+				<p>订单编号<i>{{vm.orderNum}}</i></p>
+				<p>下单时间<i>{{vm.createTime}}</i></p>
+				<p class="Deliver-flex">
+					<a ng-if="vm.orderStateDesc == '待付款'" class="btn btn-2" ng-click="vm.handCancel()">取消订单</a>
+					<a ng-if="vm.orderStateDesc == '待付款'" class="btn" ng-click="vm.goPay()">去支付</a>
+					<a ng-if="(vm.orderStateDesc == '已完成' && vm.typeFrom != '3'&&vm.payway == 10000000) || vm.hasFullInvest == true" class="btn btn-2" ng-click="Application()">申请售后</a>
+					<a ng-if="(vm.hideAfsBtn !='0'&&vm.orderStateDesc == '已完成'&&vm.payway == 10000000) || vm.hasFullInvest == true" class="btn btn-2" href="#/schedule?id={{vm.hideAfsBtn}}">进度查询</a>
+					<a ng-if="(vm.orderStateDesc == '已取消' || vm.orderStateDesc == '待发货' || vm.orderStateDesc == '已完成')&& vm.hideAfsBtn =='0'" class="zbtn" ng-click="vm.goBuy()">再次购买</a>
+					<a ng-if="vm.orderStateDesc == '待收货'" class="btn" ng-click="vm.updateOrder()">确认收货</a>	
+				</p>
+			</div>		
+		</div>
+		
+		<section class="Deliver-address">
+			<div ng-if="vm.typeFrom == 1 || vm.typeFrom == 2">
+				<p><span>收货地址</span><i>{{vm.consigneeAddress}}</i></p>
+				<p><span>收 &nbsp;货  &nbsp;人</span><i>{{vm.consigneeName}}  &nbsp;{{vm.consigneeMobile}} </i></p>
+				<!-- <p><span>送货时间</span><i>2016-08-16  星期二</i></p> -->
+				<p ng-if="vm.invoiceType || vm.invoiceTitle || vm.invoiceInfo"><span>发票信息</span><i>{{vm.invoiceType}} {{vm.invoiceTitle}} {{vm.invoiceInfo}}</i></p>
+			</div>
+			<div ng-if="vm.typeFrom == 3">
+				<p><span>线路套餐</span><i class="Deliver-address-i">{{vm.goodsName}}</i></p>
+				<p><span>联 &nbsp;系  &nbsp;人</span><i>{{vm.bookerName}}&nbsp;{{vm.bookerMobile}}</i></p>
+				<p><span>出发日期</span><i>{{vm.visitDate}}</i></p>
+				<p><span>出行人数</span><i>{{vm.adult}},{{vm.child}} </i></p>
+				<p ng-if="vm.invoiceType || vm.invoiceTitle || vm.invoiceInfo"><span>发票信息</span><i>{{vm.invoiceType}} {{ vm.invoiceTitle}}  {{ vm.invoiceInfo}}</i></p>
+				<p ng-if="vm.orderStateDesc == '已完成'"><span>电子凭证</span><i></i><strong class="color-orgein" ng-click="chongfa()">发送凭证</strong></p>
+			</div>
+		</section>
+
+		<div class="information-2">
+			<div class="div1"><img ng-src={{vm.thumbImgUrl}} /></div>
+			<div class="div2">
+				<p class="deliver-size">{{vm.goodsName}}</p>
+				<p class="list-attribute" ng-if="vm.goodsAttrInfo">
+					<span ng-repeat="info in vm.goodsAttrInfo">{{info.goodsAttribute+" : "+info.goodsAttValue}}</span>
+				</p>
+				<p>数量：x{{vm.goodsNum}}</p>
+				<p class="f32 deliver-color">{{vm.salePrice | currency : '￥'}}</p>
+			</div>
+		</div>
+		<div class="Deliver-Total">
+			<div>
+				<p class="deliver-bottom f24">共{{vm.goodsNum}}件商品，商品总额：<span>{{vm.salePrice*vm.goodsNum  | currency : '￥'}}</span></p>
+			</div>
+		</div>
+		<div class="Deliver-num">
+			<div>
+				<p class=""><a class="float-left f24 deliver-color">实付金额：</a><a class="float-right f24">{{vm.price | currency : '￥'}}</a></p>
+				<p class="float-left" ng-if="vm.payway == 20000000"><a class="f24 deliver-color">{{rent}}：<span class="confirm-span" ng-if="vm.orderStateDesc != '已取消' && vm.payway == 20000000&&julle" ng-click="toDialog()"></span></a><a class="float-right f24">{{vm.monthPay | currency : '￥'}}x{{vm.periods}}</a></p>
+			</div>
+		</div>
+		<div class="dialog-wrap1" style="display: none;">
+			<div class="dialog-mask1 active"></div>
+			<div class="dialog-content1 active">
+				<div class="content">
+					<div class="confirm-h-top">还款计划</div>
+					<div class="confirm-nav"><span class="perio">期数</span><span class="mon">月供</span><span class="prin">本金</span><span class="serve">服务费</span><!--<span ng-if="mark==1">免息</span>--></div>
+					<div class="confirm-section" ng-repeat="for in vm.repayment">
+						<div class="cont">
+							<span>第{{for.periods}}期</span>
+							<span>￥{{for.repayAmount}}</span>
+							<span class="principal">￥{{for.principalAmount}}</span>
+							<div class="righ"><span ng-class="{through:for.freeInterest==1}">￥{{for.interestFee| number:2}}</span><i class="discounts" ng-if="freeServerFee == 1&&for.freeInterest == 1">已优惠</i></div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom flex-box">
+					<p class="confirm-p" >{{written}}：<span ng-class="{through:freeServerFee==1}">￥{{serverFee}}</span><span ng-if="freeServerFee==1">免手续费</span></p>
+					<a class="flex-1 confirm1-btn" href="javascript:void(0)" ng-click="Close()">我知道了</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="dialog-wrap2" style="display: none;">
+			<div class="dialog-mask2 active"></div>
+			<div class="dialog-content2 active">
+				<div class="content">
+					<div class="confirm-h-top">还款计划</div>
+					<p>还款总额：￥{{vm.total}}</p>
+					<p>待还款总额：￥{{vm.notYetTotal}}</p>
+					<p style="color:red">备注：每月11日为还款日<!--{{vm.repaymentDate}}--></p> 
+					<div class="confirm-section" ng-repeat="for in vm.repaymentPlans" ng-class="{color:for.status == 3}">
+						<span>第{{for.periods}}期</span>
+						<span>￥{{for.monthRepayAmount}}</span>
+						<span>{{for.statusName}}</span>
+					</div>
+				</div>
+					<div class="bottom flex-box">
+						<a class="flex-1 confirm2-btn" href="javascript:void(0)" ng-click="Close()">我知道了</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</main>

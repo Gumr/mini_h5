@@ -1,0 +1,54 @@
+<div class="tab_gift">
+    <div class="tablist" ng-repeat="item in vm.tabList">
+        <div class="inside" ng-class="{active:vm.seclect==item.name}" ng-click="switchover(item.name,item.num)">
+            <span>{{item.name}}</span>
+            <!-- <span>({{item.num}})</span> -->
+        </div>
+    </div>
+</div>
+
+<main class="main-content has-footer has-header giftCard ">
+	<div class="wrap">
+        <!-- 可用 -->
+        <div ng-class="{'usable':vm.seclect == '可用','unusable':vm.seclect == '不可用'}">
+            <div ng-repeat="list in vm.goodsList" ng-class="{'list1':vm.seclect == '可用','list2':vm.seclect == '不可用'}">
+                <span class="icon" ng-class="{active:list.userGiftCardNo == vm.item}" ng-click="hit($event,list.userGiftCardNo,list.balance)"></span>
+                <div class="img_box"></div>
+                <div class="content">
+                    <span class="name">购物礼品卡</span>
+                    <div class="figure"><em class="">￥</em><span>{{list.giftCardAmount}}</span></div>
+                </div>
+                <div class="residue"><em>剩余</em>￥{{list.balance}}</div>
+            </div>      
+        </div>
+
+        <section>
+        <div class="noRecord" ng-if="vm.fiction">
+            <i><img src="myblocks/images/myCard_img1.png"></i>
+                啊哦，还没有相关记录哦
+        </div>
+        </section>
+
+        <!-- 不可用 -->
+        <!-- <div class="unusable" ng-if="vm.seclect == '不可用'">
+            <div class="list2">
+                <span class="icon"></span>
+                <div class="img_box"></div>
+                <div class="content">
+                    <span class="name">购房通礼品卡</span>
+                    <div class="figure"><em class="">￥</em><span>5000</span></div>
+                </div>
+                <div class="residue"><em>剩余</em>￥3000.00</div>
+            </div>
+        </div> -->
+	    <section>
+	        <div class="loading" ng-if="vm.loadIcon">
+                <p>正在加载</p>
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+            </div>
+	    </section>
+    </div>
+</main>
+<div class="confirm-bot footer-bar ng-scope" ng-click="Place();vm.monitor('confirmbutton','')">确定</div>

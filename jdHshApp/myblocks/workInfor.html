@@ -1,0 +1,81 @@
+<main class="main-content has-footer workInfor essInfor">
+	<div>
+    <h2><span class="active">1</span><i class="active"></i><i class="active"></i><span class="active">2</span><i class="active"></i><i class="active"></i><span class="active">3</span></h2>
+    <h3>就业信息</h3>
+    <div class="essInfor-main">
+        <label><span>公司名称</span><input type="text" maxlength="20" placeholder="请输入公司名称" ng-model="vm.info.name" ></label>
+        <label><span>公司电话</span><input type="text" maxlength="20" placeholder="格式：0755-88888888" ng-model="vm.info.phone"></label>
+        <label class="long" ng-click="vm.showSelect();"><span>公司地址</span><span>{{vm.info.province}}<b></b>{{vm.info.city}}<b></b>{{vm.info.countyName}}<b></b>{{vm.info.townName}}</span></label>
+        <label><span>详细地址</span><input type="text" maxlength="50" placeholder="请输入详细地址" ng-model="vm.info.address"></label>
+        <label class="long" ng-click="vm.showPostSel()"><span>职<em></em>务</span><span>{{vm.info.post}}</span></label>
+        <label class="long" ng-click="vm.showIncomeSel()"><span>收<em></em>入</span><span>{{vm.info.income}}</span></label>
+    </div>
+    <h3>信用卡信息 <span>(填写本人常用信用卡，提升信用额度)</span></h3>
+    <div class="essInfor-main">
+        <label><span>卡<em></em>号</span><input type="text" maxlength="25" placeholder="请输入信用卡卡号" ng-model="vm.info.bankCardNo" ></label>
+    </div>
+    <h4 ng-click="vm.submit()">确定</h4>
+
+    <!--弹出select-->
+    <div class="modal-layer" ng-class="{active:vm.showsel}">
+    </div>
+    <section class="select-open clearfix" ng-class="{translate3d:vm.showsel}">
+        <div class="select-title f26">{{vm.selText}}<span ng-click="vm.hideBothSel();">x</span></div>
+        <div class="select-scroll select-scrollLow" ng-if="vm.showPost">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-repeat="key in vm.postList" ng-click="vm.selPost(key.text,key.value)">{{key.text}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll select-scrollLow" ng-if="vm.showIncome">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-repeat="key in vm.incomeList" ng-click="vm.selIncome(key.text,key.value)">{{key.text}}</dt>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <!--弹出选择所在地区-->
+    <div class="modal-layer" ng-class="{active:vm.showAddRess}">
+    </div>
+    <section class="select-open clearfix" ng-class="{translate3d:vm.select3d}">
+        <div class="select-title f26">所在地区<span ng-click="vm.hideSelect();">x</span></div>
+        <div class="select-tab f24">
+            <span class="active" ng-click="vm.selectTabClick('province')" ng-bind="vm.address1"></span>
+            <span ng-bind="vm.address2" ng-click="vm.selectTabClick('city')"></span>
+            <span ng-bind="vm.address3" ng-click="vm.selectTabClick('county')"></span>
+            <span ng-bind="vm.address4" ng-click="vm.selectTabClick('town')"></span>
+        </div>
+        <div class="select-scroll rightProvince">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[provinceList.provinceId==vm.provinceId]" ng-repeat="provinceList in vm.provinceList" ng-click="provinceClick(provinceList.provinceId,provinceList.provinceName)">{{provinceList.provinceName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll city-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[cityList.cityId==vm.cityId]" ng-repeat="cityList in vm.cityList" ng-click="cityClick(cityList.cityId,cityList.cityName)">{{cityList.cityName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll county-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[countyList.countyId==vm.countyId]" ng-repeat="countyList in vm.countyList" ng-click="countyClick(countyList.countyId,countyList.countyName)">{{countyList.countyName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll street-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[townList.townId==vm.townId]" ng-repeat="townList in vm.townList" ng-click="townClick(townList.townId,townList.townName)">{{townList.townName}}</dt>
+                </dl>
+            </div>
+        </div>
+    </section>
+	</div>
+</main>

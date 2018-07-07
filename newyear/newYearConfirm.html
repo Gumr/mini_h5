@@ -1,0 +1,43 @@
+<main class="main-content has-footer confirm">	
+	<div class="wrap">
+		<div class="confirm-top noaddress" ng-click="goaddAddress()">
+
+			<span ng-if="!isaddress">
+				<i class="add"></i>
+				<i class="firs">{{list}}</i>
+            </span>
+            
+            <span ng-if="isaddress" ng-class="{'icon-arrow':isaddress}">
+				<i class="firs">{{list}}</i>
+				<i class="seco">
+					<em class="locat"></em>
+					<em class="matter">{{list1}}</em>
+				</i>
+			</span>
+		</div>
+		
+		
+
+		<div style="background:#fff;">
+			<div class="product">
+				<div class="pic">
+					<img ng-src="{{vm.thumbImgUrl}}">
+				</div>
+				<div class="detail">
+					<div class="confirm-maction f24 goodname"><span class="goods-name">{{vm.goodsName}}</span></div>
+				</div>
+			
+			</div>
+		</div>
+		<div class="method">
+			<span class="pull-left f26 confirm-color">配送方法</span>
+			<span class="pull-right f24 confirm-dx confirm-right">{{vm.express}}</span>
+		</div>
+
+		
+		
+	
+		
+	</div>
+</main>
+<div class="confirm-bot confirm-bot1 footer-bar" ng-click="Place()">确认领取礼物</div>

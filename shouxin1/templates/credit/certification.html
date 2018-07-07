@@ -1,0 +1,20 @@
+<ion-view class="sx-certification" view-title="身份证实名认证"><ion-content overflow-scroll="false"><section><img class="img-adaptive" src="img/credit/step-1.jpg"></section><section class="up-voucher"><h3>请按要求上传身份证照片</h3><label for="uploadOne"><input class="upload-input" type="file" ng-click="upload(0)" accept="image/*"> <img ng-src="{{data.voucher[0]}}"><p>上传身份证正面</p></label><label for="uploadTwo"><input class="upload-input" type="file" ng-click="upload(1)" accept="image/*"> <img ng-src="{{data.voucher[1]}}"><p>上传身份证反面</p></label><hr><label for="uploadThree"><input class="upload-input" type="file" ng-click="upload(2)" accept="image/*"> <img ng-src="{{data.voucher[2]}}"><p>上传手持身份证照片</p></label><div class="buttons"><button class="button button-block button-main button-radius" ng-click="submit()">下一步</button></div></section></ion-content></ion-view><script id="identification-popover.html" type="text/ng-template"><div class="sx-identification">
+		<h2 class="title text-center">请核对自动识别结果，如有误请点击重拍</h2>
+		<div class="content">
+		    <label class="flex items-center">
+		        <span>姓名</span>
+		        <input class="flex-grow-1" type="text" ng-model="data.username" maxlength="6">
+		        <i class="ion-edit"></i>
+		    </label>
+		    <label class="flex items-center">
+			    <span>身份证</span>
+			    <input class="flex-grow-1" type="text" ng-model="data.cardId" maxlength="18">
+			    <i class="ion-edit"></i>
+		    </label>
+		    <p class="text-right">确认后不可修改</p>
+		</div>
+		<div class="flex">
+			<button class="button button-full button-stable" ng-click="identificationPopoverClose()">重新上传</button>
+			<button class="button button-full button-main" ng-click="identificationPopoverConfirm()">确认</button>
+		</div>
+	</div></script>

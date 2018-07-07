@@ -1,0 +1,93 @@
+<main class="main-content has-footer my-center">
+    <div class="scroll">
+        <section class="top-box">
+            <div>
+                <img src="myblocks/images/temp/photo.png"><br>
+                <a href="">{{vm.userInfo.realName || vm.userInfo.mobile}}</a>
+            </div>
+            <div class="flex-box">
+                <!--<span ng-click="myCard()"><i>{{vm.used}}</i><br>卡券</span>-->
+                <!--<span><i>0</i><br>收藏</span>-->
+            </div>
+            <div class="flex-box assets">
+                <div ng-click="vm.goActive()">￥{{vm.lines.consumption}}<br><span>总额度<span ng-if="vm.lines.status!=1">({{vm.lines.quotaStatusDesc}})</span></span><span ng-if="vm.lines.status==1">去激活</span></div>
+                <div>￥{{vm.lines.surplus}}<br><span>剩余额度</span></div>
+            </div>
+        </section>
+        <section class="list">
+            <div class="mycenter-item">
+                <span class="f24" ng-click="mycollection()"><i>{{vm.count}}</i><br>收藏</span>
+                <span class="f24" ng-click="myCard()"><i>{{vm.used}}</i><br>卡券</span>
+            </div>
+            <div class="item">
+                <div class="bar">
+                    <i class="icon-my-bill"></i>
+                    <h2 class="flex-1">我的账单</h2>
+                    <a class="icon-arrow" ng-href="{{vm.myBill}}">全部</a>
+                </div>
+                <div class="con">
+                    <a href=""><span>{{vm.bill.monthTatalPay || 0}}</span><br>本期账单</a>
+                    <a href=""><span>{{vm.bill.monthTatalPayCount}}</span><br>消费笔数</a>
+                    <a href=""><span>每月11号</span><br>还款日</a>
+                </div>
+            </div>
+            <!--<div class="item" ng-if="vm.channelId == '16993204'">
+				<div class="bar">
+					<i class="icon-my-invest"></i>
+					<h2 class="flex-1">我的投资</h2>
+					<a class="icon-arrow" ng-href="{{vm.myInvestment}}">全部</a>
+				</div>
+				<div class="con">
+					<a href=""><span>{{vm.myInvest.investIng}}</span><br>持有中</a>
+					<a href=""><span>{{vm.myInvest.holdIng}}</span><br>投资中</a>
+					<a href=""><span>{{vm.myInvest.completed}}</span><br>已完成</a>
+				</div>
+			</div>-->
+            <!--<div class="item" >-->
+            <!--<div class="bar">-->
+            <!--<i class="icon-my-order"></i>-->
+            <!--<h2 class="flex-1">我的订单</h2>-->
+            <!--<a class="icon-arrow" href="https://test4hsh.hlej.com/mall/orderAction/find.action?channelId={{vm.channelId}}">全部</a>-->
+            <!--</div>-->
+            <!--<div class="con">-->
+            <!--<a href=""><em class="icon-state state1"></em>待付款</a>-->
+            <!--<a href=""><em class="icon-state state2"></em>待审核</a>-->
+            <!--<a href=""><em class="icon-state state3"></em>待发货</a>-->
+            <!--<a href=""><em class="icon-state state4"></em>待收货</a>-->
+            <!--<a href=""><em class="icon-state state5"></em>返修/退换</a>-->
+            <!--ng-href="{{vm.myOrder}}"-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="item">
+                <a class="bar" href="#/Myorder">
+                    <i class="icon-section"></i>
+                    <h2 class="flex-1">我的订单</h2>
+                    <span class="icon-arrow">全部</span>
+                </a>
+                <div class="con">
+                    <a href="#/Myorder?state=dfk"><span class="icon-one"></span>待付款<span ng-if="orderStatInfo.dfk!=0">{{orderStatInfo.dfk}}</span></a>
+                    <a href="#/Myorder?state=audit"><span class="icon-two"></span>待审核<span ng-if="orderStatInfo.audit!=0">{{orderStatInfo.audit}}</span></a>
+                    <a href="#/Myorder?state=dfh"><span class="icon-she"></span>待发货<span ng-if="orderStatInfo.dfh!=0">{{orderStatInfo.dfh}}</span></a>
+                    <a href="#/Myorder?state=dsh"><span class="icon-fack"></span>待收货<span ng-if="orderStatInfo.dsh!=0">{{orderStatInfo.dsh}}</span></a>
+                    <a href="" ng-click="gocustomer()"><span class="icon-sess"></span>返修/退货</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="bar" ui-sref="safetyCenter">
+                    <i class="icon-security"></i>
+                    <h2 class="flex-1">安全中心</h2>
+                    <span class="icon-arrow"></span>
+                </a>
+            </div>
+            <!--<div class="item">-->
+            <!--<a class="bar" href="">-->
+            <!--<i class="icon-message"></i>-->
+            <!--<h2 class="flex-1">消息中心</h2>-->
+            <!--<span class="icon-arrow"></span>-->
+            <!--</a>-->
+            <!--</div>-->
+        </section>
+    </div>
+</main>
+<div ng-include="'include/footer.html'"></div>

@@ -1,0 +1,141 @@
+<div class="interest">
+	<main class="main-content interestlist" >	
+		<div class="iscool">
+			<!-- banner -->
+			<section class="banner bannerSlide swiper-container">
+		        <div class="swiper-wrapper">
+		        	<div class="swiper-slide" ng-repeat="banner in bannerlist">
+		        		<div class="swiper-zoom-container">
+							<a ng-href="{{banner.accessAddress}}"><img ng-src="{{cs+banner.bannerUrl}}"></a>
+						</div>
+					</div>
+		        </div>
+		        <div class="swiper-pagination"></div>
+		    </section>
+		    <!-- 爆款商品 -->
+		    <!--<section class="springsale bottom" ng-if="close">
+				<div class="tit-bar bottom">
+					<h2 class="text-center"><i class="icon"></i>爆款商品</h2>
+				</div>
+				<div class="hot-swiper swiper-container">
+	                <div class="swiper-wrapper">
+	                    <div class="swiper-slide" ng-repeat="for in explosionlist">
+	                        <figure>
+							  <a href="#/productDetails?goodsId={{for.goodsId}}">
+							  	<img ng-src="{{for.url+for.imageUrl}}">
+							  	<span ng-if="for.freePeriods!='0'" class="interest-m text-center">免息</span>
+								<span ng-if="for.couponMoney!= '0'" class="interest-f"><span>返</span></span>
+							  </a>
+							  <figcaption class="magin text-center">{{for.goodsName}}</figcaption>
+							  <figcaption class="home-overhide interest-nic text-center"><span class="home-price"><i ng-if="for.otherPrice<=for.salePrice">VIP价&nbsp;￥</i>{{for.salePrice}}</span><span ng-if="for.otherPrice>for.salePrice">电商价:￥{{for.otherPrice}}</span></figcaption>
+							  <figcaption class="home-overhide text-center"><span class="home-price-two">￥{{for.monthMoney}}</span>x<span>{{for.periods}}期</span></figcaption>
+							</figure>	  
+	                    </div>
+	                </div>
+	            </div>
+			</section>
+			<section class="springsale" ng-repeat="list in moduleList">
+				<div class="tit-bar bottom">
+					<h2 class="text-center">{{list.moduleName}}</h2>
+				</div>
+				<div class="interest-fication flex-box">
+					<ul >
+						<li><a href="{{list.accessAddress}}&listMark={{list.moduleName}}"><img src="{{cs+list.imageUrl}}"></a></li>
+						<li ng-repeat="for in list.goodsList">
+							<span ng-if="for.freePeriods!=0" class="interest-m">免息</span>
+							<span ng-if="for.couponMoney!=0" class="interest-f"><span>返</span></span>
+							<figure>
+							 <a href="#/productDetails?goodsId={{for.goodsId}}">
+								<img src="{{for.url+for.imageUrl}}">
+							</a>
+							  <figcaption class="magin text-center"><span class="home-price"><i ng-if="for.otherPrice<=for.salePrice">VIP价&nbsp;￥</i>{{for.salePrice}}</span><span ng-if="for.otherPrice>for.salePrice">电商价:{{for.otherPrice}}</span></figcaption>
+							  <figcaption class="text-center"><span class="home-price-two">￥{{for.monthMoney}}</span>x<span>{{for.periods}}期</span></figcaption>
+							</figure>	  
+						</li>
+					</ul>
+				</div>
+			</section>-->
+			
+			
+			<!--今日秒杀明日预览  秒杀列表-->
+			<section class="list-wrap list_ms">
+			<div class="category-slide swiper-container">
+		        <div class="swiper-wrapper tablist">
+		            <div class="swiper-slide active" ng-click="vm.findWare($event,tabArr[0])">今日<br />秒杀</div>
+		            <div class="swiper-slide" ng-click="vm.findWare($event,tabArr[1]);">明日<br />预览</div>
+		            <div class="swiper-slide" ng-click="vm.findWare($event,tabArr[2]);">{{datetime[0]}}<br />10:00</div>
+		            <div class="swiper-slide" ng-click="vm.findWare($event,tabArr[3]);">{{datetime[1]}}<br />10:00</div>
+		            <div class="swiper-slide" ng-click="vm.findWare($event,tabArr[4]);">{{datetime[2]}}<br />10:00</div>
+		        </div>
+		    </div>
+		    <!--限时限购疯狂抢购-->
+		    <div class="limitm" ng-if="vm.spikeActivityId!=undefined&&vm.firstactive==true"><p>限时限购　疯狂抢购</p><span class="time"><em>距离本场结束　</em><span>{{datah1}}</span>:<span>{{datam1}}</span>:<span>{{datas1}}</span>:<span>{{datams}}</span></span></div>
+		    <div class="limitm" ng-if="vm.spikeActivityId!=undefined&&vm.secondactive==true"><p>设置提醒　绝不错过</p><span class="time"><em>距离本场开始　</em><span>{{datah2}}</span>:<span>{{datam2}}</span>:<span>{{datas2}}</span></span></div>
+		    <div class="limitm" data='3' ng-if="vm.spikeActivityId!=undefined&&vm.thirdactive==true"><p>设置提醒　绝不错过</p><span class="time"><em>距离本场开始<i>{{datad3}}</i>天</em><span>{{datah3}}</span>:<span>{{datam3}}</span>:<span>{{datas3}}</span></span></div>
+		    <div class="limitm" ng-if="vm.spikeActivityId!=undefined&&vm.fourthactive==true"><p>设置提醒　绝不错过</p><span class="time"><em>距离本场开始<i>{{datad4}}</i>天</em><span>{{datah4}}</span>:<span>{{datam4}}</span>:<span>{{datas4}}</span></span></div>
+		    <div class="limitm" ng-if="vm.spikeActivityId!=undefined&&vm.fifthactive==true"><p>设置提醒　绝不错过</p><span class="time"><em>距离本场开始<i>{{datad5}}</i>天</em><span>{{datah5}}</span>:<span>{{datam5}}</span>:<span>{{datas5}}</span></span></div>
+		    
+		    
+		    <div class="g-list plist" ng-if="vm.spikeActivityId!=undefined">
+				<a class="item" href="#/productDetails?goodsId={{productList.goodsId}}" ng-repeat="productList in getproductlist">
+					
+		    		<div><img ng-src="{{productList.img+productList.imageUrl}}"></div>
+		    		<div>
+		    			
+		    			<p class="favorable">
+		    				<span class="goodname" style="display:block">{{productList.goodsName}}</span>
+		    				<span class="promo">{{productList.salesPromotionLanguage}}</span>
+		    			</p>
+		    			
+		    			<div class="interestprice">
+		    				<div>
+								<div class="limitp">
+									<span class="currentprice">￥{{productList.limitedTimePrice}}</span>
+									<span class="originprice">￥{{productList.originalPrice}}</span>
+								</div>
+								<div><span class="col-red">月供:￥{{productList.monthMoney}}起</span></div>
+							</div>
+							
+							<div class="storage">
+								<span class="kuc" ng-if="productList.activityStatus=='1'&&productList.storageRate-productList.currentSales>=0">剩余:{{productList.storageRate-productList.currentSales}}</span>
+								<span class="kuc" ng-if="productList.activityStatus=='1'&&productList.storageRate-productList.currentSales<0">剩余:0</span>
+								
+								
+								<div class="progress" ng-if="productList.activityStatus=='1'&&productList.storageRate-productList.currentSales>=0">
+								    <div class="pink" ng-style="{width:(productList.storageRate-productList.currentSales)/productList.storageRate*100+'%'}">
+								      <!--<div ng-if='vm.text'>{{(productList.storageRate-productList.currentSales)/productList.storageRate*100}}%</div>-->
+								    </div>
+							  	</div>
+							  	<div class="progress" ng-if="productList.activityStatus=='1'&&productList.storageRate-productList.currentSales<0">
+								    <div class="pink" ng-style="{width:0+'%'}">
+								      <!--<div ng-if='vm.text'>{{(productList.storageRate-productList.currentSales)/productList.storageRate*100}}%</div>-->
+								    </div>
+							  	</div>
+							  	
+							  	
+								
+								<span ng-if="productList.activityStatus=='1'&&productList.storageRate-productList.currentSales>0" class="qiang" ng-click="vm.a()">立即抢购</span>
+								<span ng-click="vm.qiangwan($event)" ng-if="productList.activityStatus=='1'&&productList.storageRate-productList.currentSales<=0" class="over">已抢光</span>
+								<span ng-click="vm.stop($event,productList.goodsId)" ng-if="productList.activityStatus=='2'&&productList.presell=='00'" class="remind">开售提醒</span>
+								
+								<span ng-click="vm.stop($event,productList.goodsId)" ng-if="productList.activityStatus=='2'&&productList.presell=='01'" class="yiremind">已提醒</span>
+							</div>
+		    				
+		    			</div>
+		    		</div>
+		    	</a>
+				<!-- <div class="loading" ng-if="vm.isHide">
+                  <p>正在加载</p>
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div> -->
+			</div>
+			
+			<!-- 无商品 -->
+			<div class="g-list gg-list" ng-if="vm.spikeActivityId==undefined">暂无商品,去看看其他的品牌吧</div>
+			</section>
+		</div>	
+	</main>
+
+</div>

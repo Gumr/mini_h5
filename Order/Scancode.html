@@ -1,0 +1,16 @@
+<main class="main-content">	
+	<div class="wrap">
+		<div class="scancode">
+			<div class="scancode-er">
+				<div class="scancode-img"></div>
+				<p class="f26">{{vm.orderNum}}</p>
+			</div>
+			<div class="scancode-qrCodePath">
+				<img ng-src="{{vm.qrCodePath}}" />
+				<div class="f26 scancode-div">请在POS机上刷卡支付</div>
+			</div>
+		</div>
+		<span class="scancode-right f24" ng-click="complete()">支付完成</span>
+		<span class="scancode-left f24" ng-click="cancel()">取消支付</span>
+	</div>
+</main>

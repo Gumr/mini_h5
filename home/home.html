@@ -1,0 +1,417 @@
+<div class="home">
+	<!-- header================================================== -->
+	<!-- <header class="header-bar">
+		<div class="flex-box flex-align">
+			<div class="region" id="region" ng-click='vm.regionClick()'><span class="regions" ng-bind="region"></span><i class="icon-arrows"></i></div>
+			<div class="search-on-off flex-1">
+				<i class="pull-left"></i>
+				<span>正式发售！iPhone 8 抽奖免费拿！</span>
+			</div>
+			<div class="icon-message" style="background:url('') no-repeat center"></div>
+		</div>
+	</header> -->
+
+	<header class="header-bar">
+		<div class="flex-box flex-align">
+			<a href="#/part" class="t-category"></a>
+			<div class="search-container flex-1">
+				<i></i>
+				<span ng-if="data.historySearch.length > 0">{{data.historySearch[0]}}</span>
+				<span ng-if="data.historySearch.length==0">iPhoneX 12期免息分期，现货抢!</span>
+			</div>
+		</div>
+	</header>
+	<!-- nav================================================== -->
+	<div ng-include="'include/footer.html'"></div>
+	<!-- 汇理财遮罩层================================================== -->
+	<div class="modal-layer" id="remit">
+		<div class="shade "></div>
+		<div class="home-remit">
+			<span></span>
+			<span ng-click="hlcz()">&times;</span>
+		</div>
+	</div>
+	<!-- main================================================== -->
+	<main class="main-content has-footer">
+		<div class="scroll">
+			<!-- banner -->
+			<section class="bannerSlide swiper-container home-banner">
+		        <div class="swiper-wrapper" id="homeBannerSwiper">
+		        </div>
+		        <div class="swiper-pagination"></div>
+		    </section>
+		    <!-- 分类 -->
+		    <section class="category">
+		    	<div class="flex-box">
+		    		<a href="{{typeList.href}}" ng-repeat="typeList in vm.typeList" ng-click="vm.monitor('channel',typeList.name)">
+		    			<img ng-src="{{typeList.src}}">
+		    			<span>{{typeList.name}}</span>
+		    		</a>
+		    	</div>
+		    </section>
+		     <section class="category">
+		    	<div class="flex-box">
+		    		<a href="{{typeList.href}}" ng-repeat="typeList in vm.classList" ng-click="vm.monitor('channel',typeList.name)">
+		    			<img ng-src="{{typeList.src}}">
+		    			<span>{{typeList.name}}</span>
+		    		</a>
+		    	</div>
+		    </section>
+
+			<!-- 发现好货 -->
+			<section class="panel-container goodsale">
+				<div class="panel-header">
+					<div class="titles titles-1"></div>
+				</div>
+				<div class="flex-box goods-box">
+					<div class="left-goods">
+						<a href="{{lowOptionLeft.accessAddress}}" ng-repeat="lowOptionLeft in vm.lowOptionLeft" ng-click="vm.monitor('FAN.goods',lowOptionLeft.name)">
+							<img ng-src="{{vm.url+lowOptionLeft.url}}">
+						</a>
+					</div>
+					<div class="right-goods">
+						<a href="{{lowOptionRight.accessAddress}}" ng-repeat="lowOptionRight in vm.lowOptionRight" ng-click="vm.monitor('FAN.goods',lowOptionRight.name)">
+							<img ng-src="{{vm.url+lowOptionRight.url}}">
+						</a>
+					</div>
+
+					<!-- <div class="left-goods">
+						<a href="javascript:;"><img ng-src="home/images/temp/goods_b1.png" /></a>
+						<a href="javascript:;"><img ng-src="home/images/temp/goods_b2.png" /></a>
+					</div>
+					<div class="right-goods">
+						<a href="javascript:;"><img ng-src="home/images/temp/goods_1.png" /></a>
+						<a href="javascript:;"><img ng-src="home/images/temp/goods_2.png" /></a>
+						<a href="javascript:;"><img ng-src="home/images/temp/goods_3.png" /></a>
+						<a href="javascript:;"><img ng-src="home/images/temp/goods_4.png" /></a>
+					</div> -->
+				</div>
+			</section>
+			
+			<!-- 免息 -->
+			<section class="panel-container springsales">
+				<div class="panel-header">
+					<div class="titles titles-2"></div>
+				</div>
+				<div class="goods-springsale">
+					<a href="{{spring.accessAddress}}" ng-repeat="spring in vm.springList" class="item-springsale" ng-click="vm.monitor('FAN.interest',spring.name)">
+						<img ng-src="{{spring.url}}" />
+						<div class="text">{{spring.name}}</div>
+					</a>
+				</div>
+			</section>
+
+			<!--品牌-->
+			<section class="panel-container brand">
+				<div class="panel-header">
+					<div class="titles titles-3"></div>
+				</div>
+				<div class="banner-brand">
+					<!-- <img ng-src="home/images/temp/banner_temp.png" /> -->
+					<div class="swiper-container swiper-brand" id="swiper-brand">
+						<!-- <div class="swiper-wrapper" ng-repeat="banner in vm.limitOptionLeft" on-repeat-finished-render>
+						    <div class="swiper-slide">
+						    	<a href="{{banner.accessAddress}}">
+						    		<img ng-src="{{vm.url+banner.url}}" title="{{banner.name}}" />
+								</a>
+						    </div>
+						</div> -->
+					</div>
+				</div>
+				<div class="goods-brand">
+					<a href="{{brand.accessAddress}}" ng-repeat="brand in vm.limitOptionRight" class="item-brand" ng-click="vm.monitor('FAN.brand',brand.name)">
+						<img ng-src="{{vm.url+brand.url}}" />
+					</a>
+
+					<!-- <a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_1.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_2.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_3.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_4.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_5.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_6.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_7.png" /></a>
+					<a href="javascript:;" class="item-brand"><img ng-src="home/images/temp/brand_8.png" /></a> -->
+				</div>
+			</section>
+
+			<!--猜你喜欢-->
+			<section class="panel-container yourlike" ng-if="vm.youlike.data.length > 0">
+				<div class="panel-header">
+					<div class="titles titles-4"></div>
+				</div>
+				<div class="goods-youlike">
+					<a ng-href="#/productDetails?goodsId={{item.goodsId}}" ng-repeat="item in vm.youlike.list" class="item-youlike" ng-click="vm.monitor('FAN.like',item.goodsId)" on-repeat-finished-render>
+						<div class="imgbox">
+							<img ng-src="{{item.typeFrom == '1' ? vm.url+item.imageUrl: vm.jdImgServer+item.imageUrl}}" />
+							<div class="icon" ng-if="item.periods>0">{{item.periods}}期<br>免息</div>
+						</div>
+						<div class="title">{{item.goodsName}}</div>
+						<div class="price">¥{{item.salePrice}}</div>
+						<div class="payMonth" ng-init="arr=item.monthMoney.toString().split('.')">
+							月供 <span>¥{{arr[0]}}<i ng-if="arr[1]">.{{arr[1]}}</i></span> 起
+						</div>
+					</a>
+
+					
+					<div class="loading" ng-if="data.loadIcon">
+	                	<p>正在加载</p>
+	                  	<div class="bounce1"></div>
+	                  	<div class="bounce2"></div>
+	                 	<div class="bounce3"></div>
+	                </div>
+				</div>
+			</section>
+			
+			<!-----------------------------------------秒杀秒杀 ------------------------------------------------>
+			<!-- <section class="springsale">
+				<div class="tit-bar">
+					<span class="home-title">今日限时秒杀</span>
+					<span class="home-hd"><em class="jinsheng">仅剩</em><span>{{datahs}}</span><span>{{datahg}}</span>时<span>{{datams}}</span><span>{{datamg}}</span>分<span>{{datass}}</span><span>{{datasg}}</span>秒</span>
+				    <span class="home-next">下一场<span>{{month}}月</span><span>{{day}}日</span><span>{{hour}}点开始</span></span>
+				</div>
+				<div class="hot-swiper swiper-container">
+                    <div class="swiper-wrapper" id="hometwo">
+                        <div class="swiper-slide" ng-repeat="for in getinterest" ng-click='vm.nextpage()'>
+                            <figure>
+							  <a>
+							  	
+							  	<img ng-src="{{for.img+for.imageUrl}}">
+							  </a>
+							  <figcaption class="home-overhide text-center"><span class="home-price1">￥{{for.limitedTimePrice}}</span><span class="home-price2">{{for.originalPrice}}</span></figcaption>
+							  <figcaption class="home-overhide text-center"><span class="home-price-two"><em>月供</em>:￥{{for.monthMoney}}<em>起</em></span></figcaption>
+							</figure>	  
+                        </div>
+                        <div class="swiper-slide">查&nbsp;看&nbsp;更&nbsp;多<span></span></div>
+                    </div>
+                </div>
+			</section> -->
+		    <!-- 限时特惠 -->
+			<!-- <section class="springsale">
+				<div class="tit-bar">
+					<img src="home/images/mianxi-sc.png" />
+				</div>
+				<div class="goods-box flex-box">
+					<div class="left-goods">
+						<a href="{{limitOptionleft.accessAddress}}" ng-repeat="limitOptionleft in vm.limitOptionLeft"><img ng-src="{{vm.url+limitOptionleft.url}}"></a>
+						
+					</div>
+					<div class="right-goods">
+						<a href="{{limitOptionRight.accessAddress}}" ng-repeat="limitOptionRight in vm.limitOptionRight"><img ng-src="{{vm.url+limitOptionRight.url}}"></a>
+					</div>
+				</div>
+			</section> -->
+			<!-- ad================================================== -->
+			<!--<section class="ad-center">
+				<div><a ng-href="{{vm.lowOption.href}}"><img ng-src="{{vm.lowOption.url}}"></a></div>
+			</section>-->
+			<!-- 免息品类 -->
+			<!-- <section class="springsale">
+				<div class="tit-bar">
+					<img src="home/images/mian-pl.png" />
+				</div>
+				<div class="goods-box flex-box home-mx">
+					<div class="left-goods">
+						<a href="{{lowOption.accessAddress}}" ng-repeat="lowOption in vm.lowOption"><img ng-src="{{vm.url+lowOption.url}}"></a>
+					</div>
+					<div class="right-goods">
+						<a href="">
+							<span ng-repeat="list in onenum" ng-click="pltab(list.name)">{{list.name}}</span>
+						</a>
+						<a href="">
+							<span ng-repeat="list in twonum" ng-click="pltwotab(list.name)">{{list.name}}</span>
+						</a>
+					</div>
+				</div>
+			</section> -->
+			<!-- 今日大牌 -->
+			<!-- <section class="brand-list home-brand">
+				<div class="">
+					    		<a href="#/todayList?brandName={{typeList.brandName}}&brandId={{typeList.brandId}}&brandPoster={{typeList.brandLogo}}" ng-repeat="typeList in vm.footerList" >
+					    			<div><img ng-src="{{vm.url+typeList.brandLogo}}"></div>
+					    			<span>{{typeList.brandName}}</span>
+					    			<span></span>
+					    		</a>
+					    	</div>
+			</section> -->
+		</div>
+	</main>
+</div>
+
+
+
+<div class="monolayer" ng-if="vm.layer == 'true'">
+	<!-- 优惠券弹层 -->
+	<div class="coupn">
+		<div class="cancel" ng-click="vm.cancel()"></div>
+		<!-- 登录领取 -->
+		<div class="gain" ng-click="vm.gain()"></div>
+	</div>
+</div>
+
+
+<!-- 城市定位================================================== -->
+<!-- <div class="modal-layer" id="orientation">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-up">
+		<div class="draw-layer province-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn modal-close" ng-click="vm.closeBtn();">取消</button>
+				</div>
+				<div ng-bind="region" class="city-name"></div>
+			</div>
+			<div class="province-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="hot-city">
+						<div class="tit">热门城市</div>
+						<div class="clearfix">
+							<a href="##">上海</a>
+							<a href="##">广州</a>
+							<a href="##">北京</a>
+							<a href="##">苏州</a>
+							<a href="##">南京</a>
+							<a href="##">深圳</a>
+							<a href="##">成都</a>
+						</div>
+					</div>
+					<div class="list">
+						<div class="tit">省列表</div>
+						<ul>
+						 	<li ng-repeat="provinceList in vm.provinceList" ng-click="vm.provinceClick(provinceList.provinceId);">
+								{{provinceList.provinceName}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer city-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="city-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">市列表</div>
+						<ul>
+							<li class="city" ng-repeat="cityList in vm.cityList" ng-click="vm.cityClick(cityList.cityName,cityList.cityId);">{{cityList.cityName}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer county-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="county-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">县列表</div>
+						<ul>
+							<li ng-click="vm.countyClick(countyList.cityId,countyList.countyName);" ng-repeat="countyList in vm.countyList">{{countyList.countyName}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer town-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="town-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">镇列表</div>
+						<ul>
+							<li ng-click="vm.townClick();" ng-repeat="townList in vm.townList">{{townList.townList}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+<!-- 搜索================================================== -->
+<div class="modal-layer {{vm.searchShow ? 'active' : ''}}" id="search">
+	<div class="shade {{vm.searchShow ? 'active' : ''}}"></div>
+	<div class="modal-wrapper slide-up {{vm.searchShow ? 'active' : ''}}">
+		<div class="search-bar flex-box">
+			<span class="search-btn icon-back" href=""> </span>
+			<form class="flex-1">
+				<input class="search-input" type="search" name="" maxlength="20" placeholder="iPhoneX 12期免息分期，现货抢!" value="{{data.historySearch[0]}}" ng-model="searchText">
+			</form>
+			<a ng-click="vm.monitor('search',searchText||data.historySearch[0])" class="" href="#/search?keywords={{searchText}}">搜索</a>
+		</div>
+		<div class="search-scroll">
+			<div class="scroll">
+				<div class="history">
+					<h2 class="">历史搜索<i class="del" ng-click="delSearchCookie('searchName')"></i></h2>
+					<ul class="clearfix">
+						<li ng-repeat="history in data.historySearch"><a href="#/search?keywords={{history}}">{{history}}</a></li>
+					</ul>
+				</div>
+				<div class="hot-keyword">
+					<h2 class="">热搜</h2>
+					<ul class="clearfix">
+						<li ng-repeat="hot in data.hotSearch"><a href="#/search?keywords={{hot}}">{{hot}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 消息中心================================================== -->
+<div class="modal-layer" id="message">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-left">
+		<div class="top-bar text-right"><a class="btn" ng-click="vm.xxhidePage();">返回</a></div>
+		<div class="info-list">
+			<a href="">
+				<div class="icon-left">
+					<span>1</span>
+					<img src="home/images/icon-message-logistics.png">
+				</div>
+				<div class="flex-1">
+					<div class="flex-box"><h6 class="flex-1">物流信息</h6><span>8月5日</span></div>
+					<p class="text-overflow">您的订单20225927891已完成您的订单20225927891已完成，感谢您对汇</p>
+				</div>
+			</a>
+			<a href="">
+				<div class="icon-left">
+					<span>1</span>
+					<img src="home/images/icon-message-order.png">
+				</div>
+				<div class="flex-1">
+					<div class="flex-box"><h6 class="flex-1">物流信息</h6><span>8月5日</span></div>
+					<p class="text-overflow">您的订单20225927891已完成您的订单20225927891已完成，感谢您对汇</p>
+				</div>
+			</a>
+			<a href="">
+				<div class="icon-left">
+					<span>1</span>
+					<img src="home/images/icon-message-favorable.png">
+				</div>
+				<div class="flex-1">
+					<div class="flex-box"><h6 class="flex-1">物流信息</h6><span>8月5日</span></div>
+					<p class="text-overflow">您的订单20225927891已完成您的订单20225927891已完成，感谢您对汇</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+

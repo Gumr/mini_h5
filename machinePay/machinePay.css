@@ -1,0 +1,303 @@
+/*alert弹框*/
+.dialog-wrap1,.dialog-wrap3 { position: fixed; top: 0; bottom: 0; z-index: 10; width: 100%; display: none; }
+.dialog-wrap1 .dialog-mask1,.dialog-wrap3 .dialog-mask1 { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0; -webkit-transition: all .3s ease-out; }
+.dialog-wrap1 .dialog-content1 { position: absolute; left: 10%; top: 50%; width: 80%; background-color: #fff; border-radius: 0.15625rem; -webkit-transform: translate3d(0,-50%,0); -webkit-transition: all .3s ease-out; opacity: 0; overflow: hidden; }
+.dialog-wrap1 .dialog-content1 .content { padding: 0.9375rem 0.625rem; }
+.dialog-wrap1 .dialog-content1 .bottom { border-top: 1px solid #dcdcdc; }
+.dialog-wrap1 .dialog-content1 .bottom a { line-height: 1.09375rem; max-width: 50%; font-size: 0.40625rem; text-align: center; }
+.dialog-wrap1.active { display: block; }
+.dialog-wrap1 .dialog-mask1.active { opacity: .5; }
+.dialog-wrap1 .dialog-content1.active { opacity: 1; }
+.dialog-wrap1 .dialog-content1 .content{padding: 0;}
+.confirm-h-top{height: 1.1rem;font-size: .4rem;text-align: center;line-height: 1.1rem;}
+.confirm-nav{height: 0.8rem;background: #dcdcdc;text-align: center;line-height: 0.8rem;}
+.confirm-nav span{padding:0 0.54rem;}
+.confirm-nav span:nth-child(5){position: absolute;right: 0.05rem;display: inline-block;border: 1px solid #ff602e;padding: 0;height: 0.4rem;width: 0.85rem;text-align: center;color: #ff602a;border-radius: 0.1rem;top: 1.3rem;line-height: 0.4rem;}
+.confirm-section{height: 0.8rem;background: #fff;text-align: center;line-height: 0.8rem;}
+.confirm-section span{width: 1.9rem;display: inline-block;}
+.dialog-wrap1 .dialog-content1 .bottom{width: 100%;height: 2.2rem;position: relative;}
+.dialog-wrap1 .dialog-content1 .bottom p span:nth-child(2){display: inline-block;border:1px solid #ff602a;color: #ff602a;border-radius:0.1rem;padding: 0 0.1rem;}
+.dialog-wrap1 .dialog-content1 .bottom a.confirm1-btn{width: 4rem;height: 1rem;display: inline-block;border-radius: .1rem;position: absolute;bottom: .25rem;left: 1.9rem;background: #FF602E;color: #fff;}
+
+.dialog-wrap2 { position: fixed; top: 0; bottom: 0; z-index: 10; width: 100%; display: none; }
+.dialog-wrap2 .dialog-mask2 { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0; -webkit-transition: all .3s ease-out; }
+.dialog-wrap2 .dialog-content2 { position: absolute; left: 10%; top: 50%; width: 80%; background-color: #fff; border-radius: 0.15625rem; -webkit-transform: translate3d(0,-50%,0); -webkit-transition: all .3s ease-out; opacity: 0; overflow: hidden; }
+.dialog-wrap2 .dialog-content2 .content { padding: 0.9375rem 0.625rem; }
+.dialog-wrap2 .dialog-content2 .bottom a { line-height: 1.09375rem; max-width: 50%; font-size: 0.40625rem; text-align: center; }
+.dialog-wrap2.active { display: block; }
+.dialog-wrap2 .dialog-mask2.active { opacity: .5; }
+.dialog-wrap2 .dialog-content2.active { opacity: 1; }
+.dialog-wrap2 .dialog-content2 .content{padding: 0;}
+.dialog-wrap2 .dialog-content2 .content p {padding-left: 0.5rem;padding-bottom: .3rem;}
+.dialog-wrap2 .dialog-content2 .bottom{width: 100%;height:1.3rem;position: relative;}
+.dialog-wrap2 .dialog-content2 .bottom a.confirm2-btn{width:100%;height: 1rem;display: inline-block;border-radius: .1rem;position: absolute;bottom: 0;background: #FF602E;color: #fff;}
+
+.dialog-wrap3 .dialog-mask1{opacity:0.5;}
+.dialog-wrap3 .dialog-content1{position: absolute; left: 10%; top: 50%; width: 80%; background-color: #fff; border-radius: 0.15625rem; -webkit-transform: translate3d(0,-50%,0); -webkit-transition: all .3s ease-out; opacity:1; overflow: hidden;}
+.dialog-wrap3 h3{position: relative; text-align: center; line-height: 1.5rem; font-size: 0.5rem; color:#000}
+.dialog-wrap3 h3 i{position: absolute; right: 0.3rem;top: 0.3rem;font-size: 0.45rem; line-height: 0.45rem;}
+
+/* 登录弹窗 */
+.dialog-wrap1 .dialog-content1 .content .form{
+    padding: 0 .4rem;
+    position: relative;
+}
+.dialog-wrap1 .dialog-content1 .content .cancel{
+    width: .4rem;
+    height: .4rem;
+    text-align: center;
+    line-height: .4rem;
+    position: absolute;
+    right: .133333rem;
+    top: .133333rem;
+    border-radius: 50%;
+    background: #eeeeee;
+}
+.dialog-wrap1 .dialog-content1 .content .paytitle{
+    width: 100%;
+    margin: 0 auto;
+    height: 1.466667rem;
+    line-height: 1.466667rem;
+    text-align: center;
+    color: #342f33;
+    font-size: .4rem;
+    border-bottom: .026667rem solid #eeeeee;
+    margin-bottom: .44rem;
+}
+.dialog-wrap1 .dialog-content1 .content .item-form span{
+    font-size: .4rem;
+    color: #342f33;
+}
+.dialog-wrap1 .dialog-content1 .content .item-form:nth-of-type(1){
+    margin-top: .44rem;
+    margin-top: .44rem;
+}
+.dialog-wrap1 .dialog-content1 .content .item-form:nth-of-type(2){
+    margin-top: .24rem;
+}
+.dialog-wrap1 .dialog-content1 .content .item-form .number{
+    width: 5.813333rem;
+    height: .8rem;
+    line-height: 0.8rem;
+    background-color: #eeeeee;
+    border-radius: .133333rem;
+    margin-left: .2rem;
+}
+.dialog-wrap1 .dialog-content1 .content .item-form .password{
+    width: 5.813333rem;
+    height: .8rem;
+    line-height: 0.8rem;
+    background-color: #eeeeee;
+    border-radius: .133333rem;
+    margin-left: .2rem
+}
+.dialog-wrap1 .dialog-content1 .content .button{
+    display: block;
+    width: 3.24rem;
+    height: 1.173333rem;
+    border-radius: .186667rem;
+    background: #fe9b2a;
+    color: #fff;
+    font-size: .426667rem;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.173333rem;
+    margin-bottom: .333333rem;
+}
+.dialog-wrap1 .dialog-content1 .content .text-right a{
+    color: #3f3fff;
+}
+.dialog-wrap1 .dialog-content1 .content .text-center{
+    display: block;
+    margin: 0 auto;
+    color: #fe9b2a;
+    margin-bottom: .346667rem;
+}
+
+/* 支付弹窗 */
+.dialog-wrap2 .dialog-content2{
+    width: 84%;
+    left: 8%;
+    box-sizing: border-box;
+    padding: 0 .4rem .453333rem;
+}
+.dialog-wrap2 .dialog-content2 .paytitle{
+    text-align: center;
+    padding-top: 1.066667rem;
+    padding-bottom: .24rem;
+    border-bottom: .026667rem solid #eeeeee;
+    font-size: .4rem;
+    color: #342f33;
+}
+.dialog-wrap2 .dialog-content2 .procee{
+    text-align: center;
+    font-size: .4rem;
+    color: #342f33;
+    padding-top: .4rem;
+    font-weight: bold;
+    margin-bottom: .4rem;
+}
+.dialog-wrap2 .dialog-content2 .account{
+    line-height: .8rem;
+}
+.dialog-wrap2 .dialog-content2 .account a{
+    color: #fe9b2a;
+}
+
+.dialog-wrap2 .dialog-content2 .pwd-box{  
+    width:100%;  
+    height: 1.04rem;
+    position: relative;  
+    overflow: hidden; 
+}  
+.dialog-wrap2 .dialog-content2 .pwd-box .pwd-input{  
+    width: 100%;  
+    height: 1.04rem;  
+    color: transparent;  
+    padding: 0;
+    line-height: 1.04rem;
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+    border: none;  
+    font-size: 18px;  
+    opacity: 0;  
+    z-index: 1;  
+    letter-spacing: 1.1rem; 
+    /* padding-left: 0.4rem;    */
+} 
+.dialog-wrap2 .dialog-content2 .fake-box{
+    display: flex;
+    justify-content: space-between;
+} 
+.dialog-wrap2 .dialog-content2 .fake-box input{
+    display: inline-block;  
+    width: 1.04rem;  
+    height: 1.04rem;
+    line-height: 1.04rem;
+    border-radius: .066667rem;
+    background: #eeeeee;  
+    border: none;  
+    padding: 0;
+    text-align: center;  
+    font-size: 30px;
+}  
+.dialog-wrap2 .dialog-content2 .fake-box input:nth-last-child(1){  
+    border:none;  
+}
+.dialog-wrap2 .dialog-content2 .bottom{
+    margin-top: .533333rem;
+}
+.dialog-wrap2 .dialog-content2 .bottom .cancel-btn{
+    width: 37%;
+    height: 1.186667rem;
+    border: .026667rem solid #eeeeee;
+    border-radius: .186667rem;
+    margin-right: .613333rem;
+}
+.dialog-wrap2 .dialog-content2 .bottom .confirm-btn{
+    width: 37%;
+    height: 1.186667rem;
+    background-color: #fe9b2a;
+    text-align: center;
+    line-height: 1.186667rem;
+    color: #fff;
+    border-radius: .186667rem;
+}
+
+
+/* 确认支付 */
+.machinepay{
+    font-family: "微软雅黑", "黑体","宋体";
+}
+.machinepay .machine_top{
+    width: 100%;
+    height: auto;
+    background: #eeeeee;
+}
+.machinepay .machine_top p{
+    padding-top: .4rem;
+    text-align: center;
+    font-size: .4rem;
+    color: #342f33;
+}
+.machinepay .machine_top h2{
+    text-align: center;
+    font-size: 1.333333rem;
+}
+.machinepay .receipt{
+    width: 100%;
+    padding-top: .666667rem;
+    background: #ffffff;
+    color: #342f33;
+    font-size: .4rem;
+}
+.machinepay .receipt .receipt_t{
+    width: 76%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: .346667rem;
+}
+.machinepay .receipt .receipt_b{
+    width: 76%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* padding-bottom: .613333rem; */
+}
+.machinepay .receipt .state{
+    text-align: center;
+    color: #fe9b2a;
+    font-size: .32rem;
+    padding: .6rem 0 .24rem 0;
+}
+
+/* 确认支付 */
+.promotion{
+    width: 100%;
+    height: 1.2rem;
+    padding-top: .533333rem;
+    background: #eeeeee;
+}
+.promotion .payment{
+    display: block;
+    width: 91.46%;
+    height: 1.2rem;
+    text-align: center;
+    line-height: 1.2rem;
+    background: #fe9b2a;
+    border-radius: .08rem;
+    color: #ffffff;
+    font-size: .426667rem;
+    margin: 0 auto;  
+}
+
+/* 支付成功 */
+.success .cg{
+    width: 100%;
+    height: 5.093333rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+.success .cg img{
+    width: 3.4rem;
+    height: 3.426667rem;
+}
+
+
+/* 卡券 */
+.success .coupon{
+    width: 10rem;
+    height: 1.733333rem;
+    background: url(../machinePay/images/coupn1.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    margin-top: .133333rem;
+}
+.success .couponf{
+    display: none;
+}

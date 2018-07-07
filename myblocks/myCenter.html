@@ -1,0 +1,134 @@
+<main class="main-content has-footer my-center">
+    <div class="scroll">
+        <section class="top-box flex-box">
+            <!-- <div class="flex-2 avatar">
+				<img src="myblocks/images/temp/photo.png"><br>
+				<a href="" class="name">{{vm.userInfo.realName || vm.userInfo.mobile}}</a>
+			</div>
+			<div class="line">
+
+			</div>
+			<div class="assets flex-1">
+				<div class="my-limit" ng-click="vm.goActive()">
+					<span ng-if="vm.status!=2">剩余额度</span><br><span ng-if="vm.status!=2">{{vm.lines.surplus}}</span>
+				</div>
+				<div class="my-account">
+					<span>我的账户</span><i ng-if="vm.lines.status==1" ng-click="vm.goActive()">去激活</i><br><span ng-if="vm.status!=2">{{vm.lines.consumption}}</span><span class="shenhe" ng-if="vm.status==2">正在审核中...</span>
+				</div>
+			</div> -->
+            <div class="flex-2 avatar">
+                <img src="myblocks/images/temp/head.png">
+                <a href="" class="name" ng-if="vm.userInfo.realName">Hello,{{vm.userInfo.realName}}!</a>
+                <a href="" class="name" ng-if="!vm.userInfo.realName">{{vm.userInfo.mobile}}</a>
+            </div>
+            <!-- <div class="limit"> -->
+                <!-- <a class="my-balance" ui-sref="balance" ng-click="vm.monitor('accountbalancebutton','')">
+                    <span>账户余额</span><span>{{vm.accountAmount}}</span>
+                </a> -->
+                <!-- <a class="my-limit" ng-click="vm.goActive()">
+                    <span ng-if="vm.status!=2">信用额度</span><span ng-if="vm.status!=2">{{vm.lines.surplus}}</span>
+                </a>
+                <a class="my-account">
+                    <span>总信用额度</span><i ng-if="vm.lines.status==1" ng-click="vm.goActive()"></i><span ng-if="vm.status!=2&&vm.lines.status!=1">{{vm.lines.consumption}}</span><span class="shenhe" ng-if="vm.status==2">正在审核中...</span>
+                </a> -->
+            <!-- </div> -->
+        </section>
+        <section class="list">
+            <!-- <div class="item">
+                <div class="mycenter-prepaid">
+                    <span>余额充值</span>
+                    <span>首充送壕礼，支付更优惠！</span>
+                    <a class="explain" ui-sref="explain">余额说明</a>
+                </div>
+                <div class="value">
+                    <a id="amount" ui-sref="recharge({index:i,status:0})" ng-click="isActive($index)" ng-repeat="list in dataList" class="{{i==$index?'active':''}}" ng-class="{act: !firstRecharge &&list.rechargeLargessRecord.largessCondition == '1'||list.rechargeLargessRecord.largessCondition == '3' }" on-repeat-finished-render>
+                        <em>￥{{list.rechargeLargessRecord.rechargeMoney}}</em>
+                        <div class="amount_bt" ng-if="list.rechargeLargessRecord.largessSign == '3'"><i ng-if="firstRecharge || list.rechargeLargessRecord.largessCondition == '2'">送{{list.rechargeLargessRecord.largessSignNum}}元,</i><span ng-if="list.rechargeLargessRecord.largessSecondSignNum && firstRecharge || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2'">送优惠券</span></div>
+                        <div class="amount_bt" ng-if="list.rechargeLargessRecord.largessSign == '2'"><i ng-if="firstRecharge || list.rechargeLargessRecord.largessCondition == '2'">送{{list.rechargeLargessRecord.largessSignNum}}元</i></div>
+                        <div class="amount_bt" ng-if="list.rechargeLargessRecord.largessSign == '1' &&list.rechargeLargessRecord.rechargeMoney == '1000.00'"><span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge&&list.rechargeLargessRecord.rechargeMoney == '1000.00' || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2' && list.rechargeLargessRecord.rechargeMoney == '1000.00'">送电热水壶</span></div>
+                        <div class="amount_bt" ng-if="list.rechargeLargessRecord.largessSign == '1' &&list.rechargeLargessRecord.rechargeMoney == '5000.00'"><span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge&&list.rechargeLargessRecord.rechargeMoney == '5000.00' || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2' && list.rechargeLargessRecord.rechargeMoney == '5000.00'">送500元优惠券</span></div>
+                        <div class="amount_bt" ng-if="list.rechargeLargessRecord.largessSign == '1' &&list.rechargeLargessRecord.rechargeMoney == '10000.00'"><span ng-if="list.rechargeLargessRecord.largessSecondSignNum &&firstRecharge&&list.rechargeLargessRecord.rechargeMoney == '10000.00' || list.rechargeLargessRecord.largessSecondSignNum &&list.rechargeLargessRecord.largessCondition == '2' && list.rechargeLargessRecord.rechargeMoney == '10000.00'">送S50电视机</span></div>
+                    </a>
+                </div>
+            </div> -->
+            <!-- 我的订单 -->
+            <div class="item">
+                <a class="bar" href="#/Myorder" ng-click="vm.monitor('myorderpage','')">
+                    <h2 class="flex-1 blackColor">我的订单</h2>
+                    <span class="icon-arrow">查看全部订单</span>
+                </a>
+                <div class="con order">
+                    <a ng-click="vm.monitor('unpaidbutton','')" href="#/Myorder?state=dfk"><span class="icon-one"></span>待付款<span ng-if="orderStatInfo.dfk!=0">{{orderStatInfo.dfk}}</span></a>
+                    <a ng-click="vm.monitor('Waitingcheck','')" href="#/Myorder?state=audit"><span class="icon-two"></span>待审核<span ng-if="orderStatInfo.audit!=0">{{orderStatInfo.audit}}</span></a>
+                    <a ng-click="vm.monitor('waitingdelivery','')" href="#/Myorder?state=dfh"><span class="icon-she"></span>待发货<span ng-if="orderStatInfo.dfh!=0">{{orderStatInfo.dfh}}</span></a>
+                    <a ng-click="vm.monitor('waitingreceive','')" href="#/Myorder?state=dsh"><span class="icon-fack"></span>待收货<span ng-if="orderStatInfo.dsh!=0">{{orderStatInfo.dsh}}</span></a>
+                    <a href="" ng-click="gocustomer();vm.monitor('repair/return','')"><span class="icon-sess"></span>返修/退换</a>
+                </div>
+            </div>
+            <!-- 分期账单 -->
+            <!-- <div class="item">
+                <div class="bar bar1">
+                    <h2 class="flex-1 blackColor">分期账单</h2>
+                    <a ng-click="vm.monitor('installmentorder','')" class="icon-arrow" ng-href="{{vm.myBill}}">查看全部账单</a>
+                </div>
+            </div> -->
+
+            <!-- 优惠券 我的收藏 安全中心-->
+            <div class="item feature">
+                <a class="f24" ng-click="myCard();vm.monitor('coupons','')"><i class="myCard"></i><span><em>{{vm.used}}</em><br>优惠券</span></a>
+                <a class="f24" ng-click="mycollection();vm.monitor('collection','')"><i class="myCollection"></i><span><em>{{vm.count}}</em><br>我的收藏</span></a>
+                <a class="f24" ng-click="giftCard();vm.monitor('giftCard','')"><i class="giftCard"></i><span><em>{{vm.totalCard}}</em><br>礼品卡</span></a>
+                <a class="f24" ng-click="session();vm.monitor('Security center','')" ui-sref="safetyCenter"><i class="safeCenter"></i><span>安全中心</span></a>
+            </div>
+
+            <!-- 退出当前登录 -->
+            <!-- <div class="exit" ng-click="vm.exit();vm.monitor('exitbutton','')">退出当前账号</div> -->
+
+            <div style="height:0.25rem;"></div>
+
+            <!-- <div class="mycenter-item">
+				<span class="f24" ng-click="myCard()"><i class="myCard"></i><br>卡券</span>
+				<span class="f24" ng-click="mycollection()"><i class="myCollection"></i><br>收藏</span>
+			</div>
+			<div class="item">
+				<div class="bar" >
+					<h2 class="flex-1 blackColor">我的账单</h2>
+					<a class="icon-arrow" ng-href="{{vm.myBill}}">全部</a>
+				</div>
+				<div class="con">
+					<a href=""><span class="blackColor">{{vm.lines.consumption || 0}}</span><br>我的额度</a>
+					<a href=""><span class="blackColor">{{vm.bill.monthTatalPayCount}}</span><br>消费笔数</a>
+					<a href=""><span class="blackColor">每月11号</span><br>还款日期</a>
+				</div>
+			</div>
+			<div class="item">
+				<a class="bar" href="#/Myorder">
+					<h2 class="flex-1 blackColor">我的订单</h2>
+					<span class="icon-arrow">全部</span>
+				</a>
+				<div class="con">
+					<a href="#/Myorder?state=dfk"><span class="icon-one"></span>待付款<span ng-if="orderStatInfo.dfk!=0">{{orderStatInfo.dfk}}</span></a>
+					<a href="#/Myorder?state=audit"><span class="icon-two"></span>待审核<span ng-if="orderStatInfo.audit!=0">{{orderStatInfo.audit}}</span></a>
+					<a href="#/Myorder?state=dfh"><span class="icon-she"></span>待发货<span ng-if="orderStatInfo.dfh!=0">{{orderStatInfo.dfh}}</span></a>
+					<a href="#/Myorder?state=dsh"><span class="icon-fack"></span>待收货<span ng-if="orderStatInfo.dsh!=0">{{orderStatInfo.dsh}}</span></a>
+					<a href="" ng-click="gocustomer()"><span class="icon-sess"></span>返修/退货</a>
+				</div>
+			</div> -->
+
+            <!-- <div class="item">
+				<a class="bar" ui-sref="safetyCenter">
+					<h2 class="flex-1">安全中心</h2>
+					<span class="icon-arrow"></span>
+				</a>
+			</div> -->
+            <!--<div class="item">-->
+            <!--<a class="bar" href="">-->
+            <!--<i class="icon-message"></i>-->
+            <!--<h2 class="flex-1">消息中心</h2>-->
+            <!--<span class="icon-arrow"></span>-->
+            <!--</a>-->
+            <!--</div>-->
+        </section>
+    </div>
+</main>
+<div ng-include="'include/footer.html'"></div>

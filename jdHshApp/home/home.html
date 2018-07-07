@@ -1,0 +1,261 @@
+<div class="home">
+	<!-- header================================================== -->
+	<header class="header-bar">
+		<div class="flex-box flex-align">
+			<div class="region" id="region" ng-click='vm.regionClick()'><span ng-bind="region"></span><i class="icon-arrows"></i></div>
+			<div class="search-on-off flex-1">
+				<i class="pull-left"></i>
+				<span>美的倒计时2小时，最后疯抢!</span>
+			</div>
+			<div class="icon-message" style="background:url('') no-repeat center"></div>
+		</div>
+	</header>
+	<!-- nav================================================== -->
+	<div ng-include="'include/footer.html'"></div>
+	<!-- 汇理财遮罩层================================================== -->
+	<div class="modal-layer" id="remit">
+		<div class="shade "></div>
+		<div class="home-remit">
+			<span></span>
+			<span ng-click="hlcz()">&times;</span>
+		</div>
+	</div>
+	<!-- main================================================== -->
+	<main class="main-content has-footer">
+		<div class="scroll">
+			<!-- banner -->
+			<section class="bannerSlide swiper-container">
+		        <div class="swiper-wrapper" id="bannerSwiper">
+		        </div>
+		        <div class="swiper-pagination"></div>
+		    </section>
+		    <!-- 分类 -->
+		    <section class="category">
+		    	<div class="flex-box">
+		    		<a href="{{typeList.href}}" ng-repeat="typeList in vm.typeList" >
+		    			<img ng-src="{{typeList.src}}">
+		    			<span>{{typeList.name}}</span>
+		    		</a>
+		    	</div>
+		    </section>
+		    <!-- 免息分期 -->
+		    <section class="springsale">
+				<div class="tit-bar bottom">
+					<h2 class="text-center">秒杀专区</h2>
+					<!--<a href="#/interest" class="icon-arrow">更多</a>-->
+				</div>
+				<div class="hot-swiper swiper-container">
+                    <div class="swiper-wrapper" id="hometwo">
+                        <div class="swiper-slide" ng-repeat="for in getinterest">
+                            <figure>
+							  <a href="#/productDetails?goodsId={{for.goodsId}}">
+							  	<span ng-if="for.freePeriods!='0'" class="interest-m">免息</span>
+								<span ng-if="for.couponMoney != 0" class="interest-f"><span>返</span></span>
+							  	<img ng-src="{{for.img+for.imageUrl}}">
+							  </a>
+							  <figcaption class="magin text-center">{{for.goodsName}}</figcaption>
+							  <figcaption class="home-overhide text-center"><span class="home-price">{{for.salePrice}}</span><span class="home-dong" ng-if="for.otherPrice!=0">电商价:{{for.otherPrice}}</span></figcaption>
+							  <figcaption class="home-overhide text-center"><span class="home-price-two">￥{{for.monthMoney}} </span>x<span>{{for.periods}}期</span></figcaption>
+							</figure>	  
+                        </div>
+                        <!--<div class="swiper-slide">查&nbsp;看&nbsp;更&nbsp;多<span></span></div>-->
+                    </div>
+                </div>
+			</section>		    
+		    <!-- 限时特惠 -->
+			<section class="springsale">
+				<div class="tit-bar">
+					<h2 class="text-center">限时特惠</h2>
+					<a href="#/springSale" class="icon-arrow">更多</a>
+				</div>
+				<div class="goods-box flex-box">
+					<div class="left-goods"><a href="{{vm.limitOptionLeft.accessAddress}}"><img ng-src="{{vm.limitOptionLeft.url}}"></a></div>
+					<div class="right-goods">
+						<a href="{{limitOptionRight.accessAddress}}" ng-repeat="limitOptionRight in vm.limitOptionRight"><img ng-src="{{vm.url+limitOptionRight.url}}"></a>
+					</div>
+				</div>
+			</section>
+			<!-- ad================================================== -->
+			<section class="ad-center">
+				<div><a ng-href="{{vm.lowOption.href}}"><img ng-src="{{vm.lowOption.url}}"></a></div>
+			</section>
+			<!-- 今日大牌 -->
+			<section class="brand-list">
+				<div class="tit-bar">
+					<h2 class="text-center">今日大牌</h2>
+					<!--<a href="" class="icon-arrow">更多</a>-->
+				</div>
+				<div class="list clearfix">
+					<a href="#/todayList?brandName={{footerList.brandName}}&brandId={{footerList.brandId}}&brandPoster={{footerList.brandPoster}}" ng-repeat="footerList in vm.footerList">
+						<img ng-src="{{vm.url+footerList.brandLogo}}">
+					</a>
+				</div>
+			</section>
+		</div>
+	</main>
+</div>
+<!-- 城市定位================================================== -->
+<div class="modal-layer" id="orientation">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-up">
+		<div class="draw-layer province-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn modal-close" ng-click="vm.closeBtn();">取消</button>
+				</div>
+				<div ng-bind="region" class="city-name"></div>
+			</div>
+			<div class="province-scroll scroll-wrap">
+				<div class="scroll">
+					<!-- <div class="hot-city">
+						<div class="tit">热门城市</div>
+						<div class="clearfix">
+							<a href="##">上海</a>
+							<a href="##">广州</a>
+							<a href="##">北京</a>
+							<a href="##">苏州</a>
+							<a href="##">南京</a>
+							<a href="##">深圳</a>
+							<a href="##">成都</a>
+						</div>
+					</div> -->
+					<div class="list">
+						<div class="tit">省列表</div>
+						<ul>
+						 	<li ng-repeat="provinceList in vm.provinceList" ng-click="vm.provinceClick(provinceList.provinceId);">
+								{{provinceList.provinceName}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer city-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="city-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">市列表</div>
+						<ul>
+							<li class="city" ng-repeat="cityList in vm.cityList" ng-click="vm.cityClick(cityList.cityName,cityList.cityId);">{{cityList.cityName}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer county-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="county-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">县列表</div>
+						<ul>
+							<li ng-click="vm.countyClick(countyList.cityId,countyList.countyName);" ng-repeat="countyList in vm.countyList">{{countyList.countyName}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="draw-layer town-box">
+			<div class="location">
+				<div class="tit flex-box">
+					<span class="flex-1">当前位置</span>
+					<button class="btn btn-re" ng-click="vm.reBtn($event);">返回</button>
+				</div>
+				<div ng-bind="region"></div>
+			</div>
+			<div class="town-scroll scroll-wrap">
+				<div class="scroll">
+					<div class="list">
+						<div class="tit">镇列表</div>
+						<ul>
+							<li ng-click="vm.townClick();" ng-repeat="townList in vm.townList">{{townList.townList}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 搜索================================================== -->
+<div class="modal-layer" id="search">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-up">
+		<div class="search-bar flex-box">
+			<span class="search-btn icon-back" href=""> </span>
+			<form class="flex-1">
+				<input class="search-input" type="search" name="" maxlength="20" placeholder="手机" value="" ng-model="searchText">
+			</form>
+			<a class="" href="#/search?keywords={{searchText}}">搜索</a>
+		</div>
+		<div class="search-scroll">
+			<div class="scroll">
+				<div class="hot-keyword">
+					<h2 class="">热搜</h2>
+					<ul class="clearfix">
+						<li ng-repeat="hot in data.hotSearch"><a href="#/search?keywords={{hot}}">{{hot}}</a></li>
+					</ul>
+				</div>
+				<div class="history">
+					<h2 class="">历史搜索<i class="del" ng-click="delSearchCookie('searchName')"></i></h2>
+					<ul class="clearfix">
+						<li ng-repeat="history in data.historySearch"><a href="#/search?keywords={{history}}">{{history}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 消息中心================================================== -->
+<div class="modal-layer" id="message">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-left">
+		<div class="top-bar text-right"><a class="btn" ng-click="vm.xxhidePage();">返回</a></div>
+		<div class="info-list">
+			<a href="">
+				<div class="icon-left">
+					<span>1</span>
+					<img src="home/images/icon-message-logistics.png">
+				</div>
+				<div class="flex-1">
+					<div class="flex-box"><h6 class="flex-1">物流信息</h6><span>8月5日</span></div>
+					<p class="text-overflow">您的订单20225927891已完成您的订单20225927891已完成，感谢您对汇</p>
+				</div>
+			</a>
+			<a href="">
+				<div class="icon-left">
+					<span>1</span>
+					<img src="home/images/icon-message-order.png">
+				</div>
+				<div class="flex-1">
+					<div class="flex-box"><h6 class="flex-1">物流信息</h6><span>8月5日</span></div>
+					<p class="text-overflow">您的订单20225927891已完成您的订单20225927891已完成，感谢您对汇</p>
+				</div>
+			</a>
+			<a href="">
+				<div class="icon-left">
+					<span>1</span>
+					<img src="home/images/icon-message-favorable.png">
+				</div>
+				<div class="flex-1">
+					<div class="flex-box"><h6 class="flex-1">物流信息</h6><span>8月5日</span></div>
+					<p class="text-overflow">您的订单20225927891已完成您的订单20225927891已完成，感谢您对汇</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+

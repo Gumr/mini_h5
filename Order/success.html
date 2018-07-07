@@ -1,0 +1,28 @@
+<main class="main-content" ng-class="{group:vm.group}">
+    <div class="wrap">
+        <div class="success-top">
+            <div></div>
+            <p class="f32">恭喜支付成功!</p>
+            <p class="f28">进入<a href="#/Myorder" style="color: #ff5841;" ng-click="vm.monitor('myorder','')">我的订单</a>可查看订单进度。</p>
+        </div>
+
+        <!-- 分享 -->
+        <div class="share" ng-if="vm.group">
+            <p>还差一步就开团成功啦!</p>
+            <div class="button" ng-click="share1()"></div>
+        </div>
+
+        <a class="success-bottom" ng-href="https://www.funsales.com/mallh5/#/" ng-if="vm.payType == '101'">
+            <span class="f24 icon-arrow"><img src="Order/images/ddwc (1).png"/>继续购物   您还可分期消费{{quota|currency : '￥'}}元</span>
+        </a>
+
+        <!-- 跳转到活动页 -->
+        <a class="skip" ng-click="vm.monitor('rechargegift','')" href="https://www.funsales.com/ActivityProject/ritual/index.html">前往充值送壕礼活动页 ></a>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="modal" style="display: none">
+        <div class="share_1">
+            <div class="close_share" ng-click="share2()"></div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,94 @@
+﻿<main class="main-content">	
+	<div class="confirmpay">
+		<div class="bindInput flex">
+			<span>订单总额</span>
+			<a>{{info.total | currency : '￥'}}</a>
+			<!--<a ng-if="vm.spikeStatus==1">{{spikePirce | currency : '￥'}}</a>-->
+		</div>
+		<p class="f26" style="margin: 0 0 0.2rem 0.4rem;">选择付款方式</p>
+		<div ng-class="{active:info.total<1000&&item.code == 101}" class="method margin-bottom-none" style="margin-bottom: 0;border-bottom: 1px solid #dcdcdc;" ng-repeat="item in mode" ng-click="method(item.code)">
+				<div class="inner line">
+					<span class="f26 confirm-color confirm-l">
+						
+						<img style="width: 0.6rem;margin-right: 0.2rem;" src="{{item.img}}" />
+						
+						<a>
+							<i>{{item.name}}</i>
+							<em ng-if="item.balance">可用余额{{balance}}元</em>
+						</a>
+						
+					</span>
+					<span class="pull-right pay" ng-class="{iconpay:item.code==info.code}" ></span>
+				</div>
+		</div>
+		<div class="stages" ng-if="vm.show&&vm.car">
+			<div class="method margin-bottom-none" style="margin-bottom: 0;">
+				
+					<span class="pull-left f26 confirm-color">
+						<em>分期方式</em>
+						<i ng-if="freeServerFee == 1" class="sxf">免手续费</i>
+					</span>
+					<span class="pull-right right">
+						<em>
+							<a>应还总额<i>{{info.tal| number:2}}</i>元</a>
+							
+							<a>(分{{periodsValue}}期,已优惠<i>{{reduced | number:2}}</i>元)</a>
+						</em>
+						<span class="" ng-click="theDialog(list);vm.monitor('Installmentdetails','')">详情</span>
+					</span>
+				
+			</div>
+			<div class="total-free">
+				<div class="ferr confirm-bottom" ng-repeat="list in item" ng-click="Obtain(list.periods,list.loanRate,list.feeRate,list.monthRepayPrincipalAmount,list.freeServerFee,$index,$event)" ng-class="{current:periodsValue==list.periods}">
+					<span class="f26 confirm-color-balck" ng-class="{orange:periodsValue==list.periods}">
+						<span class="click" ng-class="{obtain:periodsValue==list.periods}"></span>
+						<em>￥{{list.monthRepayPrincipalAmount}}<span ng-if="freePeriods < list.periods">起</span>x{{list.periods}}期</em>
+						<!-- <span class="f18 mian" ng-if="list.freeServerFee==1">免手续费</span> -->
+						<span class="f18 mian" ng-if="list.freeInterest==1">免利息</span>
+						<span class="f18 mian" ng-if="list.freeInterest==0">费率0.05%/天</span>
+						<!--<p class="f20">(<span ng-class="{through:list.freeServerFee==1}">&nbsp;手续费￥{{list.serverFee}}</span>，<span ng-class="{through:list.freeInterest==1}">利息:1.00 %/期&nbsp;</span>)</p>-->
+						
+					</span>
+				</div>
+			</div>
+			<!-- <div class="method margin-bottom-none" style="border-bottom: 1px solid #dcdcdc;">
+				<span class="f24" style="color: #000;">合计应还：</span><span class="f24" style="color: #ff602e;">￥{{info.tal| number:2}}({{periodsValue}}期)&nbsp;&nbsp;<span style="color: #ff602e;">含服务费:{{info.fee | currency : '￥'}}</span></span>
+			</div> -->
+			
+		</div>
+		<div class="confirm-div ng-scope" ng-if="info.code==101&&vm.show">
+			<p class="agreement" >
+				<em></em>
+				<span ng-click="alert();vm.monitor('agreementandcontract','')">《分期服务协议及相关合同》</span>
+			</p>
+		</div>
+		
+		<form class="form" style="">
+			<div class="m40">
+				<button style="margin-top: 0.3rem;" class="btn" ng-click="promotion();vm.monitor('surepayment','')" ng-disabled="!isAgreement" >确认支付</button>
+			</div>
+		</from>
+	</div>
+</main>
+<div class="dialog-wrap1" style="display: none;">
+	<div class="dialog-mask1 active"></div>
+	<div class="dialog-content1 active">
+		<div class="content">
+			<div class="confirm-h-top">还款计划</div>
+			<div class="confirm-nav"><span class="perio">期数</span><span class="mon">月供</span><span class="prin">本金</span><span class="serve">服务费</span><!--<span ng-if="mark==1">免息</span>--></div>
+			<div class="confirm-section" ng-repeat="for in repayment">
+				<div class="cont">
+						<span>第{{for.periods}}期</span>
+						<span>￥{{for.repayAmount| number:2}}</span>
+						<span class="principal">￥{{for.principalAmount| number:2}}</span>
+						<div class="righ"><span ng-class="{through:for.freeInterest==1}">￥{{for.interestFee| number:2}}</span><i class="discounts" ng-if="freeServerFee == 1&&for.freeInterest == 1">已优惠</i></div>
+				</div>
+			</div>
+		</div>
+			<div class="bottom flex-box">
+				<p class="confirm-p" >{{written}}：<span ng-class="{through:freeServerFee==1}">{{serverFee}}元</span><span ng-if="freeServerFee==1">已优惠</span></p>
+				<a class="flex-1 confirm1-btn" href="javascript:void(0)" ng-click="Close()">确定</a>
+			</div>
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,196 @@
+<main class="main-content has-footer confirm">	
+	<div class="wrap">
+		<div ng-if="vm.goodsType == 1" class="confirm-top" ng-click="goaddAddress();vm.monitor('address','')" ng-class="{'noaddress':!goodid}">
+			<span ng-class="{'icon-arrow':goodid}">
+				<i class="add_1" ng-if="!goodid"></i>
+				<i class="firs">{{list}}</i>
+				<i class="seco">
+					<em class="locat"></em>
+					<em class="matter">{{list1}}</em>
+				</i>
+			</span>
+			<!-- <span class=""> </span> -->
+		</div>
+		<div class="confirm-now" ng-if="couponMoney!=null&&couponMoney!='0'&&spikeStatus!=1">
+			<span>返券</span>
+			<span>购物成功，赠送{{couponMoney}}元现金券，购物成功后第15天后可使用，有效期一个月。</span>
+		</div>
+		<div class="product" ng-if="isCart" ng-repeat="list in cartList">
+			<div class="pic">
+				<img ng-if="list.typeFrom==1" ng-src="{{huilImaUrl+list.thumbImgUrl}}">
+				<img ng-if="list.typeFrom==2" ng-src="{{jdImaUrl+list.thumbImgUrl}}">
+			</div>
+			<div class="detail">
+				<div class="confirm-maction f24 goodname"><span class="goods-name">{{list.goodsName}}</span></div>
+				<!--<div class="storage"><span>规格</span><span>64g</span></div>-->
+				<div class="price confirm-maction" ng-if="list.spikeStatus!=1"><span class="per-price f26">{{list.salePrice | currency : '￥'}}</span>×<span class="num">{{list.goodsNum}}</span></div>
+				<div class="price confirm-maction" ng-if="list.spikeStatus==1"><span class="per-price f26">{{list.spikePirce | currency : '￥'}}</span>×<span class="num">{{list.goodsNum}}</span></div>
+			</div>
+			<!-- <label class="confirm-inpt"><span class="f26">选填：</span><textarea type="text" placeholder="给商家留言" ng-model="vm.remark" maxlength="50" class="confirm-text" wrap="off"></textarea></label> -->
+			<!--<div class="method confirm-bottom" style="margin-bottom: 0" ng-click="cartCard(list,$index)">
+				<div class="inner line">
+					<span class="pull-left f26 confirm-color">优惠券({{yhj}})</span>
+					<span class="pull-right f24 confirm-dx icon-arrow "><span class="confirm-dx-one">{{list.Choice}}</span><span ng-if="list.Choice=='未选择'">{{list.couponNum}}张可用</span></span>
+				</div>
+			</div>-->
+			<!--<div class="method margin-bottom-none">
+				<div class="inner line">
+					<span class="pull-left f26 confirm-color">{{selectionperiod}}</span>
+					<span class="f22 confirm-dx-one">{{rent}}:￥{{list.monthRepayMoney| number:2}} X {{list.loanPeriods}}期<span class="confirm-span" ng-click="vm.theDialog(list)"></span></span>
+					<span class="pull-right icon-arrow" style="width: 1rem;height: 1.3rem" ng-click="showPeriods(list,$index)"></span>
+				</div>
+			</div>-->
+		</div>
+
+		<div style="background:#fff;">
+			<div class="product" ng-if="!isCart">
+				<div class="pic">
+					<img ng-src="{{vm.thumbImgUrl}}">
+				</div>
+				<div class="detail">
+					<div class="confirm-maction f24 goodname"><span class="goods-name">{{vm.goodsName}}</span></div>
+					<!--<div class="storage"><span>规格</span><span>64g</span></div>-->
+					<div class="price confirm-maction" ng-if="spikeStatus!=1"><span class="per-price f26">{{salePrice | currency : '￥'}}</span>×<span class="num">{{vm.goodsNum}}</span></div>
+					
+					<div class="price confirm-maction" ng-if="spikeStatus==1"><span class="per-price f26">{{spikePirce | currency : '￥'}}</span>×<span class="num">{{vm.goodsNum}}</span></div>
+				</div>
+				<!-- <label class="confirm-inpt"><span class="f26">选填：</span><textarea type="text" placeholder="给商家留言" ng-model="vm.remark" maxlength="50" class="confirm-text" wrap="off"></textarea></label> -->
+				
+				<!--div class="method margin-bottom-none" ng-if="vm.paid!=0">
+					<div class="inner line">
+						<span class="pull-left f26 confirm-color">{{selectionperiod}}</span>
+						<span class="f22 confirm-dx-one">{{rent}}:￥{{monthRepayPrincipalAmount| number:2}} X {{periodsValue}}期<span class="confirm-span" ng-click="vm.theDialog()"></span></span>
+						<span class="pull-right icon-arrow" style="width: 1rem;height: 1.3rem" ng-click="showPeriods()"></span>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<div class="method" ng-if="vm.show&&vm.goodsType == 1">
+			<span class="pull-left f26 confirm-color">配送方法</span>
+			<span class="pull-right f24 confirm-dx confirm-right">{{vm.express}}</span>
+		</div>
+
+		<div class="method method1" ng-click="goinvoice();vm.monitor('invoiceinformation','')" ng-if="vm.show&&vm.goodsType == 1">
+			<div class="inner line line1">
+				<span class="pull-left f26 confirm-color">发票信息</span>
+				<span class="pull-right f24 confirm-dx icon-arrow ">{{vm.invoice}}</span>
+			</div>
+		</div>
+
+		<div class="method confirm-bottom car card" ng-click="card();vm.monitor('coupons','')" ng-if="couponGoodsFlag !=1&&spikeStatus!=1&&!isCart&&vm.show&&vm.goodsType == 1">
+			<div class="inner line">
+				<span class="pull-left f26 confirm-color">优惠券<span class="confirm-dx-one" ng-if="vm.Choice!=''">{{vm.Choice}}</span></span>
+				<span class="pull-right f24 confirm-dx icon-arrow " style="height:1.35rem;line-height:1.35rem;">
+					<span class="use" ng-if="vm.Choice==''">{{vm.total}}张可用</span>
+					<span class="minus" ng-if="vm.Choice != ''">-￥{{couponAmount | number:2}}</span>
+				</span>
+			</div>
+		</div>
+		<div class="method confirm-bottom card" ng-click="card()" ng-if="couponGoodsFlag !=1&&isCart">
+			<div class="inner line">
+				<span class="pull-left f26 confirm-color">优惠券<span class="confirm-dx-one" ng-if="vm.Choice!=''">{{vm.Choice}}</span></span>
+				<span class="pull-right f24 confirm-dx icon-arrow " style="height:1.35rem;line-height:1.35rem;">
+					<span class="use" ng-if="vm.choiceCard==''">{{vm.total}}张可用</span>
+					<span class="minus" ng-if="vm.choiceCard != ''">-￥{{couponAmount | number:2}}</span>
+				</span>
+			</div>
+		</div>
+
+		<!-- 礼品卡 -->
+		<div class="method confirm-bottom" ng-click="giftCard()" ng-if="vm.goodsType == 1">
+			<div class="inner line">
+				<span class="pull-left f26 confirm-color">礼品卡<span class="confirm-dx-one" ng-if="vm.choiceCard!=''">{{vm.choiceCard}}</span></span>
+				<span class="pull-right f24 confirm-dx icon-arrow " style="height:1.35rem;line-height:1.35rem;">
+					<span class="use" ng-if="vm.choiceCard==''">{{vm.totalCard}}张可用</span>
+					<span class="minus" ng-if="vm.choiceCard != ''">-￥{{cardAmount | number:2}}</span>
+				</span>
+			</div>
+		</div>
+		
+		<!--<div class="method" >
+			<div class="inner line">
+				<span class="pull-left f26 confirm-color">支付方式</span>
+				<span class="confirm-zhifu icon-arrow" ng-click="method($event)">{{vm.mode}}</span>
+			</div>
+		</div>-->
+		<div class="total">
+			<div class="month month1 confirm-bottom">
+				<span class="pull-left f26 confirm-color">{{grossrent}}</span>
+				<span class="pull-right f24"><a class="red">{{accountPayable | currency : '￥'}}</a></span>
+			</div>
+			<div class="month confirm-bottom" ng-if="judge">
+				<span class="pull-left f26 confirm-color">实付总额</span>
+				<span class="pull-right f24" ng-if="spikeStatus!=1"><a class="red">{{info.paid | currency : '￥'}}</a></span>
+				<span class="pull-right f24" ng-if="spikeStatus==1"><a class="red">{{spikeAllPirce | currency : '￥'}}</a></span>
+			</div>
+			<!--<div class="month confirm-bottom"  ng-if="isCart">
+				<span class="pull-left f26 confirm-color">订单金额</span>
+				<span class="pull-right f24"><a class="red">{{info.paid| currency : '￥'}}</a></span>
+			</div>-->
+			<!--<div class="month confirm-bottom" ng-if="isCart">
+				<span class="pull-left f26 confirm-color">优惠合计</span>
+				<span class="pull-right f24"><a class="red">{{discountedAmount | currency : '￥'}}</a></span>
+			</div>
+			<div class="month confirm-bottom" ng-if="isCart">
+				<span class="pull-left f26 confirm-color">首期月供</span>
+				<span class="pull-right f24"><a class="red">{{firstMonthAmount | currency : '￥'}}</a><b style="font-weight: normal" ng-click="showMonthPaymentList()">详情</b></span>
+			</div>-->
+		</div>
+		<!--<div class="confirm-div ng-scope" >
+			<p class="agreement" >同意<span ng-click="alert()">《分期服务协议及相关合同》</span></p>
+		</div>-->
+	</div>
+</main>
+<div class="confirm-bot confirm-bot1 footer-bar" ng-click="Place();vm.monitor('sure','')">立即下单</div>
+<div class="dialog-wrap1" style="display: none;">
+	<div class="dialog-mask1 active"></div>
+	<div class="dialog-content1 active">
+		<div class="content">
+			<div class="confirm-h-top">{{Repaymentplan}}</div>
+			<div class="confirm-nav"><span>期数</span><span>{{Formonth}}</span><span>本金</span><span>服务费</span><span ng-if="mark==1">免息</span></div>
+			<div class="confirm-section" ng-repeat="for in vm.repayment"><span>第{{for.periods}}期</span><span>￥{{for.repayAmount| number:2}}</span><span>￥{{for.principalAmount| number:2}}</span><span ng-class="{through:for.freeInterest==1}">￥{{for.interestFee| number:2}}</span></div></div>
+			<div class="bottom flex-box">
+				<p class="confirm-p" >{{written}}：<span ng-class="{through:freeServerFee==1}">￥{{serverFee}}</span><span ng-if="freeServerFee==1">免手续费</span></p>
+				<a class="flex-1 confirm1-btn" href="javascript:void(0)" ng-click="Close()">我知道了</a>
+			</div>
+	</div>
+</div>
+<div class="dialog-wrap3">
+	<div class="dialog-mask1 active"></div>
+	<div class="dialog-content1 active">
+		<h3>选择分期数<i ng-click="closePeriods()">X</i></h3>
+		<div class="total-free">
+			<div class="ferr confirm-bottom" ng-repeat="list in item" ng-click="Obtain(list.periods,list.loanRate,list.feeRate,list.monthRepayPrincipalAmount,list.freeServerFee)">
+				<span class="f26 confirm-color-balck" ng-class="{orange:periodsValue==list.periods}">
+					￥{{list.monthRepayPrincipalAmount}}<span ng-if="freePeriods<list.periods">起</span>&nbsp;x&nbsp;{{list.periods}}期
+					<span class="f18 mian" ng-if="list.freeServerFee==1">免手续费</span>&nbsp;<span class="f18 mian" ng-if="list.freeInterest==1">免息</span>
+					<p class="f20">(<span ng-class="{through:list.freeServerFee==1}">&nbsp;手续费￥{{list.serverFee}}</span>，<span ng-class="{through:list.freeInterest==1}">利息:0.75%/期&nbsp;</span>)</p>
+					<span class="click" ng-class="{obtain:periodsValue==list.periods}"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 礼品卡支付弹窗 -->
+<div class="dialog_gift" style="display: none">
+	<div class="tool">
+		<p class="title">输入支付密码</p>
+		<div class="pay_wrap">
+			<span class="pay_title">支付密码:</span>
+			<div class="pass_wrap">
+				<input class="password" type="password" oninput="if(value.length>6)value=value.slice(0,6)" placeholder="请输入支付密码" ng-model="password">
+			</div>
+		</div>
+		<!-- 忘记密码 -->
+		<div class="forget">
+			<a class="forget_pass" ng-click="forget()">忘记密码？</a>
+		</div>
+
+		<!-- 底部按钮 -->
+		<div class="button">
+			<div class="cancel_gift" ng-click="close()">取消</div>
+			<div class="confirm" ng-click="beSure()">确认</div>
+		</div>
+	</div>
+</div>

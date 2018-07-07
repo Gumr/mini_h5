@@ -1,0 +1,46 @@
+<main class="main-content login">
+    <div class="scroll">
+        <!-- tab栏切换 -->
+        <section class="tab_login">
+            <div class="tabcut tab_left" ng-click="vm.tab1()">
+                <span ng-class="{'active':vm.tab == 0}">验证码登录</span>
+            </div>
+            <div class="tab_line"></div>
+            <div class="tabcut tab_right" ng-click="vm.tab2();vm.monitor('passwordlogin','')">
+                <span ng-class="{'active':vm.tab == 1}">账号密码登录</span>
+            </div>
+        </section>
+        <div class="logo-wrap">
+            <img src="./userInto/images/logo3.png">
+        </div>
+        <div class="m40">
+            <form class="form form1" ng-if="vm.tab == 1">
+                <div class="item-form">
+                    <input id="username" maxlength="11" ng-model="vm.userName" type="tel" name="" placeholder="请输入手机号码">
+                    <!--ng-model="username"-->
+                    <span class="text-empty" ng-click="vm.userName='';"></span>
+                </div>
+                <div class="item-form">
+                    <input id="password" maxlength="20" ng-model="vm.passWord" type="password" name="" placeholder="请输入6-20位密码">
+                    <i class="icon-input i-pass-hide" ng-click="vm.passwordShow($event)"></i>
+                </div>
+                <button class="Btn" ng-click="vm.toLogin()">登录</button>
+            </form>
+
+
+            <form class="form form2" ng-if="vm.tab == 0">
+                <div class="item-form">
+                    <input id="username" maxlength="11" ng-model="vm.phoneNum" type="tel" name="" placeholder="请输入11位手机号码">
+                    <!--ng-model="username"-->
+                </div>
+                <div class="item-form">
+                    <input id="code" maxlength="6" ng-model="vm.code" type="tel" name="" placeholder="请输入验证码">
+                    <button class="getcode" ng-click="vm.sendSM()">获取验证码</button>
+                </div>
+                <button class="Btn" ng-click="vm.codeLogin()">登录</button>
+            </form>
+
+            <p class="text-center f24 login-p"><a ng-click="vm.monitor1()" class="" ui-sref="forgotPassword({state:stateArg})">忘记密码</a><span></span><a class="" ng-click="vm.goRegister();vm.monitor2()">立即注册</a></p>
+        </div>
+    </div>
+</main>

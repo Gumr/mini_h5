@@ -1,0 +1,138 @@
+<main class="main-content apply has-footer">
+	<div class="scroll">
+		<div class="aply-header">
+			<div class="div1"><img ng-src="{{vm.imageUrl}}"></div>
+				<p class="deliver-size f22 return-color-black">{{vm.goodsName}}</p>
+				<p class="f22 return-color-black aply-header-div2-top apply-top">价格：{{vm.Price | currency : '￥'}}&nbsp;&nbsp;<span>数量：{{vm.num }}</span></p>
+				<!--<button class="aply-header-btn">联系客服</button>-->
+		</div>
+		<div class="aply-section-one aply-section-p">
+			<p class="aply-section-one-p f24">服务类型</p>
+			<div class="tabs-wrap" >
+				<span class="tabs-btn" ng-repeat="list in vm.fuwu" ng-class="{active:list.code == code}" ng-click="vm.handoved($event,list.code)">{{list.name}}</span>
+			</div>
+		</div>
+		<div class="aply-section-one-num aply-section-p">
+			<p class="aply-section-one-p f24">申请数量</p>
+			<span>
+				<i class="minus" ng-click="vm.goodsNumMinus();">-</i>
+				<input type="number" name="" ng-model="vm.goodsnum"  readonly>
+				<i class="add" ng-click="vm.goodsNumAdd();">+</i>
+			</span>
+		</div>
+		<div class="aply-section-two aply-section-p">
+			<p class="aply-section-one-p f24">申请凭证</p>
+				<div class="aply-section-flex">
+					<i class="f1 active" ng-click="vm.handcode($event)"></i><label for="radio-1-1" class="right f24">有发票</label>
+					<i class="f2 " ng-click="vm.handcode($event)"></i><label for="radio-1-2" class="f24">无发票</label>
+				</div>
+		</div>
+		<div class="aply-section-Three aply-section-p">
+			<p class="aply-section-one-p f24">检测报告</p>
+			<div class="aply-section-flex">
+					<i class="f3 active" ng-click="vm.handove($event)"></i><label for="radio-1-3" class="right f24">已有检测报告</label>
+					<i class="f4 " ng-click="vm.handove($event)"></i><label for="radio-1-4" class="f24">尚无检测报告</label>
+			</div>
+			<p class="aply-section-one-c">若有检测报告请拍照上传</p>
+		</div>
+		<div class="aply-section-div f24">描述问题</div>
+		<div class="aply-section-Four">
+			<textarea class="aply-section-text " ng-model="vm.goodtext" maxlength="100" placeholder="请在此描述详细问题"></textarea>
+			<span>{{vm.goodtext.length}}/100</span>
+		</div>
+		<div class="aply-section-div f24">上传照片</div>
+		<div class="aply-section-Five aply-section-p">
+			<form ng-submit="submit_form()">
+				
+				<div class="alpy-font pull-left">+<input id="alpy-input-file" multiple="multiple" name="file" type="file" onchange="angular.element(this).scope().img_upload(files)"  accept="image/*"/>
+				</div>
+				<div ng-repeat="item in tumb" class="pull-left aply-thumb">
+		                <img class="aply-images" ng-src="{{item}}"/>
+		            <span class="aply-span" ng-click="img_del($index)">&times;</span>
+		        </div>
+			</form>
+		</div>
+        <div class="aply-section-one-b">为了帮助我们更好地解决问题，请上传照片。最多三张，每张不超过5M，支持JPG，BMP，PNG。</div>
+        
+        
+        <div class="return-nav">
+			<p class="return-paading f22">商品退回方式</p>
+			<div class="return-paading tabs-wrap">
+				<span class="f22 ruturn-wh return-color tabs-btn-1" ng-class="{active:list.code == vm.stages}"  ng-repeat="list in vm.mode" ng-click="vm.handover($event,list.code)">{{list.name}}</span>
+			</div>
+			<p class="return-size return-weiyi">{{vm.hadestate}}</p> 
+		</div>
+		<div class="return-section" style="margin-bottom: 0.25rem;background: #fff;">
+			<p class="return-list-p return-bottom f24">联系人：<input type="text" ng-model="data.realName" /></p>
+			<p class="return-list-p f24">联系电话：<input type="text" ng-model="data.mobile"/></p>
+		</div>
+		<div class=" return-list">
+			<div class="pickup return-list-p return-bottom f24  icon-arrow" ng-click="vm.showSelect()">取件地区：
+				<span class="return-color-black" >{{vm.selectAddress}}</span>
+			</div>
+			<div class="pickup return-list-p return-bottom f24">详细地址：<input type="text" class="retrun-input" ng-model="info.address" /></div>
+			<!--<div class="pickup return-list-p return-bottom f24" >取件时间:
+				<input name="" type="text" readOnly ng-click="fetchClick($event)" >
+			</div>-->
+			<div class="pickup return-list-p return-bottom f24">收件地址
+				<dd class="pull-right dd">
+				    <span style="float: left;margin: 0.27rem 0.4rem 0 0;">与收件地址一致</span>
+				    <label class="iosCheck"><input class="checkbox" type="checkbox" checked="checked" ng-model="checked" ng-click="see()"><i></i></label>
+				</dd>
+			</div>
+			
+			<div class="return-list-p  f24 icon-arrow " ng-show="checked" ng-click="goadd()">
+				<span class="return-color-black" >{{info.consigneeAddress+info.address}}</span>
+			</div>
+			<div class="bottom  f24">
+				提交服务单后，售后专员可能与您电话沟通，请保持手机通畅
+			</div>
+			
+		</div>		
+	</div>
+</main>
+<button class="return-btn f30 return-color-bai footer-bar" ng-click="submit()" >提交</button>
+<!--弹出选择所在地区-->
+<div class="modal-layer">
+    <div class="shade"></div>
+</div>
+<section class="select-open clearfix" ng-class="{translate3d:vm.select3d}">
+    <div class="select-title f26">{{random}}<span ng-click="vm.hideSelect();">&times;</span></div>
+    <div class="select-tab f24">
+        <span class="active" ng-click="vm.selectTabClick('province')" ng-bind="vm.address1"></span>
+        <span ng-bind="vm.address2" ng-click="vm.selectTabClick('city')"></span>
+
+        <span ng-bind="vm.address3" ng-click="vm.selectTabClick('county')"></span>
+
+        <span ng-bind="vm.address4" ng-click="vm.selectTabClick('town')"></span>
+
+    </div>
+    <div class="select-scroll rightProvince">
+        <div class="select-content f24">
+            <dl>
+                <dt ng-class="{true: 'active', false: ''}[provinceList.provinceId==vm.provinceId]" ng-repeat="provinceList in vm.provinceList" ng-click="provinceClick(provinceList.provinceId,provinceList.provinceName)">{{provinceList.provinceName}}</dt>
+            </dl>
+        </div>
+    </div>
+    <div class="select-scroll city-box">
+        <div class="select-content f24">
+            <dl>
+                <dt ng-class="{true: 'active', false: ''}[cityList.cityId==vm.cityId]" ng-repeat="cityList in vm.cityList" ng-click="cityClick(cityList.cityId,cityList.cityName)">{{cityList.cityName}}</dt>
+            </dl>
+        </div>
+    </div>
+    <div class="select-scroll county-box">
+        <div class="select-content f24">
+            <dl>
+                <dt ng-class="{true: 'active', false: ''}[countyList.countyId==vm.countyId]" ng-repeat="countyList in vm.countyList" ng-click="countyClick(countyList.countyId,countyList.countyName)">{{countyList.countyName}}</dt>
+            </dl>
+        </div>
+    </div>
+    <div class="select-scroll street-box">
+        <div class="select-content f24">
+            <dl>
+                <dt ng-class="{true: 'active', false: ''}[townList.townId==vm.townId]" ng-repeat="townList in vm.townList" ng-click="townClick(townList.townId,townList.townName)">{{townList.townName}}</dt>
+            </dl>
+        </div>
+    </div>
+</section>

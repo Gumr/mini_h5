@@ -1,0 +1,38 @@
+<main class="main-content mycollection">
+	<div class="scroll">
+		<section class="">
+		    <div class="g-list">
+		    	<a class="item" href="#/productDetails?goodsId={{productList.goodsId}}" ng-repeat="productList in vm.goodsList">
+		    		<div ng-if="productList.typeFrom == 2"><img ng-src="{{jdUrl+productList.imageUrl}}"></div>
+		    		<div ng-if="productList.typeFrom == 1"><img ng-src="{{zjUrl+productList.imageUrl}}"></div>
+		    		<div>
+		    			<h2><span class="label" ng-if="productList.typeFrom == 1">自营</span><!--<span class="label" ng-if="productList.typeFrom == 2">京东</span> -->{{productList.goodsName}}</h2>
+		    			<p class="favorable">
+		    				<i ng-if="productList.freePeriods !=0 || productList.chargeFee == 1" class="label label-red f20">免</i>
+		    				<i ng-if="productList.couponMoney !=0" class="label label-yellow f20">券</i>
+		    				<span>{{productList.activityWords}}</span>
+		    			</p>
+		    			<!--<p>{{productList.goodsName}}</p>-->
+		    			<div class="price">
+		    				<div><span class="col-red">￥<em>{{productList.monthMoney}}</em></span>X{{productList.periods}}期</div>
+		    				<div>
+		    					<span>售价:￥{{productList.salePrice}}</span>
+		    					<del ng-if="productList.otherPrice==productList.salePrice">电商价：￥{{productList.otherPrice}}</del>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	</a>
+				<div class="loading" ng-if="vm.loadIcon">
+                  <p>正在加载</p>
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
+		    </div>
+		</section>
+		<div class="noRecord ng-scope" ng-if="fiction">
+            <i><img src="myblocks/images/myCard_img1.png"></i>
+            	啊哦，还没有相关记录哦
+        </div>
+    </div>
+</main>

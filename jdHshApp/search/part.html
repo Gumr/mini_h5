@@ -1,0 +1,27 @@
+<header class="part">
+    <form class="" ng-click="search()">
+        <i></i>
+        <input type="search" placeholder="iphone6s" >
+        <a></a>
+    </form>
+</header>
+<ul class="part-tab">
+	<li class="swiper-slide" ng-click="tabs(for.name,for.id)" ng-repeat="for in tab" ng-class="{active:name == for.name}">{{for.name}}</li>
+</ul>
+<!-- nav================================================== -->
+<div ng-include="'include/footer.html'"></div>
+<main class="main-content has-footer part-scroll ">
+    <div>
+        <div class="part-contain">
+            <div class="part-content">
+                <div ng-repeat="list in categoryList">
+                    <h1>{{list.categoryName}}</h1>
+                    <ul class="part-content-list clearfix">
+                        <li ng-repeat="blist in list.categoryList" ng-click="goseach(blist.parentId,blist.categoryId,blist.code)"><img src="{{blist.img}}" alt=""><p>{{blist.categoryName}}</p></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</main>

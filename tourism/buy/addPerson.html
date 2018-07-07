@@ -1,0 +1,49 @@
+<main class="main-content t-add-person">
+    <div class="scroll">
+        <section>
+            <form class="form">
+                <label class="item-form">
+                    <span>姓　　名：</span>
+                    <input type="text" name=""  placeholder="请输入出游人姓名" ng-model="username">
+                </label>
+                <label class="item-form">
+                    <span>&nbsp;英 文 名：</span>
+                    <input type="text" name=""  placeholder="请输入出游人英文名" ng-model="englishName">
+                </label>
+                <label class="item-form">
+                    <span>&nbsp;手 机 号：</span>
+                    <input type="text" maxlength="11" name=""  placeholder="请输入手机号码" ng-model="mobile">
+                </label>
+                <label class="item-form">
+                    <span>电子邮箱：</span>
+                    <input type="text" name=""  placeholder="请输入电子邮箱" ng-model="email">
+                </label>
+                <label class="item-form icon-arrow">
+                    <span>证件类型：</span>
+                    <input name="" type="text" readOnly ng-click="voucherClick($event)" class="form-voucher" ng-model="voucher">
+                    <em >请选择</em>
+                </label>
+                <label class="item-form" >
+                    <span>证件号码：</span>
+                    <input type="text" name=""  placeholder="请输入证件号码" ng-model="voucherNum" ng-blur="autoCompleInfo()">
+                </label>
+                <label class="item-form icon-arrow">
+                    <span>性　　别：</span>
+                    <input name="" type="text" readOnly ng-click="sexClick($event)" class="form-sex" ng-model="sex">
+                    <em>请选择</em>
+                </label>
+                <label class="item-form icon-arrow">
+                    <span>出生日期：</span>
+                    <input name="" type="text" readOnly ng-click="birthdayClick($event)" class="form-birthday" ng-model="birthday">
+                    <em>请选择</em>
+                </label>
+                <label class="item-form icon-arrow">
+                    <span>人　　群：</span>
+                    <input name="" type="text" readOnly ng-click="crowdClick($event)" class="form-crowd" ng-model="crowd">
+                    <em>请选择</em>
+                </label>
+            </form>
+        </section>
+        <a class="btn" ng-click="submit()">确认</a>
+    </div>
+</main>

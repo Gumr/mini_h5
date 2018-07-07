@@ -1,0 +1,103 @@
+<main class="main-content has-footer">
+	<div class="scroll">
+		<div class="order-section order-top-one">	
+				<div class="div1"><img src="{{vm.list}}" /></div>
+				<p class="order-margin-left f22 ">{{vm.productName}}</p>
+				<p class="order-margin-left f30 color-black ">{{vm.adultPrice | currency : '￥'}}</p>	
+		</div>
+		<div class="order-div">
+			<a href="#/tourism/setMeal?id={{vm.id}}&flog={{vm.fromPage}}&stages={{vm.stages}}">
+				<div class="order-section-list border-bottom">
+					<span class="order-top-color">线路套餐</span>
+					<span class="icon-arrow order-na" ng-repeat="getPackage in vm.getPackage">{{getPackage}}</span>
+				</div>
+			</a>
+			<a href="#/tourism/setMeal?id={{vm.id}}&flog={{vm.fromPage}}&stages={{vm.stages}}">
+				<div class="order-section-list border-bottom ">
+					<span class="invoice-top-color">出发日期</span>
+					<span class="icon-arrow">{{vm.request.orderInfo.visitDate}}</span>
+				</div>
+			</a>
+			<a href="#/tourism/setMeal?id={{vm.id}}&flog={{vm.fromPage}}&stages={{vm.stages}}">
+				<div class="order-section-list">
+					<span class="invoice-top-color">出游人数</span>
+					<span class="icon-arrow">成人{{vm.request.orderInfo.adultNum}}，儿童{{vm.request.orderInfo.childNum}}</span>
+				</div>
+			</a>
+		</div>
+		<div class="order-fenqi invoice-margin tabs-wrap">
+			<p class="order-padding order-color-black f24">选择分期</p>
+			<span class="travel-margin" ng-class="{active:periods.periodsValue == vm.stages}"  ng-click="vm.handover($event,periods.periodsValue)" ng-repeat="periods in vm.rate">{{periods.periodsText}}</span>
+			
+		</div>
+		<div class="order-riqi invoice-margin tabs-wrap">
+			<div class="order-section-list" ng-click="vm.toInvoice()">
+				<span class="invoice-top-color f24">发票信息</span><span class="icon-arrow">{{vm.time}}</span>
+				
+			</div>
+			<!--<div class="order-section-list">
+				<span class="order-top-color f24">优&nbsp;&nbsp;惠&nbsp;&nbsp;卷</span>
+				<span class="youhui">有一张可用</span><span class="icon-arrow">去使用</span>
+			</div>-->
+		</div>
+		<div class="order-money">
+			<p class="order-padding-bottom">首次还款：<span class="color-orgein order-left">{{data.planRepayAmount |currency : '￥'}}</span></p>
+			<p class="order-padding-bottom">商品总额：<span class="color-orgein order-left">{{vm.request.orderInfo.orderMoney |currency : '￥'}}</span></p>
+			<p class="order-padding-bottom">月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;供：<span class="color-orgein order-left">{{data.planRepayPrincipal |currency : '￥'}}</span><span class="order-span" ng-click="theDialog()"></span></p>
+		</div>
+		<div class="order-div magin-bottom-none">
+			<p class="order-padding-left order-color-black f24">联系人信息</p>
+			<div class="order-section-list-two border-bottom">
+				<span class="invoice-top-color">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+				<input type="text" placeholder="请输入联系人姓名" ng-model="vm.booker.name" value="$("key")"/>
+			</div>
+			<div class="order-section-list-two border-bottom ">
+				<span class="invoice-top-color">手&nbsp;&nbsp;机&nbsp;&nbsp;号</span>
+				<input type="text" placeholder="用于客服和旅游团导游联系您" ng-model="vm.booker.mobile" value="$("key")" maxlength="11"/>
+			</div>
+			<div class="order-section-list-two">
+				<span class="invoice-top-color">电子邮箱</span>
+				<input type="text" placeholder="用于接收电子凭证" ng-model="vm.booker.email" value="Request("key")"/>
+			</div>
+		</div>
+		<div class="order-div order-margin-top">
+			<p class="order-padding-left f24 order-color-black">出游人信息(成人{{vm.request.orderInfo.adultNum}}，儿童{{vm.request.orderInfo.childNum}})</p>
+			<div class=" order-section-list-two border-bottom" ng-repeat="goods in addlit track by $index" ng-click="vm.modify($index)">
+				<i class="order-icon"  ng-click="vm.setnone($event,$index)"></i>
+				<span class="information invoice-top-color " >{{goods.name}}</span>
+			</div>
+			<div class="order-section-list-two" ng-click="vm.toAddPerson()">
+				<i class="order-icon-f1"></i>
+				<span class="invoice-top-color">添加出游人</span>
+			</div>
+		</div>
+		<div class="order-div  order-margin-top">
+			<p class="order-padding-left order-color-black f24">紧急联系人</p>
+			<div class="order-section-list-two border-bottom">
+				<span class="invoice-top-color">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+				<input type="text" placeholder="请输入联系人姓名" ng-model="vm.emrgency.name" />
+			</div>
+			<div class="order-section-list-two border-bottom">
+				<span class="invoice-top-color">手&nbsp;&nbsp;机&nbsp;&nbsp;号</span>
+				<input type="text" placeholder="用于客服和旅游团导游联系您" ng-model="vm.emrgency.mobile" maxlength="11"/>
+			</div>
+		</div>
+		<div class="order-footer">
+			<p ng-click="gostaging()">同意<span style="color: #ff602e;">《汇生活分期协议》</span></p>
+		</div>
+	</div>
+</main>
+<button class="order-btn f26 footer-bar" ng-click="vm.setdata()">立即下单</button>
+<div class="dialog-wrap1" style="display: none;">
+	<div class="dialog-mask1 active"></div>
+	<div class="dialog-content1 active">
+		<div class="content">
+			<div class="confirm-h-top">还款计划</div>
+			<div class="confirm-nav"><span>期数</span><span>月供</span><span>本金</span><span>服务费</span><span ng-if="mark==1">免息</span></div>
+			<div class="confirm-section" ng-repeat="for in data.repayment"><span>第{{for.periods}}期</span><span>￥{{for.planRepayAmount | currency : ''}}</span><span>￥{{for.planRepayPrincipal | currency : ''}}</span><span ng-class="{through:for.freeInterest==1}">￥{{for.planRepayInterest | currency : ''}}</span></div></div>
+			<div class="bottom flex-box">
+				<p class="confirm-p" style="margin-left: 0.5rem;">{{data.written}}<span ng-class="{through:freeServerFee==1}">￥{{data.serverFee | currency : ''}}</span><span ng-if="freeServerFee==1">免手续费</span></p>
+				<a class="flex-1 confirm1-btn" href="javascript:void(0)" ng-click="Close()">我知道了</a>
+			</div>
+	</div>
+</div>

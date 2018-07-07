@@ -1,0 +1,21 @@
+
+<main class="main-content">
+	<div>
+		<div class="track-number">
+			<div>
+			<p >订单编号<span>{{vm.jdOrderId}}</span></p>
+			<p>预计送达<span>{{vm.one}}</span></p>
+			</div>
+		</div>
+		<section class="track-information">
+				<ul ng-repeat="item in vm.list">
+					<li>
+						<i class="two"></i><p>{{item.content}}</p>
+						<a>{{item.msgTime}}</a><span>操作员:{{item.operator}}</span>
+					</li>
+					<div class="track-bottom"></div>
+				</ul>
+				
+		</section>
+	</div>
+</main>

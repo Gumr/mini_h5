@@ -1,0 +1,16 @@
+<main class="main-content">
+	<div class="scroll logistics-top">
+		<div class="logistics-list return-bottom" >
+			<span class="pull-left">物流公司</span>
+			<span class="pull-right" >
+				<input name="" type="text" readOnly ng-click="logisticsClick($event)" class="form-voucher icon-arrow" ng-model="vm.company" placeholder="请选择物流公司">
+			</span>
+					
+		</div>
+		<div class="logistics-list">
+			<span class="pull-left">物流编号</span>
+			<input type="text" ng-model="vm.text" placeholder="请输入物流编号"/>
+		</div>	
+		<button class="return-btn f30 return-color-bai" ng-click="submitLogisticsInfo()">提交</button>
+	</div>
+</main>

@@ -1,0 +1,35 @@
+<main class="main-content has-footer essInfor">
+    <h2><span class="active">1</span><i class="active"></i><i></i><span>2</span><i></i><i></i><span>3</span></h2>
+    <h3>个人信息</h3>
+    <div class="essInfor-main">
+        <label><span>姓<em></em>名</span><input type="text" maxlength="20" placeholder="请输入本人姓名(保存后不可修改)" ng-model="vm.myInfo.name" ng-if="vm.showName"><b ng-if="!vm.showName">{{vm.myInfo.name}}</b></label>
+        <label><span>身份证号</span><input type="text" maxlength="20" placeholder="请输入本人身份证号码(保存后不可修改)" ng-model="vm.myInfo.id" ng-if="vm.showId"><b ng-if="!vm.showId">{{vm.myInfo.id}}</b></label>
+        <label><span>婚姻状况</span><span><i ng-class="{active:vm.myInfo.isMarry}" ng-click="vm.selectMarry('yse')">已婚</i><i ng-class="{active:vm.myInfo.noMarry}" ng-click="vm.selectMarry('no')">未婚</i></span></label>
+    </div>
+    <h3>紧急联系人</h3>
+    <div class="essInfor-main">
+        <label><span>姓<em></em>名</span><input type="text" maxlength="20" placeholder="请输入紧急联系人姓名" ng-model="vm.contactInfo.name"></label>
+        <label><span>电<em></em>话</span><input type="tel" maxlength="11" placeholder="请输入紧急联系人电话号码" ng-model="vm.contactInfo.phone"></label>
+        <label class="long" ng-click="vm.showSelect()"><span>与联系人关系</span><span>{{vm.contactInfo.relationship}}</span></label>
+    </div>
+
+    <h4 ng-click="vm.submit()">下一步</h4>
+
+  <!--弹出选择关系-->
+    <div class="modal-layer" ng-class="{active:vm.showsel}">
+    </div>
+    <section class="select-open clearfix" ng-class="{translate3d:vm.showsel}">
+        <div class="select-title f26">与联系人关系<span ng-click="vm.hideSelect();">x</span></div>
+        <div class="select-scroll select-scrollLow rightProvince">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-if="vm.myInfo.isMarry" ng-click="vm.selRel('配偶',1)">配偶</dt>
+                    <dt ng-click="vm.selRel('亲子',2)">亲子</dt>
+                    <dt ng-click="vm.selRel('朋友',3)">朋友</dt>
+                    <dt ng-click="vm.selRel('亲属',4)">亲属</dt>
+                    <dt ng-click="vm.selRel('同事',5)">同事</dt>
+                </dl>
+            </div>
+        </div>
+    </section>
+</main>

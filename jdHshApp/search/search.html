@@ -1,0 +1,102 @@
+<div class="search-list-wrap">
+    <header class="header-bar search-bar flex-box">
+        <form class="flex-1">
+            <input class="search-input" type="search" maxlength="50" name="" placeholder="手机" value="" ng-model="data.searchText">
+        </form>
+        <a class="search-btn" href="" ng-click="searchClick()">确认</a>
+    </header>
+	 <!-- 免息层-->
+    <section class="today-select">
+    	<span ng-class="{active:data.freePeriods ===list.code}" ng-repeat="list in data.freePeriodsList" ng-click="freePeriodsSelect(list.code)">{{list.name}}<a></a></span>
+    	<span ng-class="{active:data.freePoundage}" ng-click="freePoundageSelect()">免手续费<a></a></span>
+      <span ng-class="{active:data.cashBack}" ng-click="cashBackSelect()">返现金券<a></a></span>
+		      <button ng-click="interestReset()">重置</button>
+		      <button ng-click="interestConfirm()">确定</span>
+    </section>
+    <div id="one"></div>
+    <!-- 筛选层-->
+    <div class="modal-layer screen-layer" ng-click="screenHide()">
+      <div class="shade"></div>
+      <div class="modal-wrapper slide-left" ng-click="stopPropagation($event)">
+        <div class="content">
+          <div class="item price">
+            <p class="f26">价格区间</p>
+            <div>
+              <input type="text" maxlength="7" placeholder="最低价" ng-model="data.minPrice" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+              <span> — </span>
+              <input type="text" maxlength="7" placeholder="最高价" ng-model="data.maxPrice" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+            </div>
+          </div>
+          <div class="item brand">
+            <p class="f26">品牌</p>
+            <ul>
+              <li ng-click="brandSelect($index)" ng-class="{active:data.brandIndex===$index}" ng-repeat="brand in data.brandList">{{brand.brandName}}</li>
+            </ul>  
+          </div>
+          <div class="item service">
+            <p class="f26">服务</p>
+            <ul>
+              <li ng-click="serviceSelect($index)" ng-class="{active:data.serviceIndex===$index}" ng-repeat="service in data.serviceList">{{service.name}}</li>
+            </ul>  
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn-reset" ng-click="screenReset()">重置</button>
+          <button class="btn-confirm" ng-click="screenConfirm()">确认</button>
+        </div>
+        <div class="btn-colse" ng-click="screenHide()">&times;</div>
+      </div>
+    </div>
+
+    <main class="tabs-wrap">
+        <ul>
+            <li class="tabs-btn" ng-class="{active:data.tabsIndex===0}" ng-click="tabs(0);">
+                <a href="javascript:void(0)">综合</a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn" ng-class="{active:data.tabsIndex===1}" ng-click="tabs(1);orderProp='salePrice';vm.desc=!vm.desc;">
+                <a href="javascript:void(0)">价格 <i class="icon-sort" ng-class="{priceSort:vm.desc}"></i></a>
+                <span class="line"></span>
+            </li>
+             <li class="tabs-btn two" ng-class="{active:data.tabsIndex===2}" ng-click="tabs(2);free()">
+                <a href="javascript:void(0)">免息<i class="icon"></i></a>
+                <span class="line"></span>
+            </li>
+            <li class="tabs-btn screen-btn" ng-click="screenShow()">
+                <a href="javascript:void(0)">筛选<i class="icon"></i></a>
+                <span class="line"></span>
+            </li>
+        </ul>
+        <div class="main-content">
+            <div class="scroll">
+                <div class="tabs-box g-list">
+                    <a class="item" ng-href="#/productDetails?goodsId={{goods.goodsId}}" ng-repeat="goods in data.goodsList | orderBy:orderProp:vm.desc"">
+                        <div><img ng-src="{{goods.imageUrl}}"></div>
+                        <div>
+                            <h2><span class="label label-outline" ng-if="goods.typeFrom == 1">自营</span><!--<span class="label" ng-if="goods.typeFrom == 2">京东</span> -->{{goods.goodsName}}</h2>
+                            <p class="favorable">
+                                <i class="label label-red f20" ng-if="goods.chargeFee || goods.freePeriods">免</i>
+                                <i class="label label-yellow f20" ng-if="goods.couponMoney">券</i>
+                                <span>{{goods.activityWords}}</span>
+                            </p>
+                            <!-- <p>月销{{goods.saleNum}}笔</p> -->
+                            <div class="price">
+                                <div><span class="col-red">￥<em>{{goods.monthMoney}}</em></span>X{{goods.periods}}期</div>
+                                <div>
+                                    <span>售价：￥{{goods.salePrice}}</span>
+                                    <del ng-if="goods.otherPrice > goods.salePrice">电商价：￥{{goods.otherPrice}}</del>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="loading" ng-if="data.loadIcon">
+                    <p>正在加载</p>
+                      <div class="bounce1"></div>
+                      <div class="bounce2"></div>
+                      <div class="bounce3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

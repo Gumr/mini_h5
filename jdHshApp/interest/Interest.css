@@ -1,0 +1,38 @@
+
+/*免息分期*/
+.interest .springsale {}
+.interest .bottom{border-bottom: 1px solid #DDDDDD;}
+.interest .top{border-top: 1px solid #DDDDDD;}
+.interest .hot-swiper { padding: 0.46875rem 0 0.43875rem 0.25rem;}
+.interest .hot-swiper .swiper-slide { margin-right: 0.7rem; width: 2.96875rem; }
+.interest .hot-swiper .swiper-slide img { width: 2.56875rem; height: 2.56875rem; }
+.interest .hot-swiper .swiper-slide figure figcaption:nth-child(2) { margin-top: 0.265625rem;  color: #9f9f9f;width: 108%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.interest .hot-swiper .swiper-slide figure figcaption:nth-child(3) {margin-top: 0.105625rem;}
+.interest .hot-swiper .swiper-slide figure{position: relative;text-align: center;}
+.interest .hot-swiper .swiper-slide .interest-m{width: 0.84375rem;height: 0.4375rem;background: #ff3b30;display: block;color: #fff;position: absolute;bottom: 1.8rem;text-align: center;line-height: 0.4375rem;}
+.interest .hot-swiper .swiper-slide .interest-f{ width: 0;height: 0;border-top: 0.8rem solid #ff801a;border-left: 0.8rem solid transparent; position: absolute;right: 0;top: 0;}
+.interest .hot-swiper .swiper-slide .interest-f span{position: absolute;right: 0.05rem;top: -0.8rem;color: #fff;}
+.interest .hot-swiper .home-price{color: #9a9a9a;margin-right: 0.2rem;}
+.interest .hot-swiper .home-price-two{color: #ff801a;font-size: 0.3125rem;}
+.interest .hot-swiper .home-overhide{ white-space: nowrap; text-overflow: ellipsis;}
+.interest .hot-swiper .interest-nic span:nth-child(2){text-decoration: line-through; font-size: 0.25rem; color: #b8b8b8;}
+.interest .interest-fication{overflow: hidden;}
+.interest .springsale .tit-bar h2 {color:#ff5f01 ;}
+.interest .springsale .tit-bar h2 .icon { background-image: url(../common/images/tit-hot.png)}
+.interest .springsale .tit-bar h2 .icons { background-image: url(../common/images/tit-3c.png)}
+.interest .springsale .tit-bar h2 .iconb { background-image: url(../common/images/tit-computer.png)}
+.interest .springsale .tit-bar h2 .iconj { background-image: url(../common/images/tit-travel.png)}
+.interest .home-price-two{font-size: 0.3125rem; color: #ff801a;}
+.interest .home-overhide{ white-space: nowrap; text-overflow: ellipsis; }
+.interest .interest-fication .magin{margin-top: 0.2rem;}
+.interest .interest-fication .magin span:nth-child(2){text-decoration:line-through;font-size: 0.28125rem;color: #9a9a9a;}
+.interest .interest-fication .home-price{color: #9a9a9a; font-size: 0.28125rem;margin-right: 0.2rem;}
+.interest-fication ul { width:100%;}
+.interest-fication ul li {position: relative;width:3.3rem; height:4.1rem; float:left; border-bottom:1px solid #ddd; border-right:1px solid #ddd; text-align:center;line-height: height:4.1rem;}
+.interest-fication ul li:nth-child(3){border-right:0;}
+.interest-fication ul li img{width: 2.5rem;height: 2.3rem;margin-top: 0.4rem;}
+.interest-fication ul li:nth-child(1) img{width: 100%;height: 100%;margin: 0;}
+.interest-fication .interest-m{width: 0.84375rem;height: 0.4375rem;background: #ff3b30;display: block;color: #fff;position: absolute;bottom: 1.4rem;line-height: 0.4375rem;}
+.interest-fication .interest-f{ width: 0;height: 0;border-top: 0.8rem solid #ff801a;border-left: 0.8rem solid transparent; position: absolute;right: 0;}
+.interest-fication .interest-f span{position: absolute;right: 0.05rem;top: -0.8rem;color: #fff;}
+.interest .bottom{border-bottom: 1px solid #dcdcdc;margin-top: 0;}

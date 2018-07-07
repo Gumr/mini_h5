@@ -1,0 +1,60 @@
+<main class="main-content product-list">
+	<div class="scroll">
+		<!-- banner -->
+		<section class="bannerSlide swiper-container">
+	        <div class="swiper-wrapper" id="bannerSwiper">
+	            <div ng-click="vm.monitor(page,'topBanner',bannerList.name)" class="swiper-slide" ng-repeat="bannerList in vm.bannerList">
+					<a ng-href="{{bannerList.accessAddress}}">
+						<img ng-src="{{vm.bannerImgUrl+bannerList.url}}">
+					</a>
+				</div>
+	        </div>
+	        <div class="swiper-pagination"></div>
+	    </section>
+
+	    <!-- banner -->
+	    <section class="brand-list">
+	    	<h2>热门品牌</h2>
+			<div class="list clearfix">
+				<a ng-click="vm.monitor(vm.page,'brand',typeList.brandName)" href="{{typeList.href}}" ng-repeat="typeList in vm.typeList"><img ng-src="{{vm.typeImgUrl+typeList.brandLogo}}"></a>
+			</div>
+		</section>
+		<section class="list-wrap">
+			<div class="category-slide swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide" ng-class="{'active':$index == vm.Identification,listfour:listfour,listThree:listThree}"  ng-repeat="categoryList in vm.categoryList" ng-click="vm.findGoods($event,categoryList.categoryId,categoryList.categoryName);">{{categoryList.categoryName}}</div>
+		        </div>
+		    </div>
+		    <div class="tabs-box g-list">
+                <a class="item" ng-click="go(goods.goodsId)" ng-href="#/productDetails?goodsId={{goods.goodsId}}" ng-repeat="goods in data.goodsList | orderBy:orderProp:vm.desc">
+                    <div class="pro-img">
+						<img ng-src="{{goods.imageUrl}}">
+						<span class="nogoods" ng-if="goods.stockState == 0 || goods.state == 0"></span>
+					</div>
+                    <div>
+                        <h2><span class="label label-outline" ng-if="goods.typeFrom == 1">自营</span><!--<span class="label" ng-if="goods.typeFrom == 2">京东</span> -->{{goods.goodsName}}</h2>
+                        <p class="favorable">
+                            <i class="label label-red f20" ng-if="goods.chargeFee || goods.freePeriods">免</i>
+                            <i class="label label-yellow f20" ng-if="goods.couponMoney">券</i>
+                            <span>{{goods.activityWords}}</span>
+                        </p>
+                        <div class="price">
+                            <div><span class="col-red">￥<em>{{goods.monthMoney}}</em></span>X{{goods.periods}}期</div>
+                            <div>
+                                <span>售价：￥{{goods.salePrice}}</span>
+                                <del ng-if="goods.otherPrice > goods.salePrice">电商价：￥{{goods.otherPrice}}</del>
+                            </div>
+                        </div>
+                    </div>
+					<span class="opcity-white" ng-if="goods.stockState == 0 || goods.state == 0"></span>
+                </a>
+                <div class="loading" ng-if="data.loadIcon">
+                <p>正在加载</p>
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
+            </div>
+		</section>
+	</div>
+</main>

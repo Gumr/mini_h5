@@ -1,0 +1,31 @@
+<header class="part">
+    <form class="" >
+    	<a class="search-btn icon-back" href="#/"> </a>
+        <i></i>
+        <input type="search" placeholder="{{searchText}}" ng-click="search()">
+        <a></a>
+    </form>
+</header>
+<main class="main-content has-footer part-scroll ">
+    <div class="part-contain" style="display: none;">
+        <div ng-repeat="list in categoryList">
+            <h1>{{list.categoryName}}</h1>
+            <ul class="part-content-list clearfix">
+                <li ng-repeat="blist in list.categoryList" ng-click="goseach(blist.parentId,blist.categoryId,blist.searchKey,blist.type,blist.categoryName,'category')" on-repeat-finished-render>
+                	<img src="{{blist.imageUrl}}" alt="">
+                	<p>{{blist.categoryName}}</p>
+                </li>
+            </ul>
+        </div>                
+    </div>
+</main>
+<main class="main-part has-footer part-scroll ">
+    <div class="">	
+		<ul class="part-tab swiper-container">
+			<li class="swiper-slide" ng-click="tabs(for.categoryName,for.categoryId,$index,'category')" ng-repeat="for in tab" ng-class="{active:name == for.categoryName}">{{for.categoryName}}</li>
+		</ul>
+	</div>	
+</main>
+
+<!-- 底部导航 -->
+<div ng-include="'include/footer.html'"></div>

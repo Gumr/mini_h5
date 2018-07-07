@@ -1,0 +1,20 @@
+<main class="main-content has-footer">
+    <div>
+        <div class="addAddress-hint" ng-if="vm.goodsId">请选择您所需要收货的地址,确保商品有货！！！</div>
+        <section class="addAddress clearfix">
+            <ul>
+                <li ng-repeat="addressList in vm.addressList" ng-click="vm.selectAddress(addressList.consigneeId)">
+                    <span><em>{{addressList.consigneeName}}</em><i>{{addressList.consigneeMobile}}</i>
+                        <small ng-if="addressList.defaultAddress == 1">默认</small></span>
+                    <span>{{addressList.consigneeEmail}}</span>
+                    <i ng-click="vm.deleteAddress(addressList.consigneeId,$index,$event);"></i>
+                    <a ng-click="vm.editAddress(addressList.consigneeId,$event)"></a>
+                    <span>{{addressList.provinceName + addressList.cityName + addressList.countyName+ addressList.townName + addressList.consigneeAddress}}</span>
+                </li>
+            </ul>
+        </section>
+        <div class="m40 form address-btn">
+            <button class="btn" ng-click="vm.deliveryAddressOpen();">添加新地址</button>
+        </div>
+    </div>
+</main>

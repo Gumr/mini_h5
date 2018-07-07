@@ -1,0 +1,149 @@
+<main class="myCart main-content" style="background: #ffffff">
+    <div class="scroll">
+        <section class="loginbar" ng-if="noLogin">
+            <!--未登录有商品-->
+            <div class="hasGoods">
+                <a class="toLogin" ng-click="goLogin()">登录</a>
+                <span class="login-text">登录后同步账户中的购物车商品</span>
+            </div>
+            <!--&lt;!&ndash;未登录没有商品&ndash;&gt;-->
+            <!--<div class="noGoods">-->
+            <!--<span>您尚未登录，登录后同步购物车</span>-->
+            <!--<div class="toLogin">-->
+            <!--<a href="#/login">立即登录</a>-->
+            <!--<div>-->
+            <!--<i class="right"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </section>
+        <!--已经登录-->
+        <section class="hasLogin" ng-if="hasLogin">
+            <div class="loginbar">
+                <div class="loginbar-left">
+                    <span><i class="location"></i></span>
+                    <span>{{address}}</span>
+                </div>
+                <span ng-click="edit(data.state)">{{data.state}}</span>
+            </div>
+        </section>
+        <!--有商品——商品列表-->
+        <section class="hasGood-list" ng-if="selfList.length>0">
+            <div class="myCart-list-item">
+                <div class="myCart-list-tit">
+                    <i class="check" ng-click="allcheck('huil')" ng-class="{on:selfAllCheck}"></i> <span>乐道自营</span>
+                </div>
+                <div class="myCart-list-cont" ng-repeat="list in selfList">
+                    <div class="check-btn pull-left">
+                        <i class="check" ng-click="checkgoods('huil',$index,list.stockStateDesc,list.state)" ng-class="{on:selfCheck[$index]}"></i>
+                    </div>
+                    <div class="myCart-list-pic pull-left">
+                    	<a href="#/productDetails?goodsId={{list.goodsId}}">
+                        	<img ng-src="{{huilImaUrl+list.thumbImgUrl}}" alt="">
+                        </a>
+                    </div>
+                    <div class="myCart-list-right pull-left">
+                        <div class="list-name">{{list.goodsName}}</div>
+                        <!--<span class="size" ng-if="list.goodsAttrInfo!=[]">规格：</span><br>-->
+                        <div class="list-price">
+                            <span class="price color-text">¥{{list.salePrice}}</span>
+                            <div class="quantity-wrapper flex" ng-if="list.stockStateDesc=='有货' && list.state!=0">
+                                <span class="quantity-decrease" ng-click="cutNum('huil',$index)">-</span><input type="tel" class="num" ng-model="list.goodsNum"><span class="quantity-increase" ng-click="addNum('huil',$index)">+</span>
+                            </div>
+                        </div>
+                        <div class="permonth">月供：<span class="mount">¥{{list.monthRepayMoney * list.goodsNum | number:2}}</span>x{{list.loanPeriods}}期</div>
+                    </div>
+                    <!--<h5><span class="color-text notice" ng-if="list.stockStateDesc=='有货' && list.state!=0">库存不足，请尽快下单</span></h5>-->
+                    <h5><span class="color-text notice" ng-if="list.stockStateDesc=='无货' && list.state!=0">当前位置无货</span></h5>
+                    <h5><span class="color-text notice" ng-if="list.state==0">无效</span></h5>
+                    <!--有商品——文字-->
+                    <section class="myCart-text">
+                        <p ng-if="list.freePeriods>0">【免息】购物免{{list.freePeriods}}期分期利息。</p>
+                        <p ng-if="list.couponMoney!=0">【返现金券】购物成功，返{{list.couponMoney}}元现金券，全场通用。</p>
+                        <p ng-if="list.chargeFee==1">【免手续费】购物免分期手续费。</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section class="hasGood-list" ng-if="jdList.length>0">
+            <div class="myCart-list-item">
+            <div class="myCart-list-tit">
+                <i class="check" ng-click="allcheck('jd')" ng-class="{on:jdAllCheck}"></i> <span>京东配送</span><strong ng-click="roll('jd')">优惠券</strong>
+            </div>
+            <div class="myCart-list-cont" ng-repeat="list in jdList">
+                <div class="check-btn pull-left">
+                	<i class="check" ng-click="checkgoods('jd',$index,list.stockStateDesc,list.state)" ng-class="{on:jdCheck[$index]}" ng-if="list.stockStateDesc=='无货'&&data.state=='完成'"></i>
+                    <i class="check" ng-click="checkgoods('jd',$index,list.stockStateDesc,list.state)" ng-class="{on:jdCheck[$index]}" ng-if="list.stockStateDesc=='有货'&&list.state!=0"></i>
+                </div>
+                <div class="myCart-list-pic pull-left">
+                	<a href="#/productDetails?goodsId={{list.goodsId}}">
+                    	<img ng-src="{{jdImaUrl+list.thumbImgUrl}}" alt="">
+                    </a>
+                </div>
+                <div class="myCart-list-right pull-left">
+                    <div class="list-name">{{list.goodsName}}</div>
+                    <span class="size" ng-if="list.goodsAttrInfo!='[]'">规格：</span><br>
+                    <div class="list-price">
+                        <span class="price color-text">¥{{list.salePrice}}</span>
+                        <div class="quantity-wrapper flex">
+                            <span class="quantity-decrease" ng-click="cutNum('jd',$index)">-</span><input type="tel" class="num" ng-model="list.goodsNum"><span class="quantity-increase" ng-click="addNum('jd',$index)">+</span>
+                        </div>
+                    </div>
+                    <div class="permonth">月供：<span class="mount">¥{{list.monthRepayMoney * list.goodsNum | number:2}}</span>x{{list.loanPeriods}}期</div>
+                </div>
+                <!--<h5><span class="color-text notice" ng-if="list.stockStateDesc=='有货' && list.state!=0">库存不足，请尽快下单</span></h5>-->
+                <h5><span class="color-text notice" ng-if="list.stockStateDesc=='无货' && list.state!=0">当前位置无货</span></h5>
+                <h5><span class="color-text notice" ng-if="list.state==0">无效</span></h5>
+                <!--有商品——文字-->
+                <section class="myCart-text">
+                    <p ng-if="list.freePeriods>0">【免息】购物免{{list.freePeriods}}期分期利息。</p>
+                    <p ng-if="list.couponMoney!=0">【返现金券】购物成功，返{{list.couponMoney}}元现金券，全场通用。</p>
+                    <p ng-if="list.chargeFee==1">【免手续费】购物免分期手续费。</p>
+                </section>
+            </div>
+        </div>
+        </section>
+        <!--没有商品——空空如也-->
+        <section class="noGoods-cont" ng-if="num==0">
+            <div class="noGoods-cont-pic text-center">
+                <img src="myblocks/images/myCart-noGoods.png" alt="">
+            </div>
+            <div class="noGoods-cont-text text-center">
+                <span>哎哟，购物车空空如也~</span>
+                <div class="noGoods-btn">
+                    <a href="#/home">再去逛逛</a>
+                </div>
+            </div>
+        </section>
+        <div style="height: 2rem;"></div>
+    </div>
+</main>
+<!--非编辑状态——底部-->
+<section class="payment-bar" ng-if="data.state=='编辑' && (selfList.length>0 || jdList.length>0)">
+    <div class="myCart-check-all pull-left">
+        <i class="check" ng-click="allcheck('all')" ng-class="{on:allGoodsCheck}"></i>
+    </div>
+    <div class="myCart-info pull-left">
+        <span class="totalPrice">合计：{{totalMoney | number:2}}元</span><span class="permonth">分期月供：{{monthRepayMoney | number:2}}元&nbsp;&nbsp;
+        <!--<b class="color-text">详情</b>-->
+    </span>
+    </div>
+    <div class="payment-btn pull-right">
+        <a class="btn-right" ng-click="saveOrDeleteOrSet('set')">结算</a>
+    </div>
+</section>
+<!--编辑状态——底部-->
+<section class="payment-bar flex edit" ng-if="data.state=='完成' && (selfList.length>0 || jdList.length>0)">
+    <div class="myCart-check-all flex-1">
+            <span>
+            <i class="check" ng-click="allcheck('all')" ng-class="{on:allGoodsCheck}"></i>
+            </span>
+        <span>全选</span>
+    </div>
+    <div class="collection flex-1">
+        <a ng-click="saveOrDeleteOrSet('save')">移入收藏夹</a>
+    </div>
+    <div class="payment-btn flex-1">
+        <a class="btn-right" ng-click="saveOrDeleteOrSet('delete')">删除</a>
+    </div>
+</section>

@@ -1,0 +1,93 @@
+<main class="main-content">
+    <section class="address clearfix">
+        <div>
+            <h2>收<i>货</i>人</h2>
+            <input type="text" value="刘伟">
+        </div>
+        <div>
+            <h2>联系电话</h2>
+            <input type="text" value="18736050881">
+        </div>
+        <div>
+            <h2>所在地区</h2>
+            <!--<select ng-click="selected();">
+                <option value="">广东省</option>
+            </select>-->
+            <span class="select-address" ng-click="vm.showSelect();" ng-bind="selectAddress"></span>
+            <span class="icon-arrow"></span>
+        </div>
+        <!--<div>
+            <h2>所<i>在</i>市</h2>
+            <select>
+                <option value="">深圳市</option>
+            </select>
+            <span class="icon-arrow"></span>
+        </div>
+        <div>
+            <h2>所在县区</h2>
+            <select>
+                <option value="">南山区</option>
+            </select>
+            <span class="icon-arrow"></span>
+        </div>
+        <div>
+            <h2>街<em></em>道</h2>
+            <select>
+                <option value="">南山街道</option>
+            </select>
+            <span class="icon-arrow"></span>
+        </div>-->
+        <div>
+            <textarea>学府路桂庙新村1栋C座</textarea>
+        </div>
+        <div>
+            <h2>设为默认</h2>
+            <input class="ui-switch ui-switch-anBg" type="checkbox">
+        </div>
+    </section>
+    <div class="m40 form address-btn">
+        <button class="btn" ui-sref="addAddress">保存</button>
+    </div>
+
+    <!--弹出选择所在地区-->
+        <div class="modal-layer">
+            <div class="shade"></div>
+        </div>
+        <section class="select-open clearfix" ng-class="{translate3d:select3d}">
+            <div class="select-title f26">所在地区<span ng-click="vm.hideSelect();">x</span></div>
+            <div class="select-tab f24">
+                <span class="active" ng-bind="address1"></span>
+                <span ng-bind="address2"></span>
+                <span ng-bind="address3"></span>
+                <span ng-bind="address4"></span>
+            </div>
+            <div class="select-scroll rightProvince">
+                <div class="select-content f24">
+                    <dl>
+                        <dt ng-repeat="list in vm.list" ng-click="provinceClick($index)" >{{list.name}}</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="select-scroll city-box">
+                <div class="select-content f24">
+                    <dl>
+                        <dt ng-repeat="list in vm.list" ng-click="cityClick($index)">{{list.food}}</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="select-scroll county-box">
+                <div class="select-content f24">
+                    <dl>
+                        <dt ng-repeat="list in vm.list" ng-click="countyClick($index)">{{list.favor}}</dt>
+                    </dl>
+                </div>
+            </div>
+            <div class="select-scroll street-box">
+                <div class="select-content f24">
+                    <dl>
+                        <dt ng-repeat="list in vm.list" ng-click="streetClick($index)">{{list.five}}</dt>
+                    </dl>
+                </div>
+            </div>
+        </section>
+</main>

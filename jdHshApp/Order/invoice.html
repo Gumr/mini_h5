@@ -1,0 +1,27 @@
+<main class="main-content">	
+	<div class="scroll">
+		<div class="invoice-top">
+			<span class="f26 invoice-top-color">发票类型</span>
+			<span>普通发票</span>
+		</div>
+		<div class="invoice-section">
+			<div class="invoice-section-list f26 invoice-top-color">发票抬头</div>
+			<div class="invoice-section-list2 " >
+				<i class="f1" ng-click="vm.handover($event)"></i><span>个人</span><input class="invoice-text" type="text"  onfocus=this.blur() /><br />
+				<i class="f2 invoice-info" ng-click="vm.handover($event)"></i><span>公司</span><input ng-model="vm.text" class="invoice-text" type="text" maxlength="30" placeholder="{{vm.placeholder}}"/>
+			</div>
+		</div>
+		<div class="invoice-section">
+			<div class="invoice-section-list f26 invoice-top-color">发票内容</div>
+			<div class="invoice-section-list2 " >
+				<i class="f3" ng-click="vm.handoverd($event)"></i><span>明细</span><input class="invoice-text" type="text"  onfocus=this.blur() /><br />
+				<i class="f4 invoice-info" ng-click="vm.handoverd($event)"></i><span>办公用品(附购物清单)</span><input class="invoice-text" type="text"  onfocus=this.blur() /><br />
+				<i class="f5" ng-click="vm.handoverd($event)"></i><span>电脑配件</span><input class="invoice-text" type="text"  onfocus=this.blur() /><br />
+				<i class="f6 invoice-info" ng-click="vm.handoverd($event)"></i><span>耗材</span><input class="invoice-text" type="text"  onfocus=this.blur() /><br />
+			</div>
+		</div>
+		 <div class="invoice-btn f24" ng-click="gocomfirm()">确认</div> 
+	</div>
+</main>
+
+

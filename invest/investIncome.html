@@ -1,0 +1,40 @@
+
+<main class="main-content invest-income">
+	<div class="scroll">
+		<section class="income-count">
+			<ul class="list">
+				<li class="item" ng-click="vm.selectMoney('money')">
+					<span>投资金额(元)</span>
+					<span class="icon-arrow">{{vm.test+vm.unit}}</span>
+				</li>
+				<li class="item" ng-click="vm.selectMoney('investTime')">
+					<span>投资期限(月)</span>
+					<span class="icon-arrow">{{vm.investTimeTest}}</span>
+				</li>
+				<li class="item">
+					<span>年化利率(%)</span>
+					<span>{{vm.rate}}</span>
+				</li>
+				<li class="item">
+					<span>预期收益(元)</span>
+					<span class="f36 col-main">{{vm.profit}}</span>
+				</li>
+			</ul>
+			<div><button class="btn btn-main" type="button" ng-click="vm.getTjProduct();">获取推荐商品</button></div>
+		</section>
+		<section class="goods-list">
+			<h2>{{vm.massage}}</h2>
+			<ul class="clearfix">
+				<li class="item" ng-repeat="tjProductList in vm.tjProductList">
+					<a href="#/productDetails?goodsId={{tjProductList.goodsId}}">
+						<div><img ng-src="{{tjProductList.thumbImgUrl}}"></div>
+						<div>{{tjProductList.goodsName}}</div>
+						<div>￥{{tjProductList.salePrice}}</div>
+					</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+</main>
+
+

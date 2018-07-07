@@ -1,0 +1,307 @@
+<div class="product-detail">
+	
+	<main class="main-content has-footer">
+		<div class="scroll">
+		<!-- 商品图片 -->
+			<section class="bannerSlide swiper-container">
+		        <div class="swiper-wrapper" id="bannerSwiper"></div>
+				<div class="swiper-pagination swiper-pagination-progress"></div>
+			</section>
+			<!-- 基本信息 -->
+		    <section ng-if="vm.product.spikeStatus==0" class="basic-info">
+		    	<h2><span class="label" ng-if="vm.product.typeFrom == '1'&&judge==true">自营</span>{{vm.product.goodsName}}</h2>
+				
+		    </section>
+
+		    <!-- <section class="show-info">
+		    	<ul>
+		    		<li class="space size">
+		    			<div>数量</div>
+		    			<div>{{vm.goodsNum}}件</div>
+		    			
+		    		</li>
+
+		    		<li class="line">
+		    			<div class="songzhi">送至</div>
+		    			<div class="icon-arrow product-list-address location" ng-click="vm.showSelect();">{{selectAddress|| vm.province}}
+							<span class="col-main goodcz" ng-if="vm.product.typeFrom == '2'">{{vm.product.stockStateDesc}}</span>
+							<span class="col-main" ng-if="vm.product.typeFrom !== '1'"></span>
+							
+						</div>
+						
+		    		</li>
+		    		<div class="th">
+		    			<img src="product/images/th.png" />
+		    		</div>
+		    	</ul>
+		    </section> -->
+			
+		    <section class="springsale" ng-if="judge">
+				<div class="tit-bar bottom">
+					<h2 class="text-center"></h2>
+				</div>
+				<div class="hot-swiper swiper-container">
+                    <div class="swiper-wrapper" id="hometwo">
+                        <div class="swiper-slide" ng-repeat="tjProductList in vm.tjProductList">
+                            <figure>
+							  <a href="#/productDetails?goodsId={{tjProductList.goodsId}}">
+							  	<img ng-src="{{tjProductList.thumbImgUrl}}">
+							  </a>
+							  <figcaption class="magin">{{tjProductList.goodsName}}</figcaption>
+							  <figcaption class="home-overhide text-center"><b>￥{{tjProductList.salePrice}}</b></figcaption>
+							</figure>	  
+                        </div>
+                    </div>
+                </div>
+			</section>		    
+		    <section class="details tabs-wrap">
+		    	<ul class="det_wra" style="width: 60.73%;margin: 0 auto;">
+		    		<li class="tabs-btn active" ng-click="vm.tabs($event)"><a href="javascript:void(0)">图文详情</a></li>
+		    		<li class="tabs-btn" ng-click="vm.tabs($event)"><a href="javascript:void(0)">参数规格</a></li>
+		    		<li class="tabs-btn" ng-click="vm.tabs($event)" ng-if="judge"><a href="javascript:void(0)">售后保障</a></li>
+		    	</ul>
+		    	<div class="details-content">
+			    	<div class="tabs-box" ng-bind-html="vm.product.details">
+					</div>
+			    	<div class="tabs-box hidden" ng-bind-html="vm.productInfo"></div>
+			    	<div class="tabs-box hidden">
+			    		<div ng-if="is7ToReturn==true">
+				    		<div class="col-red f24">苹果系列、大疆系列等电子数码商品，一经系统激活操作，则不支持7天无理由退换货！</div>
+				    		<br>
+				    		<div>
+				    			<strong>物流温馨提示：</strong><br>
+								1、商品发货<br>
+								一般我们会在1-3天内完成发货，为了让您尽早收到的商品，我们尽量在24小时内完成发货（预售和特殊情况除外）。<br>
+								2、商品配送<br>
+								您订购的商品，在商品正常发出后，一般情况下5天之内可收到商品，具体物流时效以快递公司为准。<br>
+								3、商品签收<br>
+								（1）商品送达时请务必由本人签收；<br>
+								（2）货品外包装完好无损、封口处无二次封装痕迹；<br>
+								（3）如货品外包装有明显的破碎、缺口或者其他异常，请拒收，并及时联系在线客服；<br>
+								（4）如您对收到的货品有任何疑问，请您及时联系我们，我们将竭诚为您服务，我们的联系方式：400-812-3381。
+				    		</div>
+				    		<br>
+							<div>
+				    			<strong>权利声明</strong><br>
+								商城所有商品信息、客户评价、商品咨询、网友讨论等内容，是商城重要的经营资源，未经许可，禁止非法转载使用。<br>
+								注：本站商品信息均来自于厂商，其真实性、准确性和合法性由信息拥有者（厂商）负责。本站不提供任何保证，并不承担任何法律责任。<br>
+				    		</div>
+				    		<br>
+				    		<div>
+				    			<strong>特别声明</strong><br>
+								因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，汇生活不能确保客户收到的货物与商城图片、产地、附件说明完全一致。<br>
+								只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若汇生活商城没有及时更新，请大家谅解！
+				    		</div>
+			    		</div>
+			    		<div ng-if="is7ToReturn==false">
+				    		<div class="col-red f24">苹果系列、大疆系列等电子数码商品，一经系统激活操作，则不支持7天无理由退换货！</div>
+				    		<br>
+				    		<div>
+				    			<strong>售后温馨提示：</strong><br>
+				    			本商品支持7天无理由退货<br>
+								汇联易家•汇生活承诺，商品因质量问题，自售出之日（以实际收货日期为准）起7日内可以退货，15日内可以换货。<br>
+								1、汇生活对包装完整且不影响二次销售的商品提供7天无理由退货，商品返回运费需要您承担，请确认需求后再拆封使用；<br>
+								2、液晶显示屏存在3个以内（含3个）亮点属于正常情况，不属于15日内退换货范畴；<br>
+								3、 需安装类商品您需与厂家安装工程师当场开箱验机，自行开箱产生的外观损坏无法为您办理退换货（商品性能故障除外）；<br>
+								4、如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受7日内退货、15日内换货处理，15日以上且在质保期内享受免费保修等三包服务，建议您保留商品外包装15日；<br>
+								5、对于存储类商品，汇联易家•汇生活不提供数据导出服务，请务必在返修前将商品内的数据自行导出，否则若有数据遗失、损坏等汇生活不承担相应责任；<br>
+								6、 为方便商品返给厂家换货，建议您将电商品外包装在收货之日起保留30天或更长时间。
+				    		</div>
+				    		<br>
+				    		<div>
+				    			<strong>物流温馨提示：</strong><br>
+								1、商品发货<br>
+								一般我们会在1-3天内完成发货，为了让您尽早收到的商品，我们尽量在24小时内完成发货（预售和特殊情况除外）。<br>
+								2、商品配送<br>
+								您订购的商品，在商品正常发出后，一般情况下5天之内可收到商品，具体物流时效以快递公司为准。<br>
+								3、商品签收<br>
+								（1）商品送达时请务必由本人签收；<br>
+								（2）货品外包装完好无损、封口处无二次封装痕迹；<br>
+								（3）如货品外包装有明显的破碎、缺口或者其他异常，请拒收，并及时联系在线客服；<br>
+								（4）如您对收到的货品有任何疑问，请您及时联系我们，我们将竭诚为您服务，我们的联系方式：400-812-3381。
+				    		</div>
+				    		<br>
+				    		<div>
+				    			<strong>保修说明</strong><br>
+								申请退换货及保修时，请根据您申请类型，准备以下附件材料<br>
+								退货：产品完整包装，产品完整附件，检测单，身份证复印件<br>
+								换货：产品完整包装，产品完整附件，检测单，身份证复印件<br>
+								保修：发票复印件，产品完整附件，身份证复印件，前往当地维修站进行处理<br>
+								如您需要帮助请联系汇生活联系电话：400-812-3381 （服务时间：周一至周五  09:00-18:00    周六、周日  10:00-17:00 
+				    		</div>
+				    		<br>
+							<div>
+				    			<strong>权利声明</strong><br>
+								汇生活上的所有商品信息、客户评价、商品咨询、网友讨论等内容，是汇生活重要的经营资源，未经许可，禁止非法转载使用。<br>
+								注：本站商品信息均来自于厂商，其真实性、准确性和合法性由信息拥有者（厂商）负责。本站不提供任何保证，并不承担任何法律责任。<br>
+				    		</div>
+				    		<br>
+				    		<div>
+				    			<strong>特别声明</strong><br>
+								因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，汇生活不能确保客户收到的货物与商城图片、产地、附件说明完全一致。<br>
+								只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若汇生活商城没有及时更新，请大家谅解！
+				    		</div>
+			    		</div>
+			    	</div>
+		    	</div>
+		    </section>
+	    </div>
+	</main>
+	<footer class="footer-bar flex-box" >
+		
+		<a class="service" href="http://huishenghuo.udesk.cn//im_client/"><img ng-src="product/images/kefu.png"><span>客服</span></a>
+		<a class="collect" href="" ng-click="setcollection()" ng-if="judge"><div ng-class="{active:colour}" class="ico"></div><span ng-class="{activ:colour}">收藏</span></a>
+		<a class="cart" ng-click="goMyCart()"><span class="cartNum" ng-if="cartNum>0">{{cartNum}}</span><img ng-src="product/images/gouwuche.png"><span>购物车</span></a>
+		
+		<div>
+			<a class="btn-staging" style="border: none" ng-click="vm.installment();"><span class="f28">确认领取</span></a>
+			
+			<!--<a class="btn-staging" ng-click="vm.installment(vm.product.salePrice);" ng-if="vm.product.stockStateld!=34&&vm.product.state==1&&judge==false"><span class="f28" >立即租用</span></a>-->
+		</div>
+		<a id="produthe"></a>
+	</footer>
+</div>
+
+
+<!-- 弹出层 -->
+<!-- <div class="modal-layer" id="select-norms">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-up">
+		<span class="modal-close" ng-click="reloadBySpu()">&times;</span>
+		<div class="top flex-box">
+			<div><img ng-src="{{vm.sxImg}}"></div>
+			<div>
+				<strong class="col-red"><em class="f24">￥</em><em class="f36">{{vm.product.salePrice}}</em></strong>
+				<p>商品编号:{{vm.goodsId}}</p>
+			</div>
+		</div>
+		<div class="center" ng-if="vm.typeFrom=='1'">
+			<div class="scroll">
+				<div class="attr" ng-repeat="attrs in vm.attrList">
+					<h3>{{attrs.attrTypeName}}</h3>
+					<ul class="clearfix">
+						<li ng-class="{current:$index == 0}" ng-repeat="attr in attrs.attrInfo" ng-click="vm.attrClick($event,attrs.attrTypeName,attr)">{{attr.attributeValue}}</li>
+					</ul>
+				</div>
+				<h4 ng-if="item.length>0&&isCart">
+					数量
+					<span><i ng-click="cutNum()"></i><b>{{addToCartNum}}</b><i ng-click="addNum()"></i></span>
+				</h4>
+			
+			</div>
+		</div>
+		<div class="center" ng-if="vm.typeFrom=='2'">
+			<div class="scroll">
+				<div id="spu">
+					<div class="row">
+						<h3>已选</h3>
+						<div class="spec spec-text">
+							{{vm.attrDefaultText||data.selected}} <span>{{vm.goodsNum}}件</span>
+						</div>
+					</div>
+					<div class="box-condition">
+						<div class="attr-condition" ng-repeat="attrs in attrList" ng-init="outerIndex = $index">
+							<h3>{{attrs.saleName}}</h3>
+							<ul class="clearfix">
+								<li ng-if="attr.hasSelect == 1" ng-class="{current: attr.checked == 1}" ng-repeat="attr in attrs.saleAttrList" data-ids="{{ids}}" ng-init="ids = attr.goodsIds.join(',')">{{attr.saleValue}}</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<h3>数量</h3>
+						<div class="spec">
+							<span class="group-count">
+								<i class="minus" ng-click="vm.goodsNumMinus();">-</i>
+								<i type="goodsnum number" style="font-size: 0.33rem;" name="">{{vm.goodsNum}}</i>
+								<i class="add" ng-click="vm.goodsNumAdd();">+</i>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="vm.typeFrom == '1'" class="bottom modal-btn" ng-click="addToCart()"><button class="btn btn-full btn-main">确认</button></div>
+		<div ng-if="vm.typeFrom == '2'" class="bottom modal-btn">
+			<button ng-if="spuSelect && vm.product.stockStateld!=34 && vm.product.state ==1" class="btn btn-full btn-main" ng-click="reloadBySpu()">确认</button>
+			<button ng-if="spuSelect && vm.product.stockStateld==34 && vm.product.state == 1" class="btn btn-full btn-disabled">无货</button>
+			<button ng-if="spuSelect && vm.product.state == 0" class="btn btn-full btn-disabled">已下架</button>
+			<button ng-if="!spuSelect" class="btn btn-full btn-disabled">未选中</button>
+		</div>
+	</div>
+</div> -->
+
+ <!--弹出选择所在地区-->
+    <!-- <div class="modal-layer" id="select-norms">
+	<div class="shade"></div>
+	<div class="modal-wrapper slide-up">
+		<span class="modal-close">&times;</span>
+		<div class="top flex-box">
+			<div><img ng-src="{{vm.sxImg}}"></div>
+			<div>
+				<strong class="col-red jiage"><em class="f24">￥</em><em class="f36">{{vm.product.salePrice}}</em></strong>
+				<p class="bianma">商品编号:{{vm.goodsId}}</p>
+			</div>
+		</div>
+		<div class="center">
+			<div class="scroll">
+				<div class="attr" ng-repeat="attrs in vm.attrList">
+					<h3>{{attrs.attrTypeName}}</h3>
+					<ul class="clearfix">
+						<li ng-class="{current:$index == 0}" ng-repeat="attr in attrs.attrInfo" ng-click="vm.attrClick($event,attrs.attrTypeName,attr)">{{attr.attributeValue}}</li>
+					</ul>
+				</div>
+				<h4 ng-if="vm.product.typeFrom == '1' && vm.product.stockStateld!=34 && vm.isAttr">
+					购买数量
+					<span><i ng-click="vm.goodsNumMinus()"></i><b>{{vm.goodsNum}}</b><i ng-click="vm.goodsNumAdd()"></i></span>
+				</h4>
+			</div>
+		</div>
+		<div class="bottom modal-btn" ng-click="addToCart()"><button class="btn btn-full btn-main">确认</button></div>
+	</div>
+</div> -->
+
+ <!--弹出选择所在地区-->
+    <div class="modal-layer">
+        <div class="shade"></div>
+    </div>
+    <section class="select-product clearfix" ng-class="{translate3d:vm.select3d}" style="height:11.875rem;">
+        <div class="select-title f26">所在地区<span ng-click="vm.hideSelect();">&times;</span></div>
+        <div class="select-tab f24">
+            <span class="active" ng-click="vm.selectTabClick('province')" ng-bind="vm.address1"></span>
+            <span ng-bind="vm.address2" ng-click="vm.selectTabClick('city')"></span>
+
+            <span ng-bind="vm.address3" ng-click="vm.selectTabClick('county')"></span>
+
+            <span ng-bind="vm.address4" ng-click="vm.selectTabClick('town')"></span>
+        </div>
+        <div class="select-scroll rightProvince">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[provinceList.provinceId==vm.provinceId]" ng-repeat="provinceList in vm.provinceList" ng-click="provinceClick(provinceList.provinceId,provinceList.provinceName)">{{provinceList.provinceName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll city-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[cityList.cityId==vm.cityId]" ng-repeat="cityList in vm.cityList" ng-click="cityClick(cityList.cityId,cityList.cityName)">{{cityList.cityName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll county-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[countyList.countyId==vm.countyId]" ng-repeat="countyList in vm.countyList" ng-click="countyClick(countyList.countyId,countyList.countyName)">{{countyList.countyName}}</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="select-scroll street-box">
+            <div class="select-content f24">
+                <dl>
+                    <dt ng-class="{true: 'active', false: ''}[townList.townId==vm.townId]" ng-repeat="townList in vm.townList" ng-click="townClick(townList.townId,townList.townName)">{{townList.townName}}</dt>
+                </dl>
+            </div>
+        </div>
+    </section>
+

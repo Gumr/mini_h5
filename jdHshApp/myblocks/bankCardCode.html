@@ -1,0 +1,15 @@
+<main class="main-content has-footer bankCardCode ">
+    <h3>（短信验证码已发送至{{vm.bankCardInfo.phoneNo}}）<span>请输入收到的验证码</span></h3>
+    <div class="pwd-box">
+        <input class="tel" type="tel" maxlength="6" class="pwd-input" id="pwd-input">
+        <div class="fake-box">
+            <input type="tel" readonly>
+            <input type="tel" readonly>
+            <input type="tel" readonly>
+            <input type="tel" readonly>
+            <input type="tel" readonly>
+            <input type="tel" readonly>
+        </div>
+    </div>
+    <p id="codeText" ng-click="vm.getMegCode()">{{vm.codeText}}</p>
+</main>

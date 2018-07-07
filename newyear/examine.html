@@ -1,0 +1,33 @@
+﻿
+
+<main class="main-content">
+	<div class="examine_wrap">
+		<!--banner-->
+		<div class="banner">
+			
+		</div>
+		
+		<!--表单-->
+		<div class="examine">
+			<form action="" method="" class="form">
+				<div class="num">
+					<input class="phone" type="tel" ng-model="vm.phoneNum" maxlength="11" name="" id="" placeholder="请输入手机号码" />
+				</div>
+				
+				<div class="code">
+					<div class="btn">
+						<input class="code-btn" type="tel" maxlength="6" ng-model="vm.checkCode" name="" id="" placeholder="请输入验证码" />
+					</div>
+					
+					<a class="smsCode">
+						<button class="sms-btn" type="button" ng-click="vm.sendSM();">获取验证码</button>
+					</a>
+				</div>
+				<div class="ensure">
+					<button type="button" ng-click="vm.confirm()" class="ensure-btn">确定</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</main>
+

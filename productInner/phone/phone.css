@@ -1,0 +1,360 @@
+.flex-box-between {
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.innerPhone{
+    color: #242424;
+}
+
+.innerPhone .scroll{ position: relative; }
+.innerPhone .header-bar { position: absolute; top: 0; left: 0; background-color: transparent; }
+.innerPhone .header-bar > div { padding: 0.2rem 0.266667rem;  }
+.innerPhone .header-bar > div > div { box-sizing: border-box; height: 0.8rem; line-height: 0.8rem; margin-left: 0.2rem; }
+.innerPhone .header-bar > div > div:nth-child(1) { margin-left: 0; }
+.innerPhone .header-bar .t-category{ display: block; width: 0.8rem; height: 0.8rem; background: url(images/t-category.png) no-repeat; background-size: 100%; border-radius: 50%; box-shadow: 0 0 1px 1px rgba(0, 0, 0, .1); }
+.innerPhone .search-container{ padding: 0 0.5rem; background-color: #fff; border-radius: 0.4rem; text-align: center; font-size: 0; box-shadow: 0 0 1px 1px rgba(0, 0, 0, .1);}
+.innerPhone .search-container > i { display: inline-block; vertical-align: middle; width: 0.46875rem; height: 100%; background: url(images/search.png) no-repeat center; background-size: 0.46875rem; }
+.innerPhone .search-container > span { display: inline-block; vertical-align: middle; margin-left: 0.16rem;color: #cbcbcb; font-size: 0.293333rem; }
+
+#search .search-scroll { padding: 0 0.46875rem; }
+#search .search-scroll h2 { font-size: 0.4375rem; line-height: 0.625rem; margin-top: 0.625rem; margin-bottom: 0.1875rem; }
+#search .search-scroll h2 .del { float: right; margin-right: 0.3125rem; height: 0.625rem; width: 0.625rem; background: url(../common/images/del.png) no-repeat center; background-size:100% 100%; }
+#search .search-scroll li { float: left; margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.125rem 0.1875rem; background-color: #F1F2F6; border-radius: 0.09375rem; }
+#search .search-bar form{width: 7.5rem;display: inline-block;}
+#search .search-bar a{margin-top: 0.07rem;}
+
+.innerPhone .main-content { margin-top: 0; background-color: #eee; }
+.innerPhone .bannerSlide { height: 4.88rem; }
+.innerPhone .bannerSlide img {height: 4.88rem; }
+.swiper-container .swiper-pagination{ padding-left: 0.14rem; font-size: 0; padding-bottom: .18rem; }
+.swiper-container .swiper-pagination span { margin-right: 0.14rem; margin-left: 0; box-shadow: none; background-color: rgba(255,255,255,.4); border-radius: .18rem; }
+.swiper-container .swiper-pagination span.swiper-pagination-bullet-active { width: .36rem; background-color: #fff;}
+
+
+/**分类**/
+.innerPhone .category{
+    padding-top: 0.4rem;
+    padding-bottom: 0.16rem;
+    padding-left: 0.266667rem;
+    margin-bottom: 0.133333rem;
+    overflow: hidden;
+}
+.innerPhone .category > a{
+    float: left;
+    display: block;
+    width: 1.733333rem;
+    text-align: center;
+    font-size: 0.32rem;
+    margin-right: 0.84rem;
+    margin-bottom: 0.24rem;
+}
+.innerPhone .category > a:nth-child(4n){
+    margin-right: 0;
+}
+.innerPhone .category img{
+    width: 1.733333rem;
+    height: 1.733333rem;
+    margin-bottom: 0.2rem;
+}
+
+/**一些公共样式**/
+.innerPhone .title{
+    text-align: center;
+    font-size: 0.4rem;
+    height: 1.066667rem;
+    line-height: 1.173333rem;
+}
+.innerPhone .title:before,
+.innerPhone .title:after {
+    display: inline-block;
+    content: "";
+    width: 0.533333rem;
+    height: 0.213333rem;
+    vertical-align: middle;
+    background: url(images/title_left.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.innerPhone .title:after{
+    transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+}
+.innerPhone .content{
+    overflow: hidden;
+}
+
+/**人气新品 && 品牌街**/
+.innerPhone .popular{
+    margin-bottom: 0.133333rem;
+}
+.innerPhone .popular .content > a{
+    float: left;
+    width: 50%;
+    display: block;
+}
+.innerPhone .popular .content img{
+    width: 100%;
+}
+
+/**每日特惠**/
+.innerPhone .everyday{
+    padding-bottom: 0.133333rem;
+    margin-bottom: 0.133333rem;
+}
+.innerPhone .everyday .content{
+    padding-left: 0.266667rem;
+}
+.innerPhone .everyday_product{
+    float: left;
+    display: block;
+    width: 3.04rem;
+    margin-right: 0.16rem;
+    font-size: 0.266667rem;
+    margin-bottom: 0.16rem;
+}
+.innerPhone .everyday_product:nth-child(3n){
+    margin-right: 0;
+}
+.innerPhone .everyday .imgbox{
+    width: 3.04rem;
+    height: 3.04rem;
+    margin-bottom: 0.08rem;
+    overflow: hidden;
+}
+.innerPhone .everyday img{
+    width: 100%;
+    height: 100%;
+}
+.innerPhone .everyday .name{
+    font-size: 0.266667rem;
+    height: .746666rem;
+    line-height: .4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    word-break: break-word;
+}
+.innerPhone .everyday .payMonth{
+    color: #1572fe;
+}
+.innerPhone .everyday .payMonth span{
+    font-size: 0.346667rem;
+}
+
+/**热销单品**/
+.innerPhone .sellWell{
+    padding-bottom: 0.293333rem;
+}
+.innerPhone .sellWell_product{
+    position: relative;
+    display: block;
+    margin-bottom: 0.133333rem;
+    overflow: hidden;
+}
+.innerPhone .sellWell .imgbox{
+    float: left;
+    margin-left: 0.8rem;
+    width: 3.546667rem;
+    height: 3.546667rem;
+}
+.innerPhone .sellWell img{
+    width: 100%;
+    height: 100%;
+}
+.innerPhone .sellWell .rightInfo{
+    float: right;
+    width: 4.733333rem;
+    color: #332e32;
+    padding-top: 0.32rem;
+    padding-right: 0.266667rem;
+}
+.innerPhone .sellWell .name{
+    font-size: 0.32rem;
+    line-height: 1;
+    height: .746666rem;
+    line-height: .4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    word-break: break-word;
+    margin-bottom: 0.773333rem;   
+}
+.innerPhone .sellWell .payMonth{
+    color: #1572fd;
+    font-size: 0.346667rem;
+    line-height: 1;
+}
+.innerPhone .sellWell .price{
+    font-size: 0.293333rem;
+    line-height: 1;
+}
+.innerPhone .sellWell .btn-buy{
+    float: right;
+    display: inline-block;
+    width: 2.693333rem;
+    height: 0.68rem;
+    line-height: 0.68rem;
+    text-align: center;
+    font-size: 0.293333rem;
+    color: #fff;
+    background-color: #1572fd;
+}
+
+/**分类列表**/
+.innerPhone .list-wrap{
+    position: relative;
+    background-color: inherit; 
+    margin-top: 0;
+}
+.innerPhone #tabBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+}
+.innerPhone .list-wrap .category-slide{
+    height: 1.053333rem;
+    border-bottom: 1px solid #bfbfbf;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+}
+.innerPhone .list-wrap .swiper-wrapper{
+    white-space: nowrap;
+    display: inline-block;
+    width: auto;
+    padding-left: 0.333333rem;
+}
+.innerPhone .list-wrap .swiper-wrapper-between{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.innerPhone .list-wrap .swiper-wrapper-between .swiper-slide{
+    display: block;
+    flex: 1;
+    text-align: center;
+}
+
+.innerPhone .list-wrap .category-slide .swiper-slide{
+    display: inline-block;
+    font-size: 0.4rem;
+    color: #333;
+    padding: 0 0.2rem;
+    line-height: 1.053333rem;
+    margin-right: 0.333333rem;
+    white-space: nowrap;
+}
+
+
+.innerPhone .list-wrap .category-slide .swiper-slide.active{
+    color: #1572fd;
+    height: 1.026667rem;
+    border-bottom: 0.04rem solid #1572fd;
+    margin-bottom: -1px;
+}
+
+
+.innerPhone .swiper-wrapper-sub{
+    padding-top: 0.266667rem;
+    padding-left: 0.346667rem;
+    font-size: 0;
+}
+.innerPhone .swiper-wrapper-sub .swiper-slide{
+    display: inline-block;
+    width: 1.866667rem;
+    border: 1px solid #e5e5e5;
+    line-height: 0.546667rem;
+    text-align: center;
+    margin-bottom: 0.266667rem;
+    margin-right: 0.613333rem;
+    font-size: 0.4rem;
+    color: #333;
+    box-sizing: border-box;
+    border-radius: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.innerPhone .swiper-wrapper-sub .swiper-slide:nth-child(4n){
+    margin-right: 0;
+}
+.innerPhone .swiper-wrapper-sub .swiper-slide.active{
+    color: #1572fd;
+    border: 1px solid #1572fd;
+}
+.innerPhone  .g-list{
+    padding: 1.306667rem 0.266667rem 0.133333rem;
+    background-color: #f8f7f7;
+    overflow: hidden;
+}
+
+.innerPhone .appliance-item {
+    float: left;
+    width: 4.666667rem;
+    background-color: #fff;
+    margin-bottom: 0.133333rem;
+}
+.innerPhone .appliance-item:nth-child(2n){
+    float: right;
+}
+.innerPhone .appliance-item .imgbox{
+    margin: 0 auto;
+    width: 4.4rem;
+    height: 4.186667rem;
+    overflow: hidden;
+    margin-bottom: 0.12rem;
+}
+.innerPhone .appliance-item img{
+    width: 100%;
+    height: 100%;
+}
+.innerPhone .appliance-item .name{
+    margin: 0 auto 0.04rem;
+    font-size: 0.266667rem;
+    width: 4.4rem;
+    height: .746666rem;
+    line-height: .4rem;
+    color: #0c0c0c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    word-break: break-word;
+}
+.innerPhone .appliance-item .price{
+    margin: 0 auto;
+    width: 4.4rem;
+    font-size: 0.32rem;
+    color: #1572fd;
+}
+.innerPhone .appliance-item .payMonth{
+    font-size: 0.266667rem;
+    height: .666667rem;
+    line-height: .666667rem;
+    text-align: center;
+    color: #fff;
+    background-color: #1572fd;
+}
+.innerPhone .appliance-item .payMonth span{
+    font-size: 0.4rem;
+}

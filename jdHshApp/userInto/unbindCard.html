@@ -1,0 +1,13 @@
+<main class="unbindCard">
+		<div class="">
+			<div class="unbindCard-content">
+				<div class="card-input">请输入交易密码以验证身份</div>
+				<p class="card-pass">
+					<input id="card-password" type="password" maxlength="10" name="" ng-model="vm.cardpassWord">
+					<i class="icon-input i-pass-hide" ng-click="vm.passwordShow($event)"></i>
+				</p>
+				<p class="forget-cardpass text-center f20"><a class="forget-card" ng-click="vm.goModifyPsw()">忘记交易密码</a></p>
+				<div class="m40 card-confirm"><button class="btn" type="button" ng-click="vm.verifyForm()">确认</button></div>
+			</div>
+		</div>
+	</main>

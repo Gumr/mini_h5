@@ -1,0 +1,46 @@
+.explain{
+    color: #fd8b3c;
+    float: right;
+    margin-right: .533333rem;
+}
+.explain header{
+    height: 1.2rem;
+    position: relative;
+    text-align: center;
+    line-height: 1.2rem;
+    color: #ff7a0d;
+    font-size: .4rem;
+    font-weight: bold;
+    border-bottom: .026667rem solid #cccccc;
+    background: #fff;
+}
+.explain header .header-left{
+    display: inline-block;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-top: 0.01rem solid #353535;
+    border-right: 0.01rem solid #353535;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    position: absolute;
+    left: .32rem;
+    top: 0.475rem;    
+}
+.explain article{
+    box-sizing: border-box;
+    padding-left: .426667rem;
+    padding-right: .426667rem;
+    padding-bottom: 6.466667rem;
+    background: #fff;
+}
+.explain article div{
+    padding-top: .8rem;
+}
+.explain article div h2{
+    font-size: .4rem;
+    font-weight: bold;
+    color: #343434;
+}
+.explain article div p{
+    font-size: .32rem;
+}

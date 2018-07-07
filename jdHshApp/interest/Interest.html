@@ -1,0 +1,61 @@
+<div class="interest">
+	<main class="main-content interestlist" >	
+		<div class="iscool">
+			<!-- banner -->
+			<section class="bannerSlide swiper-container">
+		        <div class="swiper-wrapper">
+		        	<div class="swiper-slide" ng-repeat="banner in bannerlist">
+		        		<div class="swiper-zoom-container">
+							<a ng-href="{{banner.accessAddress}}"><img ng-src="{{img+banner.bannerUrl}}"></a>
+						</div>
+					</div>
+		        </div>
+		        <div class="swiper-pagination"></div>
+		    </section>
+		    <!-- 爆款商品 -->
+		    <section class="springsale bottom" ng-if="close">
+				<div class="tit-bar bottom">
+					<h2 class="text-center"><i class="icon"></i>爆款商品</h2>
+				</div>
+				<div class="hot-swiper swiper-container">
+	                <div class="swiper-wrapper">
+	                    <div class="swiper-slide" ng-repeat="for in explosionlist">
+	                        <figure>
+							  <a href="#/productDetails?goodsId={{for.goodsId}}">
+							  	<img ng-src="{{for.url+for.imageUrl}}">
+							  	<span ng-if="for.freePeriods!='0'" class="interest-m text-center">免息</span>
+								<span ng-if="for.couponMoney!= '0'" class="interest-f"><span>返</span></span>
+							  </a>
+							  <figcaption class="magin text-center">{{for.goodsName}}</figcaption>
+							  <figcaption class="home-overhide interest-nic text-center"><span class="home-price">{{for.salePrice}}</span><span ng-if="for.otherPrice!=0">电商价:￥{{for.otherPrice}}</span></figcaption>
+							  <figcaption class="home-overhide text-center"><span class="home-price-two">￥{{for.monthMoney}}</span>x<span>{{for.periods}}期</span></figcaption>
+							</figure>	  
+	                    </div>
+	                </div>
+	            </div>
+			</section>
+			<section class="springsale" ng-repeat="list in moduleList">
+				<div class="tit-bar bottom">
+					<h2 class="text-center">{{list.moduleName}}</h2>
+				</div>
+				<div class="interest-fication flex-box">
+					<ul >
+						<li><a href="{{list.accessAddress}}&listMark={{list.moduleName}}"><img src="{{img+list.imageUrl}}"></a></li>
+						<li ng-repeat="for in list.goodsList">
+							<span ng-if="for.freePeriods!=0" class="interest-m">免息</span>
+							<span ng-if="for.couponMoney!=0" class="interest-f"><span>返</span></span>
+							<figure>
+							 <a href="#/productDetails?goodsId={{for.goodsId}}">
+								<img src="{{for.url+for.imageUrl}}">
+							</a>
+							  <figcaption class="magin text-center"><span class="home-price">{{for.salePrice}}</span><span ng-if="for.otherPrice!=0">电商价:{{for.otherPrice}}</span></figcaption>
+							  <figcaption class="text-center"><span class="home-price-two">￥{{for.monthMoney}}</span>x<span>{{for.periods}}期</span></figcaption>
+							</figure>	  
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>	
+	</main>
+
+</div>

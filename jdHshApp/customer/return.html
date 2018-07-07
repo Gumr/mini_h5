@@ -1,0 +1,77 @@
+
+
+<main class="main-content">
+	<div class="scroll">
+		<div class="return-nav">
+			<p class="return-paading f22">商品退回方式</p>
+			<div class="return-paading tabs-wrap">
+				<span class="f22 ruturn-wh return-color tabs-btn-1" ng-class="{active:list.code == vm.stages}"  ng-repeat="list in vm.mode" ng-click="vm.handover($event,list.code)">{{list.name}}</span>
+			</div>
+			<p class="return-size return-weiyi">{{vm.hadestate}}</p> 
+		</div>
+		<div class="pickup return-list" >
+			<div class="return-list-p return-bottom f24" ng-click="vm.showSelect()">取件地区：<span class="return-color-black icon-return" >{{vm.selectAddress}}</span>
+			</div>
+			<div class="return-list-p return-bottom f24">详细地址：<input type="text" class="retrun-input" ng-model="vm.addressone" /></div>
+			<!--<div class="return-list-p" >取件时间:
+				<input name="" type="text" readOnly ng-click="fetchClick($event)" >
+			</div>-->
+		</div>
+		<div class="return-list return-dispaly">
+			<div class="return-list-p return-bottom return-color-black f24">确认收货信息<span class="return-f20">(该地址是汇生活回寄给您的地址)</span></div>
+			<div class="return-list-p return-bottom f24" ng-click="vm.showselect()">收货地区：<span class="return-color-black icon-return">{{vm.selectAdd}}</span>
+			</div>
+			<div class="return-list-p f24">详细地址：<input type="text" class="retrun-input" ng-model="vm.addresstwo"/></div>
+		</div>
+		<div class="return-section">
+			<p class="return-list-p return-bottom f24">联系人：<input type="text" ng-model="vm.name" /></p>
+			<p class="return-list-p f24">联系电话：<input type="text" ng-model="vm.model"/></p>
+		</div>
+		<button class="return-btn f30 return-color-bai" ng-click="vm.addAddressOpen()" >提交</button>
+	
+	<!--弹出选择所在地区-->
+	   <div class="modal-layer">
+	        <div class="shade"></div>
+	    </div>
+	    <section class="select-open clearfix" ng-class="{translate3d:vm.select3d}">
+	        <div class="select-title f26">{{random}}<span ng-click="vm.hideSelect();">&times;</span></div>
+	        <div class="select-tab f24">
+	            <span class="active" ng-click="vm.selectTabClick('province')" ng-bind="vm.address1"></span>
+	            <span ng-bind="vm.address2" ng-click="vm.selectTabClick('city')"></span>
+	
+	            <span ng-bind="vm.address3" ng-click="vm.selectTabClick('county')"></span>
+	
+	            <span ng-bind="vm.address4" ng-click="vm.selectTabClick('town')"></span>
+	
+	        </div>
+	        <div class="select-scroll rightProvince">
+	            <div class="select-content f24">
+	                <dl>
+	                    <dt ng-class="{true: 'active', false: ''}[provinceList.provinceId==vm.provinceId]" ng-repeat="provinceList in vm.provinceList" ng-click="provinceClick(provinceList.provinceId,provinceList.provinceName)">{{provinceList.provinceName}}</dt>
+	                </dl>
+	            </div>
+	        </div>
+	        <div class="select-scroll city-box">
+	            <div class="select-content f24">
+	                <dl>
+	                    <dt ng-class="{true: 'active', false: ''}[cityList.cityId==vm.cityId]" ng-repeat="cityList in vm.cityList" ng-click="cityClick(cityList.cityId,cityList.cityName)">{{cityList.cityName}}</dt>
+	                </dl>
+	            </div>
+	        </div>
+	        <div class="select-scroll county-box">
+	            <div class="select-content f24">
+	                <dl>
+	                    <dt ng-class="{true: 'active', false: ''}[countyList.countyId==vm.countyId]" ng-repeat="countyList in vm.countyList" ng-click="countyClick(countyList.countyId,countyList.countyName)">{{countyList.countyName}}</dt>
+	                </dl>
+	            </div>
+	        </div>
+	        <div class="select-scroll street-box">
+	            <div class="select-content f24">
+	                <dl>
+	                    <dt ng-class="{true: 'active', false: ''}[townList.townId==vm.townId]" ng-repeat="townList in vm.townList" ng-click="townClick(townList.townId,townList.townName)">{{townList.townName}}</dt>
+	                </dl>
+	            </div>
+	        </div>
+	    </section>
+   </div>
+<main>

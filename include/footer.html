@@ -1,0 +1,25 @@
+<footer class="footer-bar">
+	<div class="tabs">
+		<a class="tabs-home" href="#/" ng-click="vm.monitor('homeicon','')">
+			<i class="icon-home"></i>
+			<span>首页</span>
+		</a>
+		<a class="tabs-fen" href="#/part" ng-click="vm.monitor('categoryicon','')">
+			<i class="icon-class"></i>
+			<span>分类</span>
+		</a>
+		<a class="tabs-hopping" href="#/myCart" ng-click="vm.monitor('shoppingCarticon','')">
+			<i class="icon-cart"></i>
+			<span>购物车</span>
+			<b class="cartNum" style="display: none"></b>
+		</a>
+		<!--<a class="tabs-invest" href="#/{{investUrl}}" ng-if="isHSH">
+			<i class="icon-invest"></i>
+			<span>0元购</span>
+		</a>-->
+		<a class="tabs-user" href="#/myCenter" ng-click="vm.monitor('mycentericon','')">
+			<i class="icon-user"><!-- <em></em> --></i>
+			<span>我的</span>
+		</a>
+	</div>
+</footer>

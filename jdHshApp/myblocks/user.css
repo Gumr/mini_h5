@@ -1,0 +1,243 @@
+
+
+/* 密码管理 */
+.m40 { margin-left: 0.625rem; margin-right: 0.625rem; }
+.mt-110 { margin-top: 1.71875rem;  }
+.i-name { background-image: url(../common/images/icon-username.png); }
+.i-pass { background-image: url(../common/images/icon-password.png); }
+.i-id { background-image: url(../common/images/icon-id.png); }
+.i-info { background-image: url(../common/images/icon-info.png); background-size: 0.546875rem auto !important; }
+.i-pass-hide { background-image: url(../common/images/icon-password-hide.png); }
+.i-pass-show { background-image: url(../common/images/icon-password-show.png); }
+.i-verification { background-image: url(../common/images/icon-verification.png); background-size: 0.546875rem auto !important; }
+
+.password .text { margin: 0.78125rem 0.9375rem  0.625rem; }
+.password .form .item { padding: 0 0.625rem; background-color: #fff; }
+.password .form .item .item-form { margin-bottom: 0; border: 0; border-bottom: 1px solid #DCDCDC; }
+.password .form .item .item-form .info-btn { margin-right: 0; }
+.password .form .hint { margin-left: 1.5625rem; line-height: 0.9375rem; }
+.password .forgot-pass { line-height: 0.9375rem; margin-right: 0.625rem; }
+.password .form .btn { margin-top: 2.8125rem; }
+.password .bottom{border: 0 !important;}
+#register-verification{padding: 0;display: inline-block;margin-left: 0.4rem;text-align: center;background: #eaeaea;}
+.register-info-btn{display: block; margin-right: 0.3125rem; padding-left: 0.125rem; padding-right: 0.125rem; height: 0.71875rem; color: #aaa; border: 1px solid #aaa; background-color: #fff; border-radius: 0.078125rem; }
+#verCode{height: 1.1rem;}
+
+
+/* 个人中心 */
+.my-center .top-box { position: relative; height: 4.21875rem; background-image: url(images/bg.jpg); background-size: cover; color: #fff; text-align: center; font-size: 0.34375rem; }
+.my-center .top-box > div:nth-child(1) { padding-top: 0.46875rem; }
+.my-center .top-box > div:nth-child(1) img { width: 1.40625rem; height: 1.40625rem; }
+.my-center .top-box > div:nth-child(1) a { color: #fff; }
+.my-center .top-box > div:nth-child(2) { position: absolute; right: 0; top: 0.3125rem; }
+.my-center .top-box > div:nth-child(2) span { margin-right: 0.3125rem;}
+.my-center .top-box .assets { position: absolute; left: 0; bottom: 0; width: 100%; padding: 0.1875rem 0; background-color: rgba(255,25,0,.2); }
+.my-center .top-box .assets div { width: 50%; line-height: 1.4; }
+.my-center .top-box .assets div:nth-child(1) { border-right: 1px solid #fff; }
+.my-center .top-box .assets div span { letter-spacing: 0.046875rem; }
+.my-center .top-box .assets div span:nth-child(3){font-size: 0.33rem;letter-spacing: 0;margin-left: 0.3rem;background: #ff9900;padding: 0.06rem 0.24rem;border-radius:0.18rem;margin-right: -0.48rem;color: #fff;}
+.my-center .list { margin-bottom: 0.25rem; background-color: transparent; }
+.my-center .list .item { margin-top: 0.25rem; background-color: #fff; }
+.my-center .list .item .bar,
+.my-center .list .item .con { display: box; display: -webkit-box; }
+.my-center .list .item .bar { padding-left: 0.3125rem; padding-right: 0.3125rem; line-height: 0.78125rem; font-size: 0.375rem; border-bottom: 1px solid #dcdcdc; }
+.my-center .list .item a.bar { line-height: 1.125rem; }
+.my-center .list .item .bar i { display: block; margin-right: 0.125rem; width: 0.46875rem; width: 0.46875rem; background-repeat: no-repeat; background-position: center; background-size: 0.46875rem auto; }
+.my-center .list .item .bar i.icon-my-bill { background-image: url(images/icon-myBill.png); }
+.my-center .list .item .bar i.icon-my-invest { background-image: url(images/icon-myInvest.png); }
+.my-center .list .item .bar i.icon-my-order { background-image: url(images/icon-myOrder.png); }
+.my-center .list .item .bar i.icon-security{ background-image: url(images/icon-securityCenter.png); }
+.my-center .list .item .bar i.icon-section{ background-image: url(images/icon-d_03.png); }
+.my-center .list .item .con span.icon-one{ background-image: url(images/icon-d_06.png); display: block;width: .7rem;height: .7rem;background-size: 100% 100%;margin-left: .7rem;}
+.my-center .list .item .con span.icon-two{ background-image: url(images/icon-d_06-08.png); display: block;width: .7rem;height: .7rem;background-size: 100% 100%;margin-left: .7rem;}
+.my-center .list .item .con span.icon-she{ background-image: url(images/icon-d_06-10.png); display: block;width: .7rem;height: .7rem;background-size: 100% 100%;margin-left: .7rem;}
+.my-center .list .item .con span.icon-fack{ background-image: url(images/icon-d_06-12.png); display: block;width: .7rem;height: .7rem;background-size: 100% 100%;margin-left: .7rem;}
+.my-center .list .item .con span.icon-sess{ background-image: url(images/icon-d_06-14.png); display: block;width: .7rem;height: .7rem;background-size: 100% 100%;margin-left: .7rem;}
+.my-center .list .item .con i { display: block; margin-right: 0.125rem; width: 0.46875rem; width: 0.46875rem; background-repeat: no-repeat; background-position: center; background-size: 0.46875rem auto; }
+.my-center .list .item .bar i.icon-message { background-image: url(images/icon-messageCenter.png); }
+.my-center .list .item .con { padding-top: 0.25rem; padding-bottom: 0.25rem; font-size: 0.34375rem; }
+.my-center .list .item .con a { display: block; box-flex: 1; -webkit-box-flex: 1; color: #9a9a9a; text-align: center; position: relative;}
+.my-center .list .item .con span { color: #ff602e; }
+.my-center .list .item .con span:nth-child(2){display: inline-block;padding: 0 0.12rem;background: #FF602E;position: absolute;top: -0.15rem;right: 0.33rem;border-radius: 50%;line-height: 0.45rem;text-align: center;font-size: 0.2rem;color: #fff;}
+.my-center .list .item .con .icon-state { position: relative; display: block; margin: 0 auto; height: 0.625rem; width: 0.625rem; background-repeat: no-repeat; background-position: center; background-size: 0.625rem auto; }
+.my-center .list .item .con .icon-state i { box-sizing: border-box; position: absolute; top: -0.078125rem; left: 0.53125rem; padding: 0 0.0625rem; height: 0.34375rem; line-height: 0.34375rem; background-color: #FF5252; color: #fff; font-size: 0.25rem; border-radius: 0.34375rem; min-width: 0.34375rem; }
+.my-center .list .item .con .state1 { background-image: url(images/orderStatus1.png); }
+.my-center .list .item .con .state2 { background-image: url(images/orderStatus2.png); }
+.my-center .list .item .con .state3 { background-image: url(images/orderStatus3.png); }
+.my-center .list .item .con .state4 { background-image: url(images/orderStatus4.png); }
+.my-center .list .item .con .state5 { background-image: url(images/orderStatus5.png); }
+.my-center .list .item:last-child { margin-top: 0.25rem; }
+.my-center .list .item:last-child .bar { border: 0; }
+.mycenter-item{background-color: #fff; text-align: center;color: #9a9a9a;}
+.mycenter-item span:nth-child(1){display: inline-block;padding: 0.2rem 2rem;}
+.mycenter-item span:nth-child(1) i{color: #FF602E;}
+.mycenter-item span:nth-child(2){display: inline-block;padding: 0.2rem 2rem;}
+.mycenter-item span:nth-child(2) i{color: #FF602E;}
+/*安全中心*/
+.safetyCenter{margin-top: 0.5rem;}
+.safetyCenter a{position:relative;display: box;display: -webkit-box;height:1.125rem;margin: 0 0.625rem;line-height: 1.125rem;border-bottom: 1px solid #dcdcdc;font-size: 0.40625rem;}
+.safetyCenter a:last-child{border-bottom: 0;}
+.safetyCenter a h3{color: #a6a5a5;font-size: 0.34375rem;}
+
+/*编辑地址 新增地址 收货地址*/
+.address{margin-top: 0.46875rem;}
+.address div{position:relative;display: box;display: -webkit-box;height:1.375rem;margin: 0 0.625rem;line-height: 1.375rem;border-bottom: 1px solid #dcdcdc;}
+.address div:nth-last-child(2){border-bottom: 0;padding-bottom: 0.078125rem;}
+.address div:last-child{padding: 0 0.625rem;margin: 0;border-bottom: 0;border-top:0.234375rem solid #f3f3f3;}
+.address div input,.address div textarea{box-flex: 1;-webkit-box-flex: 1;height: 1.375rem;line-height: 1.375rem;color: #050505;font-size: 0.40625rem;
+    -webkit-appearance: none;-ms-appearance: none;appearance:none;background-color: transparent;font-size: 0.35rem;}
+.address div input{padding: 0 0.625rem;}
+.address div textarea{padding: 0;line-height: 1;padding-top: 0.34375rem;}
+.address div h2{color: #050505;font-size: 0.40625rem !important;}
+.address div h2 i{padding: 0 0.203125rem;}
+.address div h2 em{padding: 0 0.406rem;}
+
+.address div .ui-switch{width: 1.0rem;height: 0.59375rem;padding:0;position: absolute;top: 0.390625rem;right: 0.625rem;background-color: #F3F3F3;box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 1rem;border-top-left-radius: 1rem; border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius: 1rem;}
+.address div .ui-switch:before {content: '';width: 0.515625rem;height: 0.515625rem;position: absolute;top: 0.045rem;left: 0;background-color: #fff;box-shadow: 0 1px 0.075rem rgba(0, 0, 0, 0.4);
+    border-radius: 0.515625rem;border-top-left-radius: 0.515625rem;border-top-right-radius: 0.5rem;border-bottom-left-radius: 0.515625rem;border-bottom-right-radius: 0.515625rem;}
+.address div .ui-switch:checked {box-shadow: #ff814f 0 0 0 0.25rem inset;background-color: #64bd63;}
+.address div .ui-switch:checked:before {left: 0.48rem;}
+.address div .ui-switch.ui-switch-anBg {transition: background-color ease 0.4s;}
+.address div .ui-switch.ui-switch-anBg:before {transition: left 0.3s;}
+.address div .ui-switch.ui-switch-anBg:checked {box-shadow: #dfdfdf 0 0 0 0 inset;background-color: #FF602E;transition: background-color ease 0.4s;}
+.address div .ui-switch.ui-switch-anBg:checked:before {transition: left 0.3s;}
+.address-btn{margin-top: 1.34375rem;}
+.address div small{position: absolute;right: 0.46875rem;font-size: 0.375rem;color: #9a9a9a;}
+
+/*弹出选择框*/
+.select-address{display:block;box-flex: 1;-webkit-box-flex: 1;height: 1.375rem;padding-left: 0.625rem;line-height: 1.375rem;color: #050505;font-size: 0.40625rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.select-open{-webkit-transform: translateY(100%);transform: translateY(100%);}
+.select-open{width: 100%;height: 6.875rem;z-index:11;position: absolute;bottom:0;-webkit-transition: -webkit-transform .2s ease-out;transition: transform .2s ease-out;}
+.select-open.translate3d{-webkit-transform: translateY(0);transform: translateY(0);}
+.select-title{height:1.09375rem;line-height:1.09375rem;text-align: center;color: #565656;border-bottom: 1px solid #dcdcdc;}
+.select-title span{position: absolute;right: 0.3125rem;top: 0.09375rem;line-height: 1;font-size: 0.59rem;}
+.select-tab{height:0.9375rem;line-height:0.9375rem;padding:0 0.3125rem;border-bottom: 1px solid #dcdcdc;}
+.select-tab span{display:inline-block;margin-right: 0.46875rem;}
+.select-tab span.active{color: #FF602E;border-bottom: 2px solid #FF602E;box-sizing: border-box;}
+.active:after{border-bottom: 2px solid #FF602E;}
+.select-scroll{position: absolute;width: 100%;height: 4.6875rem;top: 2.1875rem;padding:0 0.3125rem;background-color:#fff;overflow: hidden;-webkit-transition: all .3s ease-out;opacity: 0;-webkit-transform: translate3d(100%,0,0);}
+.rightProvince{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+.select-scroll.active{-webkit-transform: translate3d(0,0,0) !important;opacity: 1;}
+.select-content dl{}
+.select-content dl dt{height:0.9375rem;line-height:0.9375rem;}
+.select-content dl dt.active{color: #FF602E;}
+.addAddress-hint { height: 0.9375rem; line-height: 0.9375rem; text-align: center; background-color: rgba(245,41,44,1); color: #fff; font-size: 0.375rem; box-shadow: 0 0 0.09375rem #999; }
+.addAddress li{padding: 0.703125rem 0;margin: 0 0.625rem;border-bottom: 1px solid #dcdcdc;}
+.addAddress li:last-child{border-bottom: 0;}
+.addAddress li span{display: box;display: -webkit-box;padding-left: 0.390625rem;padding-right: 0.46875rem;font-size: 0.34375rem;color: #565656;}
+.addAddress li span:last-child{padding-top: 0.234375rem;}
+.addAddress li span em{color: #565656;font-size: 0.40625rem;}
+.addAddress li span small{padding: 0.078125rem 0.1875rem;color: #fff;font-size: 0.3125rem;background-color: #FF602E;border-radius: 0.07rem;}
+.addAddress li span i{padding: 0 0.234375rem 0 0.546875rem;color: #565656;}
+.addAddress li a{width:0.625rem;height: 0.53125rem;float: right;margin-top: -0.15625rem;margin-right: 0.390625rem;background: url(images/redact.png) no-repeat;background-size: 100%;}
+.addAddress li>i{width:0.453125rem;height: 0.53125rem;float: right;margin-top: -0.15625rem;background: url(images/delete.png) no-repeat;background-size: 100%;}
+
+/*授信基本信息样式*/
+.essInfor{background: #f4f5f7;}
+.essInfor h2{height:1.46875rem;margin-top: 4px;padding:0.4375rem 0 0 1.71875rem;background: #ffffff; }
+.essInfor h2 span{float: left;width:1rem;height: 1rem;margin-right:0.1875rem;font-size:0.625rem; color:#acacac;text-align:center;line-height:1rem;border:2px solid #acacac;border-radius:50%; }
+.essInfor h2 i{float: left;width:0.6875rem;height: 2px;margin: 0.46875rem 0.125rem 0 0; background: #acacac;}
+.essInfor h2 i:nth-of-type(2n){margin-right:0.1875rem;}
+.essInfor h2 span.active{color: #ff602e;border-color: #ff602e;}
+.essInfor h2 i.active{background: #ff602e;}
+
+.essInfor h3{height: 1.15625rem;padding-left:0.40625rem;line-height: 1.15625rem;color: #050505;font-size:0.40625rem; }
+
+.essInfor .essInfor-main{padding:0 0.40625rem;background: #ffffff;}
+.essInfor label{display: block;height:1.34375rem; line-height: 1.34375rem;color: #050505; font-size:0.40625rem;border-bottom: 1px solid #dcdcdc;overflow: hidden; }
+.essInfor .essInfor-main label:last-of-type{border:none;}
+.essInfor label span:nth-of-type(1){float: left;width: 2.109375rem;}
+.essInfor label em{padding-left:0.8rem; }
+.essInfor label input{float:left;width: 6.5625rem;margin-top:0.12rem;color: #050505;font-family: "microsoft yahei";font-size: 0.3rem;}
+.essInfor label span:nth-of-type(2){float:none;}
+.essInfor label i{float: left;;height:1.34375rem;padding:  0 1rem 0 0.65625rem;color: #929292; line-height: 1.34375rem;background:url(../common/images/icon_03.jpg)no-repeat left center; background-size: 0.390625rem; }
+.essInfor label i.active{color:#050505;background-image:url(../common/images/icon_06.jpg); }
+.essInfor label b{padding-left: 0.2rem;font-weight: normal;}
+.essInfor .long span:nth-of-type(1){width: 3.2rem;}
+.essInfor .long span:nth-of-type(2){float:right;height:1.34375rem;line-height:1.34375rem;padding-right: 0.375rem;background:url(../common/images/arrow.png)no-repeat right center;background-size: 0.171875rem 0.3125rem;}
+.essInfor h4{width:8.75rem;height:1.0625rem;margin: 0.8125rem auto 0;text-align: center; line-height: 1.0625rem;color:#ffffff;font-size:0.5rem; background:#ff602e;border-radius: 0.1rem;}
+
+.essInfor .modal-layer{background: rgba(0,0,0,.5);}
+.essInfor .select-scrollLow{top:1.1875rem;-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0); opacity: 1;}
+.workInfor h3 span,.bankCard h3 span{font-size: 0.34375rem;}
+
+.sesame h3{font-size: 0.34375rem; color: #929292;}
+
+/*绑卡样式*/
+.bankCard {}
+.bankCard label span:nth-of-type(2){ float:right;width: 0.46875rem; height: 0.46875rem;margin-top: 0.4rem;background:url(../common/images/icon-msg.png)no-repeat right center; background-size: 0.46875rem;}
+.bankCard label b small{color: #565656;font-size: 0.28125rem;}
+.bankCard .long input{width: 5.625rem;}
+
+.bankList h3 span{font-size: 0.28125rem;color: #565656;}
+.bankList p{line-height: 1.140625rem;font-size:0.40625rem; color:#050505;text-align:center;background: #ffffff;border-top: 1px solid #edeeee;}
+
+.bankCardCode{height: 100%;background: #ffffff;}
+.bankCardCode h3{padding-top:1.71875rem;font-size:0.3125rem;color:#565656;text-align: center;}
+.bankCardCode h3 span{display: block;padding-top: 0.4rem;}
+
+.bankCardCode .pwd-box{  width:6.25rem;  margin:0.25rem auto; position: relative;  overflow:hidden;  }
+.bankCardCode .pwd-box .tel{  width: 99%;  height:1.375rem;  color: transparent;  position: absolute;  top: 0;  left: 0;  border: none;font-size: 18px;  opacity: 0;  z-index: 1;  letter-spacing: 35px;  }
+.bankCardCode .pwd-box span{ position:absolute; left:0; top:0; font-size:0.6rem; color:#bfbebe; line-height:1.375rem;}
+.bankCardCode .fake-box input{float:left;  width:14%;  height:1.375rem;margin: 1%;  border: none;  border-bottom: 1px solid #9a9a9a;  text-align: center;font-size:0.75rem;-webkit-box-sizing:border-box; background:none;  }
+.bankCardCode p{padding-top: 0.625rem;text-align: center;color: #9a9a9a;font-size:0.3125rem; }
+
+/*我的卡券*/
+.myCard{background: #efeff4;bottom:1.25rem !important;}
+.cardnav ul{display:-webkit-flex;overflow: hidden;}
+.cardnav li{flex:1;text-align: center;line-height:1.31rem;color:#6e6e6e;font-size:0.4rem;background: #ffffff; }
+.cardnav li.active{border-bottom: 2px solid #ff602e;}
+.myCard section{background: none;}
+.myCard .noRecord{margin-top: 1.4rem;text-align: center; color:#949494;font-size: 0.4rem;}
+.myCard .noRecord i{display: block;width:29.375%;margin: 0 auto 0.3rem; }
+.myCard .noRecord img{width: 100%;}
+.cardList {margin-bottom: ;}
+.myCard .cardBox{height:3.17rem;margin-top: 0.4rem;background:url("../myblocks/images/myCard_img2.png") no-repeat; background-size:100% 3.17rem;overflow: hidden;}
+.myCard .cardBox2{background-image:url("../myblocks/images/myCard_img3.png") }
+.myCard .cardBox3{background-image:url("../myblocks/images/myCard_img4.png") }
+.myCard .cardBox4{background-image:url("../myblocks/images/myCard_img5.png") }
+.myCard .cardBox_left{float: left;width:3.125rem;margin-left: 0.4375rem;margin-top: 0.4rem;text-align: center;font-size: 1rem; color: #ffffff; }
+.myCard .cardBox_left b{font-size: 0.9rem;}
+.myCard .cardBox_left em{font-style: normal;font-size: 0.625rem;}
+.myCard .cardBox_left span{ display: block;font-size: 0.3125rem;}
+.myCard .cardBox_right{float: right;width:5.7375rem;margin-top: 0.225rem;color: #cccccc;font-size: 0.3625rem;margin-right: 0.4rem;}
+.myCard .cardBox_right span{display: block;margin-top:0.3rem;line-height:0.6rem;font-size: 0.3125rem;}
+.myCard .cardBox3 .cardBox_right,.myCard .cardBox4 .cardBox_right{color:#565656;}
+.myCard .cardBox3 .cardBox_right span,.myCard .cardBox4 .cardBox_right span{color:#9f9f9f;}
+.macard-div h3{text-align: center;color: #000;}
+.macard-div p{padding: 0.3rem  0;font-size: 0.35rem;}
+.mycard-foooter{background: #efeff4;font-size: 0.35rem;line-height: 1.25rem;border: 0;color: #000;}
+.myCard label{ display: block;padding:0.34375rem 0 0 0.421875rem;overflow: hidden;}
+.myCard label input{float: left;width: 7.5rem;height: 1.0625rem;border: 1px solid #dddddd; border-right: 1px dashed #dddddd;}
+.myCard label span{float: left;width:1.625rem;height: 1.0625rem;text-align: center; line-height: 1.0625rem; background: #ffffff;border: 1px solid #dddddd;border-left: none;-webkit-box-sizing:border-box}
+.myCard h4{width:4.6875rem;margin: 1rem auto 0; height: 1px;  border-top: 1px dashed #ddd; text-align: center;}
+.myCard h4 span{position: relative;  top: -0.4rem;  background:#efeff4;  padding: 0 10px;font-size: 0.4rem; color: #949494;  }
+.myCard p{margin-top: 1rem; text-align: center;font-size:0.375rem;color: #949494; }
+.mycard-footer{background: #efeff4;}
+.loading { padding-top: 0.45rem; padding-bottom: 0.625rem; margin: 0 auto; text-align: center; color: #ff602e;background: #efeff4;}
+.loading > div { margin: 0 2px; width: 0.25rem; height: 0.25rem; background-color: #ff602e; border-radius: 100%; display: inline-block; -webkit-animation: bouncedelay 1.4s infinite ease-in-out; animation: bouncedelay 1.4s infinite ease-in-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+.loading .bounce1 { -webkit-animation-delay: -0.32s; animation-delay: -0.32s; }
+.loading .bounce2 { -webkit-animation-delay: -0.16s; animation-delay: -0.16s; }
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+/*我的收藏*/
+.mycollection .category-slide {  line-height: 1.125rem; font-size: 0.375rem; border-bottom: 1px solid #dcdcdc; }
+.mycollection .category-slide .swiper-slide { padding: 0 0.25rem; border-bottom: 3px solid transparent; }
+.mycollection .category-slide .swiper-slide.active { color: #ff602e; border-bottom-color: #ff602e; }
+.mycollection .product-juan img{width: 0.5rem;height: 0.5rem;}
+.mycollection .product-juan img:nth-child(1){margin-right: 0.1rem;}
+.mycollection .text-de{text-decoration: line-through;color: #b8b8b8;}
+.mycollection .mycollection-free{display: inline-block;border: 1px solid #aaaaaa;padding: 0 0.1rem;color: red;border-radius:0.15rem ;margin-left: 0.3rem;}
